@@ -1,0 +1,88 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace RorzeUnit.Class.Loadport.Enum
+{
+    public enum enumLoadPortError : int
+    {
+        Status_Error = 0,
+        SendCommandFailure = 1,
+        OriginPosReturnFailure = 2,
+        OriginPosReturnTimeout = 3,
+        MovingHomePosFailure = 4,
+        AckTimeout = 5,
+        ExtendingArmFailure = 6,
+        TakeWaferFailure = 7,
+        PutWaferFailure = 8,
+        WaferExchangeFailure = 9,
+        TurnOnVacuumFailure = 10,
+        TurnOffVacuumFailure = 11,
+        MappingFailure = 12,
+        GetMappingDataFailure = 13,
+        GetStatusFailure = 14,
+        ResetFailure = 15,
+        InitialFailure = 16,
+        StopMotionTimeout = 17,
+        StopMotionFailure = 18,
+        PauseMotionTimeout = 19,
+        PauseMotionFailure = 20,
+        SetSpeedFailure = 21,
+        SingleAxisAckTimeout = 22,
+        SingleAxisOPRFailure = 23,
+        SingleAxisAbsoluteMovingFailure = 24,
+        SingleAxisJogMovingTimeout = 25,
+        SingleAxisJogMovingFailure = 26,
+        SingleAxisGetPosFailure = 27,
+        MotionTimeout = 28,
+        ModeTimeout = 29,
+        EncoderBatteryError = 30,
+        RobotNoInManualMode = 31,
+        XAxisMotionTimeout = 32,
+        NotFoundAvailableArm = 33,
+        UploadTeachingDataFailure = 34,
+        DownloadTeachingDataFailure = 35,
+        ModeFailure = 36,
+        RejectManualFuncWhenAuto = 37,
+        GetMaintenanceDataFailure = 38,
+        SetParameterFailure = 39,
+        ProgramError = 40,
+        RobotError = 41,
+        RobotIsBusy = 42,
+        ManualMode = 43,
+        SettingWithoutWaferOut = 44,
+        SettingWithoutWaferIn = 45,
+        InterlockStop = 46,
+        InitialRejectWhenAuto = 47,
+        MotionAbnormal = 48,
+        WaferAndDataNotMatch = 49,
+        ProcessFlagTimeout = 50,
+        ProcessFlagAbnormal = 51,
+        E84Auto_FOUPManualRemove = 52,
+        E84Auto_FOUPManualDetect = 53,
+        Mapping_Thickness_Thick = 54,
+        Mapping_Cross = 55,
+        Mapping_FrontBow = 56,
+        Mapping_Double = 57,
+        Mapping_Thickness_Thin = 58,
+        Mapping_Abnormal = 59,
+        InfoPad_Disable = 60,
+        InfoPad_Mapping_Disable = 61,
+        Detecting_Protrude = 62,
+        Robot_Extended = 63,
+        E84_Handshake = 64,
+        Foup_Not_Exist = 65,
+    }
+
+    public enum enumLoadPortWarning : int
+    {
+        Foup_Arrival_Idle_Timeout = 1,
+        Foup_Wait_Transfer_Timeout = 2,
+        SlotMap_Of_Port_Verification_Failed = 3,
+        RFID_Of_Port_Verification_Failed = 4,
+        Foup_Type_Diable = 5,
+        Foup_Type_Diable_Robot_Mapping = 6,
+    }
+
+}

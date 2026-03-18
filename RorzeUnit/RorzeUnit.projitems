@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>a1f3e5da-c2e1-485c-b572-4d636b8642eb</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>RorzeUnit</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Class\ADAM\ADAM.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\ADAM\ADAM6066.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\ADAM\Evnt\ADAM6066EventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Agito\EnumAgito.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Agito\IniFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Agito\SSAGD301_Motion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Agito\SSAgitoParm.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Aligner\Enum\EnumAligner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Aligner\Enum\EnumAlignerError.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Aligner\Evnt\AlignerEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Aligner\SSAlignerPanelXYR.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Aligner\SSAlignerParents.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Aligner\SSAlignerRA420.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Aligner\SSAlignerRA320.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Aligner\SSAlignerTurnTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\BarCode\BarcodeReder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\BarCode\DM370.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\BarCode\SR1000.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Buffer\Enum\EnumBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Buffer\Evnt\BufferEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Buffer\SSBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Camera\Enum\EnumCamera.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Camera\Evnt\CameraEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Camera\SSCamera.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\E84\Enum\EnumE84.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\E84\Evnt\E84EventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\E84\FITC_E84.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\E84\SB058_E84.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\ElectrostaticDetect\Simco.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\FFU\Enum\EnumFFU.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\FFU\SSFFUCtrlParents.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\ElectrostaticDetect\Keyence_DL_RS1A.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Keyence_MP\Enum\EnumKeyence_MP.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Keyence_MP\Keyence_MP.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Loadport\Enum\EnumLoadport.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Loadport\Enum\EnumLoadportError.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Loadport\Evnt\LoadPortEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Loadport\SSLoadportParents.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Loadport\SSLoadPortRC550.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Loadport\SSLoadPortRV201.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\OCM\OCM.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\OCR\Dll\Wid110Lib.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\OCR\Dll\Wid110LibConst.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\OCR\Enum\EnumOcr.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\OCR\Evnt\OCREventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\OCR\HTTWID120.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\OCR\OCR_IS1740.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\OCR\OCR_TZ.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\RC500\Enum\EnumRC500.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\RC500\Enum\EnumRC500Error.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\RC500\Evnt\RC500EventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\RC500\SSRC530_IO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\RC500\SSRC550_IO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\RC500\SSRC550_Motion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\RC500\SSRC560_Motion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\RC500\SSRC5X0Parents_IO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\RC500\SSRC5X0Parents_Motion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\RFID\RFID.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\RFID\Smart RFID.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Robot\Enum\EnumRobot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Robot\Enum\EnumRobotError.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Robot\Evnt\RobotEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Robot\SSRobotRR75x.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\SafetyIOStatus\SafetyIOStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\SException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\SMainDB.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\SMySQL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\SRecipe.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\SWafer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Vibration\SSVibration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Vibration\SSVibrationSocket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\IDB.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\SAccessDbv2.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Evnt\WaferDataEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interface\I_Buffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interface\I_OCR.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Net\Sockets\sClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Net\Sockets\sRorzeSocket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Net\Sockets\sServer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interface\I_Aligner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interface\I_RC5X0_IO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interface\I_RFID.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interface\I_Robot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interface\I_Loadport.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interface\I_BarCode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interface\I_E84.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interface\I_RC5X0_Motion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Loadport\SSLoadPortRB201.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\Aligner\SSAlignerTAL303.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Class\BarCode\Enum\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Class\BarCode\Evnt\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Class\FFU\Event\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Class\Agito\DLL\AAComm.dll" />
+    <None Include="$(MSBuildThisFileDirectory)Class\Agito\DLL\AACommServer.exe" />
+    <None Include="$(MSBuildThisFileDirectory)Class\Agito\DLL\AACommServerAPI.dll" />
+    <None Include="$(MSBuildThisFileDirectory)Class\Agito\DLL\AAMotion.dll" />
+    <None Include="$(MSBuildThisFileDirectory)Class\Agito\DLL\YamlDotNet.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Class\Agito\DLL\YamlDotNet.xml" />
+  </ItemGroup>
+</Project>

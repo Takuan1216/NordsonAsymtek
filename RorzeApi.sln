@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RorzeApi", "RorzeApi\RorzeApi.csproj", "{A36FC11F-7F29-4703-BE1A-1D310AFD30F6}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RorzeSECSAPI", "RorzeSECSAPI\RorzeSECSAPI.shproj", "{01FBCC36-4C2D-4FCD-9C63-28C42279E0D4}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RorzeUnit", "RorzeUnit\RorzeUnit.shproj", "{A1F3E5DA-C2E1-485C-B572-4D636B8642EB}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RorzeCommon", "RorzeCommon\RorzeCommon.shproj", "{9F4583FF-F52C-40B0-B3E3-4DFD39124109}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		RorzeSECSAPI\RorzeAPI.projitems*{01fbcc36-4c2d-4fcd-9c63-28c42279e0d4}*SharedItemsImports = 13
+		RorzeCommon\RorzeCommon.projitems*{9f4583ff-f52c-40b0-b3e3-4dfd39124109}*SharedItemsImports = 13
+		RorzeUnit\RorzeUnit.projitems*{a1f3e5da-c2e1-485c-b572-4d636b8642eb}*SharedItemsImports = 13
+		RorzeCommon\RorzeCommon.projitems*{a36fc11f-7f29-4703-be1a-1d310afd30f6}*SharedItemsImports = 4
+		RorzeSECSAPI\RorzeAPI.projitems*{a36fc11f-7f29-4703-be1a-1d310afd30f6}*SharedItemsImports = 4
+		RorzeUnit\RorzeUnit.projitems*{a36fc11f-7f29-4703-be1a-1d310afd30f6}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A36FC11F-7F29-4703-BE1A-1D310AFD30F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A36FC11F-7F29-4703-BE1A-1D310AFD30F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A36FC11F-7F29-4703-BE1A-1D310AFD30F6}.Debug|x86.ActiveCfg = Debug|x86
+		{A36FC11F-7F29-4703-BE1A-1D310AFD30F6}.Debug|x86.Build.0 = Debug|x86
+		{A36FC11F-7F29-4703-BE1A-1D310AFD30F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A36FC11F-7F29-4703-BE1A-1D310AFD30F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A36FC11F-7F29-4703-BE1A-1D310AFD30F6}.Release|x86.ActiveCfg = Release|Any CPU
+		{A36FC11F-7F29-4703-BE1A-1D310AFD30F6}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDA16C43-5D6C-47BC-873A-A0F92A824C4B}
+	EndGlobalSection
+EndGlobal

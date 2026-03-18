@@ -1,0 +1,951 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A36FC11F-7F29-4703-BE1A-1D310AFD30F6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RorzeApi</RootNamespace>
+    <AssemblyName>RorzeApi</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>發行\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>R.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AAComm, Version=9.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RorzeUnit\Class\Agito\DLL\AAComm.dll</HintPath>
+    </Reference>
+    <Reference Include="AACommServerAPI, Version=9.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RorzeUnit\Class\Agito\DLL\AACommServerAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="AAMotion, Version=7.4.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RorzeUnit\Class\Agito\DLL\AAMotion.dll</HintPath>
+    </Reference>
+    <Reference Include="Advantech.Adam, Version=8.2.12.0, Culture=neutral, PublicKeyToken=c24039c75946be9c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Advantech.Adam.dll</HintPath>
+    </Reference>
+    <Reference Include="Advantech.Common, Version=8.2.12.0, Culture=neutral, PublicKeyToken=c24039c75946be9c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Advantech.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Advantech.Graph, Version=8.2.12.0, Culture=neutral, PublicKeyToken=c24039c75946be9c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Advantech.Graph.dll</HintPath>
+    </Reference>
+    <Reference Include="Advantech.Protocol, Version=8.2.12.0, Culture=neutral, PublicKeyToken=c24039c75946be9c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Advantech.Protocol.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.QSACTIVEXLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>.\Interop.QSACTIVEXLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.3650.58, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.3650.58\lib\net462\Microsoft.Web.WebView2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.3650.58, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.3650.58\lib\net462\Microsoft.Web.WebView2.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.3650.58, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.3650.58\lib\net462\Microsoft.Web.WebView2.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>.\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="YamlDotNet, Version=16.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RorzeUnit\Class\Agito\DLL\YamlDotNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="0.GUI_UserCtrl\GUIAlignerStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUIAlignerStatus.Designer.cs">
+      <DependentUpon>GUIAlignerStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUIBufferStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUIBufferStatus.Designer.cs">
+      <DependentUpon>GUIBufferStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUIEquipmentStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUIEquipmentStatus.Designer.cs">
+      <DependentUpon>GUIEquipmentStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUINotchAngle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUINotchAngle.Designer.cs">
+      <DependentUpon>GUINotchAngle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUIRobotStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUIRobotStatus.Designer.cs">
+      <DependentUpon>GUIRobotStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUIMaintSpeedSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUIMaintSpeedSelect.Designer.cs">
+      <DependentUpon>GUIMaintSpeedSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUISpeedSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUISpeedSelect.Designer.cs">
+      <DependentUpon>GUISpeedSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2.GUI_Teach\frmTeachAngle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2.GUI_Teach\frmTeachAngle.Designer.cs">
+      <DependentUpon>frmTeachAngle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2.GUI_Teach\frmTeachRobotAlignment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2.GUI_Teach\frmTeachRobotAlignment.Designer.cs">
+      <DependentUpon>frmTeachRobotAlignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2.GUI_Teach\frmTeachRobotMapping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2.GUI_Teach\frmTeachRobotMapping.Designer.cs">
+      <DependentUpon>frmTeachRobotMapping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="4.GUI_Maint\frmEQCommand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="4.GUI_Maint\frmEQCommand.Designer.cs">
+      <DependentUpon>frmEQCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="4.GUI_Maint\frmWebView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="4.GUI_Maint\frmWebView.Designer.cs">
+      <DependentUpon>frmWebView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="5.GUI_Setup\frmGroupRecipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="5.GUI_Setup\frmGroupRecipe.Designer.cs">
+      <DependentUpon>frmGroupRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="5.GUI_Setup\frmSignalColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="5.GUI_Setup\frmSignalColor.Designer.cs">
+      <DependentUpon>frmSignalColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\GRPC.cs" />
+    <Compile Include="Class\MotionEventManager.cs" />
+    <Compile Include="Class\SAlarm.cs" />
+    <Compile Include="Class\SGroupRecipeManager.cs" />
+    <Compile Include="Class\SPermission.cs" />
+    <Compile Include="Class\STransfer.cs" />
+    <Compile Include="Class\SSECSGEMUtilty.cs" />
+    <Compile Include="4.GUI_Maint\frmManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="4.GUI_Maint\frmManual.Designer.cs">
+      <DependentUpon>frmManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2.GUI_Teach\frmTeachOCR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2.GUI_Teach\frmTeachOCR.Designer.cs">
+      <DependentUpon>frmTeachOCR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2.GUI_Teach\frmTeachRobot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2.GUI_Teach\frmTeachRobot.Designer.cs">
+      <DependentUpon>frmTeachRobot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="7.GUI_Alarm\frmAlarmCurrent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7.GUI_Alarm\frmAlarmCurrent.Designer.cs">
+      <DependentUpon>frmAlarmCurrent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="4.GUI_Maint\frmIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="4.GUI_Maint\frmIO.Designer.cs">
+      <DependentUpon>frmIO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="6.GUI_Log\frmLogAlarm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="6.GUI_Log\frmLogAlarm.Designer.cs">
+      <DependentUpon>frmLogAlarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="6.GUI_Log\frmLogEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="6.GUI_Log\frmLogEvent.Designer.cs">
+      <DependentUpon>frmLogEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="6.GUI_Log\frmLogProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="6.GUI_Log\frmLogProcess.Designer.cs">
+      <DependentUpon>frmLogProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1.GUI_Status\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1.GUI_Status\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Equipment\Enum\EnumEQ.cs" />
+    <Compile Include="Equipment\Enum\EnumHeller.cs" />
+    <Compile Include="Equipment\Enum\EnumHellerError.cs" />
+    <Compile Include="Equipment\Evnt\EQEventArgs.cs" />
+    <Compile Include="Equipment\SSEquipment.cs" />
+    <Compile Include="Equipment\SSEQ_Socket.cs" />
+    <Compile Include="frmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoading.Designer.cs">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMessageBoxForReadFail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMessageBoxForReadFail.designer.cs">
+      <DependentUpon>frmMessageBoxForReadFail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTextbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTextbox.Designer.cs">
+      <DependentUpon>frmTextbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMDI.Designer.cs">
+      <DependentUpon>frmMDI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMessageBox.designer.cs">
+      <DependentUpon>frmMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="3.GUI_Origin\frmOrgn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="3.GUI_Origin\frmOrgn.designer.cs">
+      <DependentUpon>frmOrgn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="5.GUI_Setup\frmParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="5.GUI_Setup\frmParameter.designer.cs">
+      <DependentUpon>frmParameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPassword.designer.cs">
+      <DependentUpon>frmPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="5.GUI_Setup\frmPermissionUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="5.GUI_Setup\frmPermissionUser.Designer.cs">
+      <DependentUpon>frmPermissionUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="8.GUI_Secs\frmSECSControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="8.GUI_Secs\frmSECSControl.Designer.cs">
+      <DependentUpon>frmSECSControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="5.GUI_Setup\frmSECSSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="5.GUI_Setup\frmSECSSetting.Designer.cs">
+      <DependentUpon>frmSECSSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSubGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSubGroup.Designer.cs">
+      <DependentUpon>frmSubGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2.GUI_Teach\frmTeachLoadport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2.GUI_Teach\frmTeachLoadport.Designer.cs">
+      <DependentUpon>frmTeachLoadport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2.GUI_Teach\frmTeachRobotDataCopy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2.GUI_Teach\frmTeachRobotDataCopy.Designer.cs">
+      <DependentUpon>frmTeachRobotDataCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUnitConnect1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUnitConnect1.designer.cs">
+      <DependentUpon>frmUnitConnect1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserLogIn.designer.cs">
+      <DependentUpon>frmUserLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWaferRecover.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWaferRecover.designer.cs">
+      <DependentUpon>frmWaferRecover.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalModule.cs" />
+    <Compile Include="GlobalParameters.cs" />
+    <Compile Include="0.GUI_UserCtrl\GUIEquipment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUIEquipment.Designer.cs">
+      <DependentUpon>GUIEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUIAligner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUIAligner.Designer.cs">
+      <DependentUpon>GUIAligner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUILoadport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUILoadport.Designer.cs">
+      <DependentUpon>GUILoadport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUIRobotArm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUIRobotArm.designer.cs">
+      <DependentUpon>GUIRobotArm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\UICIMStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\UICIMStatus.designer.cs">
+      <DependentUpon>UICIMStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUILight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="0.GUI_UserCtrl\GUILight.Designer.cs">
+      <DependentUpon>GUILight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IniFile.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SECSGEM\AlarmManager.cs" />
+    <Compile Include="SECSGEM\CEIDManager.cs" />
+    <Compile Include="SECSGEM\MainDB.cs" />
+    <Compile Include="SECSGEM\PJCJManager.cs" />
+    <Compile Include="SECSGEM\SEMI_Enum.cs" />
+    <Compile Include="SECSGEM\SGEM300.cs" />
+    <Compile Include="SECSGEM\SParameter.cs" />
+    <Compile Include="SECSGEM\VIDManager .cs" />
+    <Compile Include="SystemContext.cs" />
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUIAlignerStatus.resx">
+      <DependentUpon>GUIAlignerStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUIAlignerStatus.zh-Hans.resx">
+      <DependentUpon>GUIAlignerStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUIBufferStatus.resx">
+      <DependentUpon>GUIBufferStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUIBufferStatus.zh-Hans.resx">
+      <DependentUpon>GUIBufferStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUIEquipmentStatus.resx">
+      <DependentUpon>GUIEquipmentStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUILoadport.zh-Hans.resx">
+      <DependentUpon>GUILoadport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUINotchAngle.resx">
+      <DependentUpon>GUINotchAngle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUIRobotStatus.resx">
+      <DependentUpon>GUIRobotStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUIRobotStatus.zh-Hans.resx">
+      <DependentUpon>GUIRobotStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUIMaintSpeedSelect.resx">
+      <DependentUpon>GUIMaintSpeedSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUISpeedSelect.resx">
+      <DependentUpon>GUISpeedSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\UICIMStatus.zh-Hans.resx">
+      <DependentUpon>UICIMStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1.GUI_Status\frmMain.zh-Hans.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.GUI_Teach\frmTeachAngle.resx">
+      <DependentUpon>frmTeachAngle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.GUI_Teach\frmTeachAngle.zh-Hans.resx">
+      <DependentUpon>frmTeachAngle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.GUI_Teach\frmTeachLoadport.zh-Hans.resx">
+      <DependentUpon>frmTeachLoadport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.GUI_Teach\frmTeachOCR.zh-Hans.resx">
+      <DependentUpon>frmTeachOCR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.GUI_Teach\frmTeachRobot.zh-Hans.resx">
+      <DependentUpon>frmTeachRobot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.GUI_Teach\frmTeachRobotAlignment.resx">
+      <DependentUpon>frmTeachRobotAlignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.GUI_Teach\frmTeachRobotDataCopy.zh-Hans.resx">
+      <DependentUpon>frmTeachRobotDataCopy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.GUI_Teach\frmTeachRobotMapping.resx">
+      <DependentUpon>frmTeachRobotMapping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="3.GUI_Origin\frmOrgn.zh-Hans.resx">
+      <DependentUpon>frmOrgn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="4.GUI_Maint\frmEQCommand.resx">
+      <DependentUpon>frmEQCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="4.GUI_Maint\frmWebView.resx">
+      <DependentUpon>frmWebView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="4.GUI_Maint\frmIO.zh-Hans.resx">
+      <DependentUpon>frmIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="4.GUI_Maint\frmManual.resx">
+      <DependentUpon>frmManual.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.GUI_Teach\frmTeachOCR.resx">
+      <DependentUpon>frmTeachOCR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.GUI_Teach\frmTeachRobot.resx">
+      <DependentUpon>frmTeachRobot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="4.GUI_Maint\frmManual.zh-Hans.resx">
+      <DependentUpon>frmManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="5.GUI_Setup\frmGroupRecipe.resx">
+      <DependentUpon>frmGroupRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="5.GUI_Setup\frmGroupRecipe.zh-Hans.resx">
+      <DependentUpon>frmGroupRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="5.GUI_Setup\frmParameter.zh-Hans.resx">
+      <DependentUpon>frmParameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="5.GUI_Setup\frmPermissionUser.zh-Hans.resx">
+      <DependentUpon>frmPermissionUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="5.GUI_Setup\frmSECSSetting.zh-Hans.resx">
+      <DependentUpon>frmSECSSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="5.GUI_Setup\frmSignalColor.resx">
+      <DependentUpon>frmSignalColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="5.GUI_Setup\frmSignalColor.zh-Hans.resx">
+      <DependentUpon>frmSignalColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="6.GUI_Log\frmLogAlarm.zh-Hans.resx">
+      <DependentUpon>frmLogAlarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="6.GUI_Log\frmLogEvent.zh-Hans.resx">
+      <DependentUpon>frmLogEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="6.GUI_Log\frmLogProcess.zh-Hans.resx">
+      <DependentUpon>frmLogProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="7.GUI_Alarm\frmAlarmCurrent.resx">
+      <DependentUpon>frmAlarmCurrent.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="4.GUI_Maint\frmIO.resx">
+      <DependentUpon>frmIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="6.GUI_Log\frmLogAlarm.resx">
+      <DependentUpon>frmLogAlarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="6.GUI_Log\frmLogEvent.resx">
+      <DependentUpon>frmLogEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="6.GUI_Log\frmLogProcess.resx">
+      <DependentUpon>frmLogProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1.GUI_Status\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="7.GUI_Alarm\frmAlarmCurrent.zh-Hans.resx">
+      <DependentUpon>frmAlarmCurrent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoading.resx">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoading.zh-Hans.resx">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMDI.zh-Hans.resx">
+      <DependentUpon>frmMDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMessageBoxForReadFail.resx">
+      <DependentUpon>frmMessageBoxForReadFail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPassword.zh-Hans.resx">
+      <DependentUpon>frmPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTextbox.resx">
+      <DependentUpon>frmTextbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMDI.resx">
+      <DependentUpon>frmMDI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMessageBox.resx">
+      <DependentUpon>frmMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="3.GUI_Origin\frmOrgn.resx">
+      <DependentUpon>frmOrgn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="5.GUI_Setup\frmParameter.resx">
+      <DependentUpon>frmParameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPassword.resx">
+      <DependentUpon>frmPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="5.GUI_Setup\frmPermissionUser.resx">
+      <DependentUpon>frmPermissionUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="8.GUI_Secs\frmSECSControl.resx">
+      <DependentUpon>frmSECSControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="5.GUI_Setup\frmSECSSetting.resx">
+      <DependentUpon>frmSECSSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSubGroup.resx">
+      <DependentUpon>frmSubGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.GUI_Teach\frmTeachLoadport.resx">
+      <DependentUpon>frmTeachLoadport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.GUI_Teach\frmTeachRobotDataCopy.resx">
+      <DependentUpon>frmTeachRobotDataCopy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUnitConnect1.resx">
+      <DependentUpon>frmUnitConnect1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUnitConnect1.zh-Hans.resx">
+      <DependentUpon>frmUnitConnect1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserLogIn.resx">
+      <DependentUpon>frmUserLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserLogIn.zh-Hans.resx">
+      <DependentUpon>frmUserLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWaferRecover.resx">
+      <DependentUpon>frmWaferRecover.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUIEquipment.resx">
+      <DependentUpon>GUIEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUIAligner.resx">
+      <DependentUpon>GUIAligner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUILoadport.resx">
+      <DependentUpon>GUILoadport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUIRobotArm.resx">
+      <DependentUpon>GUIRobotArm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\UICIMStatus.resx">
+      <DependentUpon>UICIMStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0.GUI_UserCtrl\GUILight.resx">
+      <DependentUpon>GUILight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWaferRecover.zh-Hans.resx">
+      <DependentUpon>frmWaferRecover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Resources\FoupTopView180_.png" />
+    <Content Include="SettingFile\DIO0.Ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="SettingFile\ADAMIO_0.Ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SettingFile\ADAMIO_1.Ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SettingFile\DIO1.Ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SettingFile\DIO2.Ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SettingFile\DIO3.Ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SettingFile\DIO4.Ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SettingFile\DIO5.Ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SettingFile\ExtXPos.Ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SettingFile\RbtAddress.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SettingFile\SafetyIO.Ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SettingFile\Setting.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="WID110Lib.lib">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bwbs.ico" />
+    <Content Include="bwbs_.ico" />
+    <None Include="SettingFile\DB_AlarmList.MDB">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="SettingFile\DB_Main.MDB">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SettingFile\DB_RecordsLog.MDB">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SettingFile\DB_Secs.MDB">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SettingFile\DB_StageData.MDB">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="R.ico" />
+    <Content Include="Resources\R.ico" />
+    <Content Include="WID110Lib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\_32_forward_double.png" />
+    <None Include="Resources\_32_back_double.png" />
+    <None Include="Resources\_32_forward.png" />
+    <None Include="Resources\_32_back.png" />
+    <None Include="Resources\_32_info_.png" />
+    <None Include="Resources\_32_info.png" />
+    <None Include="Resources\_32_done.png" />
+    <None Include="Resources\_32_close.png" />
+    <None Include="Resources\_32_done_.png" />
+    <None Include="Resources\_32_close_.png" />
+    <None Include="Resources\BWBSTOP.png" />
+    <None Include="Resources\FoupTopView_.png" />
+    <None Include="Resources\circled_arrow_180-48_.png" />
+    <None Include="Resources\circled_arrow_270-48_.png" />
+    <None Include="Resources\circled_arrow_90-48_.png" />
+    <None Include="Resources\circled_arrow_0-48_.png" />
+    <None Include="Resources\circled_arrow_315-48_.png" />
+    <None Include="Resources\circled_arrow_45-48_.png" />
+    <None Include="Resources\circled_arrow_225-48_.png" />
+    <None Include="Resources\circled_arrow_135-48_.png" />
+    <None Include="Resources\Teachforw_.png" />
+    <None Include="Resources\Teachtop_.png" />
+    <None Include="Resources\Teachback_.png" />
+    <None Include="Resources\Teachdown_.png" />
+    <None Include="Resources\TeachCW_.png" />
+    <None Include="Resources\TeachCCW_.png" />
+    <None Include="Resources\32_save_.png" />
+    <None Include="Resources\32_save.png" />
+    <None Include="Resources\48-work_.png" />
+    <None Include="Resources\48-work.png" />
+    <None Include="Resources\48-edit-file.png" />
+    <None Include="Resources\48-edit-file_.png" />
+    <None Include="Resources\48-arrowback.png" />
+    <None Include="Resources\48-arrowback_.png" />
+    <None Include="Resources\32-search_.png" />
+    <None Include="Resources\32-lock_.png" />
+    <None Include="Resources\32-cancel_.png" />
+    <None Include="Resources\32-delete_.png" />
+    <None Include="Resources\32-next_.png" />
+    <None Include="Resources\48-save_.png" />
+    <None Include="Resources\64-password.png" />
+    <None Include="Resources\64-password_.png" />
+    <None Include="Resources\32-automation_.png" />
+    <None Include="Resources\32-home_.png" />
+    <None Include="Resources\32-folder_.png" />
+    <None Include="Resources\32-settings_.png" />
+    <None Include="Resources\32-alarm_.png" />
+    <None Include="Resources\32-logout_.png" />
+    <None Include="Resources\32_reset_.png" />
+    <None Include="Resources\32-login_.png" />
+    <None Include="Resources\32-support_.png" />
+    <None Include="Resources\32-mute_.png" />
+    <None Include="Resources\32-document_.png" />
+    <None Include="Resources\zoom-out-48.png" />
+    <None Include="Resources\zoom-out-32.png" />
+    <None Include="Resources\zoom-in-48.png" />
+    <None Include="Resources\zoom-in-32.png" />
+    <None Include="Resources\OperationUnld_4.jpg" />
+    <None Include="Resources\OperationUnld_2_3.png" />
+    <None Include="Resources\OperationUnld_1.png" />
+    <None Include="Resources\OperationUnld_0.png" />
+    <None Include="Resources\32-lock.png" />
+    <None Include="Resources\32-online.png" />
+    <None Include="Resources\32-offline.png" />
+    <None Include="Resources\32-delete.png" />
+    <None Include="Resources\32-cancel.png" />
+    <None Include="Resources\32-next.png" />
+    <None Include="Resources\32-automation.png" />
+    <None Include="Resources\32-login.png" />
+    <None Include="Resources\32-alarm.png" />
+    <None Include="Resources\32-search.png" />
+    <None Include="Resources\32-settings.png" />
+    <None Include="Resources\32-support.png" />
+    <None Include="Resources\32-document.png" />
+    <None Include="Resources\32-folder.png" />
+    <None Include="Resources\32-logout.png" />
+    <None Include="Resources\32-mute.png" />
+    <None Include="Resources\32_reset.png" />
+    <None Include="Resources\32-home.png" />
+    <None Include="Resources\arrow_0-48.png" />
+    <None Include="Resources\arrow_45-48.png" />
+    <None Include="Resources\arrow_90-48.png" />
+    <None Include="Resources\arrow_135-48.png" />
+    <None Include="Resources\arrow_180-48.png" />
+    <None Include="Resources\arrow_225-48.png" />
+    <None Include="Resources\arrow_270-48.png" />
+    <None Include="Resources\arrow_315-48.png" />
+    <None Include="Resources\FingerNoWafer.png" />
+    <None Include="Resources\FingerHasWafer.png" />
+    <None Include="Resources\Wafer.png" />
+    <None Include="Resources\AllignerNoWafer.png" />
+    <None Include="Resources\AllignerHasWafer.png" />
+    <None Include="Resources\TunTableNoFrame.png" />
+    <None Include="Resources\TunTableHasFrame.png" />
+    <None Include="Resources\Frame.png" />
+    <None Include="Resources\FingerNoWafer_I.png" />
+    <None Include="Resources\FingerNoFrame.png" />
+    <None Include="Resources\FingerHasFrame.png" />
+    <None Include="Resources\logo-Rorze.png" />
+    <None Include="Resources\icons8-blue-square-17.png" />
+    <None Include="Resources\icons8-green-square-17.png" />
+    <None Include="Resources\icons8-red-square-17.png" />
+    <None Include="Resources\icons8-yellow-square-17.png" />
+    <None Include="Resources\FoupTopView.bmp" />
+    <None Include="Resources\circled_arrow_315-48.png" />
+    <None Include="Resources\circled_arrow_270-48.png" />
+    <None Include="Resources\circled_arrow_225-48.png" />
+    <None Include="Resources\circled_arrow_180-48.png" />
+    <None Include="Resources\circled_arrow_135-48.png" />
+    <None Include="Resources\circled_arrow_90-48.png" />
+    <None Include="Resources\circled_arrow_45-48.png" />
+    <None Include="Resources\circled_arrow_0-48.png" />
+    <None Include="Resources\Teachtop.png" />
+    <None Include="Resources\RorzeWafer.png" />
+    <None Include="Resources\RorzeNoWafer.png" />
+    <None Include="Resources\RorzeFingerfix2.png" />
+    <None Include="Resources\RorzeFinger1fix.png" />
+    <None Include="Resources\RorzeAlignerfix.png" />
+    <None Include="Resources\RorzeAligner1fix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inferpad.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LightGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LightOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RobotRXA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RobotZ.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Teachback.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TeachCCW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TeachCW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Teachdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Teachforw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wafer_X_82x15N.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="..\RorzeSECSAPI\RorzeAPI.projitems" Label="Shared" />
+  <Import Project="..\RorzeUnit\RorzeUnit.projitems" Label="Shared" />
+  <Import Project="..\RorzeCommon\RorzeCommon.projitems" Label="Shared" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Web.WebView2.1.0.3650.58\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.3650.58\build\Microsoft.Web.WebView2.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此專案參考這部電腦上所缺少的 NuGet 套件。請啟用 NuGet 套件還原，以下載該套件。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的檔案是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Web.WebView2.1.0.3650.58\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Web.WebView2.1.0.3650.58\build\Microsoft.Web.WebView2.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

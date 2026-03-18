@@ -1,0 +1,1776 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tlpSelectLoadport.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tlpSelectLoadport.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tlpSelectLoadport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 27</value>
+  </data>
+  <data name="tlpSelectLoadport.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="tlpSelectLoadport.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tlpSelectLoadport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1494, 80</value>
+  </data>
+  <data name="tlpSelectLoadport.TabIndex" type="System.Int32, mscorlib">
+    <value>72</value>
+  </data>
+  <data name="&gt;&gt;tlpSelectLoadport.Name" xml:space="preserve">
+    <value>tlpSelectLoadport</value>
+  </data>
+  <data name="&gt;&gt;tlpSelectLoadport.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tlpSelectLoadport.Parent" xml:space="preserve">
+    <value>gpbSTGselect</value>
+  </data>
+  <data name="&gt;&gt;tlpSelectLoadport.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tlpSelectLoadport.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,100,Absolute,68" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="gpbSTGselect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 160</value>
+  </data>
+  <data name="gpbSTGselect.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="gpbSTGselect.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="gpbSTGselect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1500, 112</value>
+  </data>
+  <data name="gpbSTGselect.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="gpbSTGselect.Text" xml:space="preserve">
+    <value>Loadport</value>
+  </data>
+  <data name="&gt;&gt;gpbSTGselect.Name" xml:space="preserve">
+    <value>gpbSTGselect</value>
+  </data>
+  <data name="&gt;&gt;gpbSTGselect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gpbSTGselect.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gpbSTGselect.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="toolTipExplain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="label32.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label32.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="label32.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cambria, 21.75pt, style=Bold</value>
+  </data>
+  <data name="label32.Location" type="System.Drawing.Point, System.Drawing">
+    <value>700, 79</value>
+  </data>
+  <data name="label32.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 485</value>
+  </data>
+  <data name="label32.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label32.Text" xml:space="preserve">
+    <value>&gt; &gt;</value>
+  </data>
+  <data name="label32.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;label32.Name" xml:space="preserve">
+    <value>label32</value>
+  </data>
+  <data name="&gt;&gt;label32.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label32.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label32.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnSource.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSource.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt, style=Bold</value>
+  </data>
+  <data name="btnSource.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="btnSource.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnSource.Size" type="System.Drawing.Size, System.Drawing">
+    <value>697, 79</value>
+  </data>
+  <data name="btnSource.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnSource.Text" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="&gt;&gt;btnSource.Name" xml:space="preserve">
+    <value>btnSource</value>
+  </data>
+  <data name="&gt;&gt;btnSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSource.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;btnSource.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnSave.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSave.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnSave.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1204, 5</value>
+  </data>
+  <data name="btnSave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 157</value>
+  </data>
+  <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="btnSave.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="btnSave.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
+    <value>btnSave</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnPurpose.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurpose.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt, style=Bold</value>
+  </data>
+  <data name="btnPurpose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>802, 0</value>
+  </data>
+  <data name="btnPurpose.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnPurpose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>698, 79</value>
+  </data>
+  <data name="btnPurpose.TabIndex" type="System.Int32, mscorlib">
+    <value>324</value>
+  </data>
+  <data name="btnPurpose.Text" xml:space="preserve">
+    <value>Purpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurpose.Name" xml:space="preserve">
+    <value>btnPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurpose.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurpose.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;btnPurpose.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tlpPurpose.ColumnCount" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnPurposeOCP3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeOCP3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeOCP3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>349, 359</value>
+  </data>
+  <data name="btnPurposeOCP3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeOCP3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 111</value>
+  </data>
+  <data name="btnPurposeOCP3.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="btnPurposeOCP3.Text" xml:space="preserve">
+    <value>OCP3</value>
+  </data>
+  <data name="btnPurposeOCP3.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeOCP3.Name" xml:space="preserve">
+    <value>btnPurposeOCP3</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeOCP3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeOCP3.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeOCP3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnPurposeFOUP1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeFOUP1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeFOUP1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 5</value>
+  </data>
+  <data name="btnPurposeFOUP1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeFOUP1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 108</value>
+  </data>
+  <data name="btnPurposeFOUP1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnPurposeFOUP1.Text" xml:space="preserve">
+    <value>FOUP1</value>
+  </data>
+  <data name="btnPurposeFOUP1.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP1.Name" xml:space="preserve">
+    <value>btnPurposeFOUP1</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP1.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnPurposeFOSB4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeFOSB4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeFOSB4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>349, 241</value>
+  </data>
+  <data name="btnPurposeFOSB4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeFOSB4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 108</value>
+  </data>
+  <data name="btnPurposeFOSB4.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="btnPurposeFOSB4.Text" xml:space="preserve">
+    <value>FOSB4</value>
+  </data>
+  <data name="btnPurposeFOSB4.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB4.Name" xml:space="preserve">
+    <value>btnPurposeFOSB4</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB4.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB4.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnPurposeFPO1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeFPO1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeFPO1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>522, 359</value>
+  </data>
+  <data name="btnPurposeFPO1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeFPO1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 111</value>
+  </data>
+  <data name="btnPurposeFPO1.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="btnPurposeFPO1.Text" xml:space="preserve">
+    <value>FPO1</value>
+  </data>
+  <data name="btnPurposeFPO1.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFPO1.Name" xml:space="preserve">
+    <value>btnPurposeFPO1</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFPO1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFPO1.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFPO1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnPurposeFOUP7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeFOUP7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeFOUP7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>349, 123</value>
+  </data>
+  <data name="btnPurposeFOUP7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeFOUP7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 108</value>
+  </data>
+  <data name="btnPurposeFOUP7.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnPurposeFOUP7.Text" xml:space="preserve">
+    <value>FOUP7</value>
+  </data>
+  <data name="btnPurposeFOUP7.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP7.Name" xml:space="preserve">
+    <value>btnPurposeFOUP7</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP7.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP7.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnPurposeFOUP2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeFOUP2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeFOUP2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>176, 5</value>
+  </data>
+  <data name="btnPurposeFOUP2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeFOUP2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 108</value>
+  </data>
+  <data name="btnPurposeFOUP2.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnPurposeFOUP2.Text" xml:space="preserve">
+    <value>FOUP2</value>
+  </data>
+  <data name="btnPurposeFOUP2.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP2.Name" xml:space="preserve">
+    <value>btnPurposeFOUP2</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP2.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnPurposeFOSB5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeFOSB5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeFOSB5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>522, 241</value>
+  </data>
+  <data name="btnPurposeFOSB5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeFOSB5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 108</value>
+  </data>
+  <data name="btnPurposeFOSB5.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="btnPurposeFOSB5.Text" xml:space="preserve">
+    <value>FOSB5</value>
+  </data>
+  <data name="btnPurposeFOSB5.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB5.Name" xml:space="preserve">
+    <value>btnPurposeFOSB5</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB5.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB5.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnPurposeOCP2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeOCP2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeOCP2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>176, 359</value>
+  </data>
+  <data name="btnPurposeOCP2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeOCP2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 111</value>
+  </data>
+  <data name="btnPurposeOCP2.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnPurposeOCP2.Text" xml:space="preserve">
+    <value>OCP2</value>
+  </data>
+  <data name="btnPurposeOCP2.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeOCP2.Name" xml:space="preserve">
+    <value>btnPurposeOCP2</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeOCP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeOCP2.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeOCP2.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btnPurposeFOUP3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeFOUP3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeFOUP3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>349, 5</value>
+  </data>
+  <data name="btnPurposeFOUP3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeFOUP3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 108</value>
+  </data>
+  <data name="btnPurposeFOUP3.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnPurposeFOUP3.Text" xml:space="preserve">
+    <value>FOUP3</value>
+  </data>
+  <data name="btnPurposeFOUP3.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP3.Name" xml:space="preserve">
+    <value>btnPurposeFOUP3</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP3.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP3.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btnPurposeFOSB3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeFOSB3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeFOSB3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>176, 241</value>
+  </data>
+  <data name="btnPurposeFOSB3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeFOSB3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 108</value>
+  </data>
+  <data name="btnPurposeFOSB3.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnPurposeFOSB3.Text" xml:space="preserve">
+    <value>FOSB3</value>
+  </data>
+  <data name="btnPurposeFOSB3.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB3.Name" xml:space="preserve">
+    <value>btnPurposeFOSB3</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB3.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB3.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="btnPurposeFOUP4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeFOUP4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeFOUP4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>522, 5</value>
+  </data>
+  <data name="btnPurposeFOUP4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeFOUP4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 108</value>
+  </data>
+  <data name="btnPurposeFOUP4.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnPurposeFOUP4.Text" xml:space="preserve">
+    <value>FOUP4</value>
+  </data>
+  <data name="btnPurposeFOUP4.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP4.Name" xml:space="preserve">
+    <value>btnPurposeFOUP4</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP4.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP4.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="btnPurposeFOUP6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeFOUP6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeFOUP6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>176, 123</value>
+  </data>
+  <data name="btnPurposeFOUP6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeFOUP6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 108</value>
+  </data>
+  <data name="btnPurposeFOUP6.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnPurposeFOUP6.Text" xml:space="preserve">
+    <value>FOUP6</value>
+  </data>
+  <data name="btnPurposeFOUP6.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP6.Name" xml:space="preserve">
+    <value>btnPurposeFOUP6</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP6.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP6.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="btnPurposeFOSB1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeFOSB1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeFOSB1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>522, 123</value>
+  </data>
+  <data name="btnPurposeFOSB1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeFOSB1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 108</value>
+  </data>
+  <data name="btnPurposeFOSB1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="btnPurposeFOSB1.Text" xml:space="preserve">
+    <value>FOSB1</value>
+  </data>
+  <data name="btnPurposeFOSB1.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB1.Name" xml:space="preserve">
+    <value>btnPurposeFOSB1</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB1.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB1.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="btnPurposeOCP1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeOCP1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeOCP1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 359</value>
+  </data>
+  <data name="btnPurposeOCP1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeOCP1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 111</value>
+  </data>
+  <data name="btnPurposeOCP1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnPurposeOCP1.Text" xml:space="preserve">
+    <value>OCP1</value>
+  </data>
+  <data name="btnPurposeOCP1.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeOCP1.Name" xml:space="preserve">
+    <value>btnPurposeOCP1</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeOCP1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeOCP1.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeOCP1.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="btnPurposeFOUP5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeFOUP5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeFOUP5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 123</value>
+  </data>
+  <data name="btnPurposeFOUP5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeFOUP5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 108</value>
+  </data>
+  <data name="btnPurposeFOUP5.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnPurposeFOUP5.Text" xml:space="preserve">
+    <value>FOUP5</value>
+  </data>
+  <data name="btnPurposeFOUP5.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP5.Name" xml:space="preserve">
+    <value>btnPurposeFOUP5</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP5.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOUP5.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="btnPurposeFOSB2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnPurposeFOSB2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnPurposeFOSB2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 241</value>
+  </data>
+  <data name="btnPurposeFOSB2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnPurposeFOSB2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 108</value>
+  </data>
+  <data name="btnPurposeFOSB2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnPurposeFOSB2.Text" xml:space="preserve">
+    <value>FOSB2</value>
+  </data>
+  <data name="btnPurposeFOSB2.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB2.Name" xml:space="preserve">
+    <value>btnPurposeFOSB2</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB2.Parent" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;btnPurposeFOSB2.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="tlpPurpose.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tlpPurpose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>805, 84</value>
+  </data>
+  <data name="tlpPurpose.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="tlpPurpose.RowCount" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tlpPurpose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>692, 475</value>
+  </data>
+  <data name="tlpPurpose.TabIndex" type="System.Int32, mscorlib">
+    <value>326</value>
+  </data>
+  <data name="&gt;&gt;tlpPurpose.Name" xml:space="preserve">
+    <value>tlpPurpose</value>
+  </data>
+  <data name="&gt;&gt;tlpPurpose.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tlpPurpose.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tlpPurpose.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tlpPurpose.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnPurposeOCP3" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeFOUP1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeFOSB4" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeFPO1" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeFOUP7" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeFOUP2" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeFOSB5" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeOCP2" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeFOUP3" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeFOSB3" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeFOUP4" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeFOUP6" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeFOSB1" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeOCP1" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeFOUP5" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnPurposeFOSB2" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,25,Percent,25,Percent,25,Percent,25" /&gt;&lt;Rows Styles="Percent,25,Percent,25,Percent,25,Percent,25" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="rtbExplanationM.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="rtbExplanationM.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="rtbExplanationM.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 5</value>
+  </data>
+  <data name="rtbExplanationM.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="rtbExplanationM.MaxLength" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="rtbExplanationM.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1194, 157</value>
+  </data>
+  <data name="rtbExplanationM.TabIndex" type="System.Int32, mscorlib">
+    <value>118</value>
+  </data>
+  <data name="rtbExplanationM.Text" xml:space="preserve">
+    <value>Please select the LoadPort to be copied, the source Foup Type, and the destination Foup Type After selecting, 
+press Save to start copying.</value>
+  </data>
+  <data name="&gt;&gt;rtbExplanationM.Name" xml:space="preserve">
+    <value>rtbExplanationM</value>
+  </data>
+  <data name="&gt;&gt;rtbExplanationM.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rtbExplanationM.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;rtbExplanationM.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tlpSelectRobot.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tlpSelectRobot.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tlpSelectRobot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 27</value>
+  </data>
+  <data name="tlpSelectRobot.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="tlpSelectRobot.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tlpSelectRobot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1494, 80</value>
+  </data>
+  <data name="tlpSelectRobot.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="&gt;&gt;tlpSelectRobot.Name" xml:space="preserve">
+    <value>tlpSelectRobot</value>
+  </data>
+  <data name="&gt;&gt;tlpSelectRobot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tlpSelectRobot.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;tlpSelectRobot.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tlpSelectRobot.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls /&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,100,Absolute,68" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 28</value>
+  </data>
+  <data name="groupBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="groupBox2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1500, 112</value>
+  </data>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>326</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Robot</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tlpSource.ColumnCount" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnSourceFPO1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceFPO1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceFPO1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>519, 359</value>
+  </data>
+  <data name="btnSourceFPO1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceFPO1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 111</value>
+  </data>
+  <data name="btnSourceFPO1.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="btnSourceFPO1.Text" xml:space="preserve">
+    <value>FPO1</value>
+  </data>
+  <data name="btnSourceFPO1.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFPO1.Name" xml:space="preserve">
+    <value>btnSourceFPO1</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFPO1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFPO1.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFPO1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnSourceOCP3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceOCP3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceOCP3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>347, 359</value>
+  </data>
+  <data name="btnSourceOCP3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceOCP3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 111</value>
+  </data>
+  <data name="btnSourceOCP3.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="btnSourceOCP3.Text" xml:space="preserve">
+    <value>OCP3</value>
+  </data>
+  <data name="btnSourceOCP3.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceOCP3.Name" xml:space="preserve">
+    <value>btnSourceOCP3</value>
+  </data>
+  <data name="&gt;&gt;btnSourceOCP3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceOCP3.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceOCP3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnSourceFOUP1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceFOUP1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceFOUP1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 5</value>
+  </data>
+  <data name="btnSourceFOUP1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceFOUP1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 108</value>
+  </data>
+  <data name="btnSourceFOUP1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnSourceFOUP1.Text" xml:space="preserve">
+    <value>FOUP1</value>
+  </data>
+  <data name="btnSourceFOUP1.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP1.Name" xml:space="preserve">
+    <value>btnSourceFOUP1</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP1.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnSourceFOUP2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceFOUP2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceFOUP2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 5</value>
+  </data>
+  <data name="btnSourceFOUP2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceFOUP2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 108</value>
+  </data>
+  <data name="btnSourceFOUP2.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnSourceFOUP2.Text" xml:space="preserve">
+    <value>FOUP2</value>
+  </data>
+  <data name="btnSourceFOUP2.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP2.Name" xml:space="preserve">
+    <value>btnSourceFOUP2</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP2.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnSourceOCP2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceOCP2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceOCP2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 359</value>
+  </data>
+  <data name="btnSourceOCP2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceOCP2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 111</value>
+  </data>
+  <data name="btnSourceOCP2.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnSourceOCP2.Text" xml:space="preserve">
+    <value>OCP2</value>
+  </data>
+  <data name="btnSourceOCP2.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceOCP2.Name" xml:space="preserve">
+    <value>btnSourceOCP2</value>
+  </data>
+  <data name="&gt;&gt;btnSourceOCP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceOCP2.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceOCP2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnSourceFOSB5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceFOSB5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceFOSB5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>519, 241</value>
+  </data>
+  <data name="btnSourceFOSB5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceFOSB5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 108</value>
+  </data>
+  <data name="btnSourceFOSB5.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="btnSourceFOSB5.Text" xml:space="preserve">
+    <value>FOSB5</value>
+  </data>
+  <data name="btnSourceFOSB5.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB5.Name" xml:space="preserve">
+    <value>btnSourceFOSB5</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB5.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB5.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnSourceOCP1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceOCP1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceOCP1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 359</value>
+  </data>
+  <data name="btnSourceOCP1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceOCP1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 111</value>
+  </data>
+  <data name="btnSourceOCP1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnSourceOCP1.Text" xml:space="preserve">
+    <value>OCP1</value>
+  </data>
+  <data name="btnSourceOCP1.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceOCP1.Name" xml:space="preserve">
+    <value>btnSourceOCP1</value>
+  </data>
+  <data name="&gt;&gt;btnSourceOCP1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceOCP1.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceOCP1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnSourceFOUP3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceFOUP3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceFOUP3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>347, 5</value>
+  </data>
+  <data name="btnSourceFOUP3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceFOUP3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 108</value>
+  </data>
+  <data name="btnSourceFOUP3.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnSourceFOUP3.Text" xml:space="preserve">
+    <value>FOUP3</value>
+  </data>
+  <data name="btnSourceFOUP3.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP3.Name" xml:space="preserve">
+    <value>btnSourceFOUP3</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP3.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP3.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btnSourceFOSB4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceFOSB4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceFOSB4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>347, 241</value>
+  </data>
+  <data name="btnSourceFOSB4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceFOSB4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 108</value>
+  </data>
+  <data name="btnSourceFOSB4.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="btnSourceFOSB4.Text" xml:space="preserve">
+    <value>FOSB4</value>
+  </data>
+  <data name="btnSourceFOSB4.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB4.Name" xml:space="preserve">
+    <value>btnSourceFOSB4</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB4.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB4.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btnSourceFOUP4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceFOUP4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceFOUP4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>519, 5</value>
+  </data>
+  <data name="btnSourceFOUP4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceFOUP4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 108</value>
+  </data>
+  <data name="btnSourceFOUP4.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnSourceFOUP4.Text" xml:space="preserve">
+    <value>FOUP4</value>
+  </data>
+  <data name="btnSourceFOUP4.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP4.Name" xml:space="preserve">
+    <value>btnSourceFOUP4</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP4.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP4.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="btnSourceFOSB1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceFOSB1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceFOSB1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>519, 123</value>
+  </data>
+  <data name="btnSourceFOSB1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceFOSB1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 108</value>
+  </data>
+  <data name="btnSourceFOSB1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="btnSourceFOSB1.Text" xml:space="preserve">
+    <value>FOSB1</value>
+  </data>
+  <data name="btnSourceFOSB1.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB1.Name" xml:space="preserve">
+    <value>btnSourceFOSB1</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB1.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB1.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="btnSourceFOSB3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceFOSB3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceFOSB3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 241</value>
+  </data>
+  <data name="btnSourceFOSB3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceFOSB3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 108</value>
+  </data>
+  <data name="btnSourceFOSB3.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnSourceFOSB3.Text" xml:space="preserve">
+    <value>FOSB3</value>
+  </data>
+  <data name="btnSourceFOSB3.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB3.Name" xml:space="preserve">
+    <value>btnSourceFOSB3</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB3.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB3.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="btnSourceFOUP5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceFOUP5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceFOUP5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 123</value>
+  </data>
+  <data name="btnSourceFOUP5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceFOUP5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 108</value>
+  </data>
+  <data name="btnSourceFOUP5.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnSourceFOUP5.Text" xml:space="preserve">
+    <value>FOUP5</value>
+  </data>
+  <data name="btnSourceFOUP5.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP5.Name" xml:space="preserve">
+    <value>btnSourceFOUP5</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP5.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP5.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="btnSourceFOUP7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceFOUP7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceFOUP7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>347, 123</value>
+  </data>
+  <data name="btnSourceFOUP7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceFOUP7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 108</value>
+  </data>
+  <data name="btnSourceFOUP7.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnSourceFOUP7.Text" xml:space="preserve">
+    <value>FOUP7</value>
+  </data>
+  <data name="btnSourceFOUP7.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP7.Name" xml:space="preserve">
+    <value>btnSourceFOUP7</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP7.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP7.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="btnSourceFOSB2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceFOSB2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceFOSB2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 241</value>
+  </data>
+  <data name="btnSourceFOSB2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceFOSB2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 108</value>
+  </data>
+  <data name="btnSourceFOSB2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnSourceFOSB2.Text" xml:space="preserve">
+    <value>FOSB2</value>
+  </data>
+  <data name="btnSourceFOSB2.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB2.Name" xml:space="preserve">
+    <value>btnSourceFOSB2</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB2.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOSB2.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="btnSourceFOUP6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnSourceFOUP6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btnSourceFOUP6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 123</value>
+  </data>
+  <data name="btnSourceFOUP6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="btnSourceFOUP6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 108</value>
+  </data>
+  <data name="btnSourceFOUP6.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnSourceFOUP6.Text" xml:space="preserve">
+    <value>FOUP6</value>
+  </data>
+  <data name="btnSourceFOUP6.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP6.Name" xml:space="preserve">
+    <value>btnSourceFOUP6</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP6.Parent" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;btnSourceFOUP6.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="tlpSource.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tlpSource.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 84</value>
+  </data>
+  <data name="tlpSource.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="tlpSource.RowCount" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tlpSource.Size" type="System.Drawing.Size, System.Drawing">
+    <value>691, 475</value>
+  </data>
+  <data name="tlpSource.TabIndex" type="System.Int32, mscorlib">
+    <value>326</value>
+  </data>
+  <data name="&gt;&gt;tlpSource.Name" xml:space="preserve">
+    <value>tlpSource</value>
+  </data>
+  <data name="&gt;&gt;tlpSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tlpSource.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tlpSource.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tlpSource.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnSourceFPO1" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceOCP3" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceFOUP1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceFOUP2" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceOCP2" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceFOSB5" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceOCP1" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceFOUP3" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceFOSB4" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceFOUP4" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceFOSB1" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceFOSB3" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceFOUP5" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceFOUP7" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceFOSB2" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnSourceFOUP6" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,25,Percent,25,Percent,25,Percent,25" /&gt;&lt;Rows Styles="Percent,25,Percent,25,Percent,25,Percent,25" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 292</value>
+  </data>
+  <data name="tableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1500, 564</value>
+  </data>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>327</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tlpSource" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tlpPurpose" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnSource" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnPurpose" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label32" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Absolute,105,Percent,50" /&gt;&lt;Rows Styles="Absolute,79,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 877</value>
+  </data>
+  <data name="tableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1500, 167</value>
+  </data>
+  <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>328</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="rtbExplanationM" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnSave" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,80,Percent,20" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>9, 22</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1536, 1065</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9pt</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAQAAAAAADoAgAAFgAAACgAAAAgAAAAQAAAAAEABAAAAAAAgAIAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAACAAACAAAAAgIAAgAAAAIAAgACAgAAAwMDAAICAgAAAAP8AAP8AAAD//wD/AAAA/wD/AP//
+        AAD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmZkA
+        AAAAAACZmZAAAAAAAJmZAAAAAAAAmZkAAAAAAACZmQAAAAAACZmZAAAAAAAAmZkAAAAAAAmZkAAAAAAA
+        AJmZAAAAAACZmZAAAAAAAACZmQAAAAAAmZkAAAAAAAAAmZkAAAAACZmZAAAAAAAAAJmZAAAAAAmZkAAA
+        AAAAAACZmQAAAACZmZAAAAAAAAAAmZkAAAAAmZkAAAAAAAAAAJmZAAAACZmZAAAAAAAAAACZmZmZmZmZ
+        kAAAAAAAAAAAmZmZmZmZmZmQAAAAAAAAAJmZmZmZmZmZmZAAAAAAAACZmQAAAAAAmZmQAAAAAAAAmZkA
+        AAAAAAmZmQAAAAAAAJmZAAAAAAAAmZkAAAAAAACZmQAAAAAAAJmZAAAAAAAAmZkAAAAAAACZmQAAAAAA
+        AJmZAAAAAAAAmZkAAAAAAACZmQAAAAAACZmZAAAAAAAAmZkAAAAAAJmZkAAAAAAAAJmZmZmZmZmZmZAA
+        AAAAAACZmZmZmZmZmZkAAAAAAAAAmZmZmZmZmZkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD////////////////8P/wf/D/8P/w/
+        +D/8P/h//D/wf/w/8P/8P+D//D/h//w/wf/8P8P//D+D//wAB//8AAH//AAAf/w/8H/8P/g//D/8P/w/
+        /D/8P/w//D/8P/w/+D/8P/B//AAAf/wAAP/8AAP//////////////////////w==
+</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Robot</value>
+  </data>
+  <data name="&gt;&gt;toolTipExplain.Name" xml:space="preserve">
+    <value>toolTipExplain</value>
+  </data>
+  <data name="&gt;&gt;toolTipExplain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmTeachRobotDataCopy</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

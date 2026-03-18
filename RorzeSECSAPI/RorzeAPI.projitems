@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>01fbcc36-4c2d-4fcd-9c63-28c42279e0d4</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>RorzeSECSAPI</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DatasBase\SAccessDbv2.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Equipments\Combination\SPanelEFEM.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Equipments\Combination\SScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Equipments\Unit\SCarrier.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Equipments\Unit\SEFEM.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Equipments\Unit\SEFEMType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Equipments\Unit\SEQType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Equipments\Unit\SLoadport.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Equipments\Unit\SMaterial.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Equipments\Unit\SRobot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Equipments\Unit\SUnitModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SECS_Driver\GWSecs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SECS_Driver\ISECS.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SECS_Driver\SSDR170 lib\SSDR-170.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Socket\ISocket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Socket\SClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Socket\SocketControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Socket\sServer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Equipments\Unit\Normal\" />
+  </ItemGroup>
+</Project>

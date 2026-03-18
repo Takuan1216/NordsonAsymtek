@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="OperationUnld_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OperationUnld_4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_cancel_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-cancel_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_48_edit_file_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\48-edit-file_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_reset_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32_reset_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_48_arrowback" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\48-arrowback.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_done" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_32_done.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_270_48_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_270-48_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_315_48_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_315-48_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Teachback_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Teachback_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TeachCW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TeachCW.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_automation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-automation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_32_info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_0_48_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_0-48_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_270_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_270-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_45_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_45-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_48_arrowback_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\48-arrowback_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_32_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FoupTopView_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FoupTopView_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_online" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-online.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zoom_in_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zoom-in-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_135_48_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_135-48_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_315_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_315-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_offline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-offline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_64_password_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\64-password_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_mute_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-mute_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FingerHasWafer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FingerHasWafer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RorzeAligner1fix" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RorzeAligner1fix.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_document_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-document_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_forward" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_32_forward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_48_work_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\48-work_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_next" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_done_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_32_done_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RobotZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RobotZ.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Teachforw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Teachforw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RorzeFinger1fix" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RorzeFinger1fix.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RorzeWafer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RorzeWafer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_48_work" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\48-work.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_135_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_135-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_forward_double" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_32_forward_double.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_45_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_45-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_automation_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-automation_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo_Rorze" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo-Rorze.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_180_48_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_180-48_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_alarm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-alarm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_48_edit_file" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\48-edit-file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_lock_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-lock_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_0_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_0-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FingerHasFrame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FingerHasFrame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LightOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LightOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_support" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-support.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RorzeAlignerfix" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RorzeAlignerfix.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wafer_X_82x15N" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wafer_X_82x15N.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Teachdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Teachdown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zoom_in_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zoom-in-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_logout_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-logout_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_delete_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-delete_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TeachCW_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TeachCW_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_reset" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32_reset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FingerNoWafer_I" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FingerNoWafer_I.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_folder_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-folder_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_225_48_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_225-48_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zoom_out_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zoom-out-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_document" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AllignerHasWafer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AllignerHasWafer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TeachCCW_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TeachCCW_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_mute" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-mute.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RobotRXA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RobotRXA.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_48_save_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\48-save_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FoupTopView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FoupTopView.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_save_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32_save_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FingerNoFrame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FingerNoFrame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Teachtop_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Teachtop_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Inferpad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Inferpad.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_info_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_32_info_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_red_square_17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-red-square-17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_32_close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_yellow_square_17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-yellow-square-17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_login_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-login_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_next_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-next_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TunTableNoFrame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TunTableNoFrame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_270_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_270-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RorzeNoWafer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RorzeNoWafer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OperationUnld_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OperationUnld_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bwbs_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bwbs_.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bwbs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bwbs.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_home_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-home_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_0_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_0-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_back_double" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_32_back_double.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_settings_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-settings_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_close_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_32_close_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Frame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Frame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_135_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_135-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_225_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_225-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_180_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_180-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_225_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_225-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="R" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\R.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zoom_out_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zoom-out-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_home" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LightGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LightGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_search_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-search_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AllignerNoWafer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AllignerNoWafer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_64_password" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\64-password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TeachCCW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TeachCCW.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_315_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_315-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_blue_square_17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-blue-square-17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_alarm_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-alarm_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_green_square_17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-green-square-17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FingerNoWafer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FingerNoWafer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_48_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\48-save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RorzeFingerfix2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RorzeFingerfix2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OperationUnld_2_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OperationUnld_2_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_90_48_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_90-48_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_45_48_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_45-48_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Teachback" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Teachback.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_90_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_90-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_32_support_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32-support_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_90_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_90-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OperationUnld_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OperationUnld_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Teachdown_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Teachdown_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BWBSTOP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BWBSTOP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Teachtop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Teachtop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wafer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wafer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Teachforw_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Teachforw_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circled_arrow_180_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circled_arrow_180-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TunTableHasFrame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TunTableHasFrame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FoupTopView180_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FoupTopView180_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RorzePanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RorzePanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PanelAlignerHasPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PanelAlignerHasPanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PanelAlignerNoPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PanelAlignerNoPanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FingerHasPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FingerHasPanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FingerNoPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FingerNoPanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RorzeNoPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RorzeNoPanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

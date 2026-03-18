@@ -1,0 +1,3 @@
+m_strImage = "?\u000e\u000e\u000e?\u000f\u000f\u000f?\u0010\u0010\u0010?\u0011\u0011\u0011?\u0012\u0012\u0012?\u0013\u0013\u0013?\u0014\u0014\u0014?\u0015\u0015\u0015?\u0016\u0016\u0016?\u0017\u0017\u0017?\u0018\u0018\u0018?\u0019\u0019\u0019?\u001a\u001a\u001a?\u001b\u...
+
+Exception>> :System.FormatException: Could not find any recognizable digits.     at System.ParseNumbers.StringToInt(String s, Int32 radix, Int32 flags, Int32* currPos)     at System.Convert.ToByte(String value, Int32 fromBase)     at RorzeUnit.Class.OCR.OCR_TZ.ToByteArray(String HexString) in D:\25M0256 - 260122\RorzeUnit\Class\OCR\OCR_TZ.cs:line 999     at RorzeUnit.Class.OCR.OCR_TZ.SaveImage(String strFaileName) in D:\25M0256 - 260122\RorzeUnit\Class\OCR\OCR_TZ.cs:line 937  at line 949 (SaveImage)

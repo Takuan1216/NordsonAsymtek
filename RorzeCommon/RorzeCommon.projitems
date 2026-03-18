@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>9f4583ff-f52c-40b0-b3e3-4dfd39124109</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>RorzeCommon</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Common\RJServer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\SCommon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\sKernel32.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\SLogger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SEventDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SInterruptAllThread.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SInterruptAnyThread.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SInterruptAnyThread4096.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SInterruptOneThread.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SInterruptOneThreadobkj_INT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SInterruptOneThreadINT_INT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SInterruptOneThreadINT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SInterruptOneThreadobkj.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SInterruptOneThreadSTR.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SInterruptOneThreadSTRList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SInterruptOneThreadSTRListL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SPollingThread.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SPollingThread2.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SPollingThreadObj.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\SSignal.cs" />
+  </ItemGroup>
+</Project>

@@ -353,12 +353,12 @@ namespace RorzeApi
                                 if (strName1 == btn.Text)
                                 {
                                     m_SelectALN = ListALN[0];
-                                    btnAlignerAlgn.Visible = true;                             
+                                    btnAlignerAlgn.Visible = true;
                                 }
                                 else if (strName2 == btn.Text)
                                 {
                                     m_SelectALN = ListALN[1];
-                                    btnAlignerAlgn.Visible = false;                                   
+                                    btnAlignerAlgn.Visible = false;
                                 }
                                 else
                                     switch (button.Text)
@@ -3064,7 +3064,7 @@ namespace RorzeApi
                 alignerManual.ResetInPos();
                 alignerManual.UclmW(3000);
                 alignerManual.WaitInPos(30000);
-            };          
+            };
             m_SelectALN.OnManualCompleted += _aligner_OnManualCompleted;
             m_SelectALN.StartManualFunction();
         }
@@ -3083,10 +3083,25 @@ namespace RorzeApi
 
             foreach (RorzePosition item in GParam.theInst.GetLisPosRobot(m_SelectTRB.BodyNo))
             {
-                if (item.strDisplayName != cbxRobotStage.SelectedItem?.ToString())
+                if (item.strDisplayName != cbxShutterDoor.SelectedItem?.ToString())
                     continue;
 
-                int index = (int)item.strDefineName - (int)enumRbtAddress.EQM1;
+                int index = -1;
+                switch (item.strDefineName)
+                {
+                    case enumRbtAddress.EQM1:
+                        index = 0;
+                        break;
+                    case enumRbtAddress.EQM2:
+                        index = 1;
+                        break;
+                    case enumRbtAddress.EQM3:
+                        index = 2;
+                        break;
+                    case enumRbtAddress.EQM4:
+                        index = 3;
+                        break;
+                }
 
                 if (index >= 0 && index < ListEQM.Count)
                 {
@@ -3095,6 +3110,10 @@ namespace RorzeApi
                     eqm.OnSutterDoorOpenComplete -= _ShutterDoorOpenCompleted;
                     eqm.OnSutterDoorOpenComplete += _ShutterDoorOpenCompleted;
                     eqm.tShutterDoorOpenSet();
+                }
+                else
+                {
+
                 }
                 break; // 找到就可以跳出
             }
@@ -3111,10 +3130,25 @@ namespace RorzeApi
 
             foreach (RorzePosition item in GParam.theInst.GetLisPosRobot(m_SelectTRB.BodyNo))
             {
-                if (item.strDisplayName != cbxRobotStage.SelectedItem?.ToString())
+                if (item.strDisplayName != cbxShutterDoor.SelectedItem?.ToString())
                     continue;
 
-                int index = (int)item.strDefineName - (int)enumRbtAddress.EQM1;
+                int index = -1;
+                switch (item.strDefineName)
+                {
+                    case enumRbtAddress.EQM1:
+                        index = 0;
+                        break;
+                    case enumRbtAddress.EQM2:
+                        index = 1;
+                        break;
+                    case enumRbtAddress.EQM3:
+                        index = 2;
+                        break;
+                    case enumRbtAddress.EQM4:
+                        index = 3;
+                        break;
+                }
 
                 if (index >= 0 && index < ListEQM.Count)
                 {
@@ -3943,6 +3977,6 @@ namespace RorzeApi
             }
         }
 
-        
+
     }
 }

@@ -200,10 +200,7 @@ namespace RorzeApi
                 
                 for (int i = 0; i < ListEQM.Count; i++)
                 {
-                    if (!GParam.theInst.EqmSimulate(i))
-                    {
-                        ListEQM[i].SetRobotExtendIO(false);
-                    }
+                    ListEQM[i].SetRobotExtendIO(false);
                 }
 
                 bool bOK = false;

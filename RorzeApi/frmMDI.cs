@@ -1723,6 +1723,28 @@ namespace RorzeApi
 
                 //vibration.OpenConnect();
                 #endregion
+
+                #region =========================== 建構TBL =========================================               
+                {
+                    for (int i = 0; i < Enum.GetNames(typeof(enumTBLModule)).Count(); i++)
+                    {
+                        str = "Constructing TBL" + i;
+                        frmloading.AddMessage(str);
+                        I_RC5X0_Motion tbl = null;
+                        switch (GParam.theInst.GetTblType(i))
+                        {
+                            case enumTblType.RC560:
+                                tbl = new SSRC560_Motion(GParam.theInst.GetTblIP(i), 12100, i + 1, GParam.theInst.IsUnitDisable(enumUnit.TBL1 + i), bSimulate);
+                                break;
+                            case enumTblType.RC550:
+                                tbl = new SSRC550_Motion(GParam.theInst.GetTblIP(i), 12100, i + 1, GParam.theInst.IsUnitDisable(enumUnit.TBL1 + i), bSimulate);
+                                break;
+                        }
+                        ListTBL.Add(tbl);
+                        WriteLog(str);
+                    }
+                }
+                #endregion
                 #region =========================== 建構TRB =========================================             
                 {
                     for (int i = 0; i < Enum.GetNames(typeof(enumRobot)).Count(); i++)//2
@@ -1748,15 +1770,14 @@ namespace RorzeApi
                         if (bExtXaxsDisable)
                             ExtXMotion = null;
                         else //此案預設使用560當X軸軸卡
-                            ExtXMotion = new SSRC560_Motion(GParam.theInst.GetExtXaxisIP(i), 12000, i + 1, bExtXaxsDisable, GParam.theInst.IsSimulate);
-
+                            ExtXMotion = ListTBL[i];
                         if (GParam.theInst.GetTRB_TCPType(i) == enumTCPType.Client)
                         {
                             robot = new SSRobotRR75x(strIP, 12000, i + 1, bDisable, bSimulate, bXaxsDisable, eUpperArmFnc, eLowerArmFnc, nFrameArmBackPulse, bUseArmSameMovement, strAllowPort, strAllowAligner, strAllowEquipment, null, ExtXMotion as SSRC560_Motion, _Server);
                         }
                         else
                         {
-                            robot = new SSRobotRR75x(strIP, 12000, i + 1, bDisable, bSimulate, bXaxsDisable, eUpperArmFnc, eLowerArmFnc, nFrameArmBackPulse, bUseArmSameMovement, strAllowPort, strAllowAligner, strAllowEquipment, null ,ExtXMotion as SSRC560_Motion);
+                            robot = new SSRobotRR75x(strIP, 12000, i + 1, bDisable, bSimulate, bXaxsDisable, eUpperArmFnc, eLowerArmFnc, nFrameArmBackPulse, bUseArmSameMovement, strAllowPort, strAllowAligner, strAllowEquipment, null, ExtXMotion as SSRC560_Motion);
                         }
                         //Assign wafer data to upper arm after modify position info.
                         robot.OnAssignUpperArmWaferData += (object sender, WaferDataEventArgs e) => { e.Wafer.Position = SWafer.enumPosition.UpperArm; };
@@ -1835,27 +1856,9 @@ namespace RorzeApi
                     }
                 }
                 #endregion
-                #region =========================== 建構TBL =========================================               
-                {
-                    for (int i = 0; i < Enum.GetNames(typeof(enumTBLModule)).Count(); i++)
-                    {
-                        str = "Constructing TBL" + i;
-                        frmloading.AddMessage(str);
-                        I_RC5X0_Motion tbl = null;
-                        switch (GParam.theInst.GetTblType(i))
-                        {
-                            case enumTblType.RC560:
-                                tbl = new SSRC560_Motion(GParam.theInst.GetTblIP(i), 12000, i + 1, GParam.theInst.IsUnitDisable(enumUnit.TBL1 + i), bSimulate);
-                                break;
-                            case enumTblType.RC550:
-                                tbl = new SSRC550_Motion(GParam.theInst.GetTblIP(i), 12000, i + 1, GParam.theInst.IsUnitDisable(enumUnit.TBL1 + i), bSimulate);
-                                break;
-                        }
-                        ListTBL.Add(tbl);
-                        WriteLog(str);
-                    }
-                }
-                #endregion
+
+
+                
                 #region =========================== 建構STG =========================================             
                 {
                     for (int i = 0; i < Enum.GetNames(typeof(enumLoadport)).Count(); i++)//8
@@ -2422,7 +2425,7 @@ namespace RorzeApi
             {
                 #region =========================== Unit Connect =======================================
                 WriteLog("Construct Unit Connect is Form!!!");
-                frmUnitConnect1 _frmUnitConnect = new frmUnitConnect1(ListTRB, ListSTG, ListALN, ListDIO, ListOCR, ListBCR, ListEQM);
+                frmUnitConnect1 _frmUnitConnect = new frmUnitConnect1(ListTRB, ListTBL, ListSTG, ListALN, ListDIO, ListOCR, ListBCR, ListEQM);
                 if (_frmUnitConnect.ShowDialog() != DialogResult.OK)
                 {
                     throw new Exception("Unit connection failed");
@@ -5006,7 +5009,7 @@ namespace RorzeApi
                     _errorLog.WriteLog("[ Interlock ]:EQ is processing!!");
                     return true;
                 }
-                if (equipment.SetDoorOpen() == false)
+                if (equipment.SetDoorOpen() == false)//會等門開好
                 {
                     _errorLog.WriteLog("[ Interlock ]:Failed to open Shutter door!!");
                     return true;
@@ -5570,22 +5573,22 @@ namespace RorzeApi
             bool bDetected = true;
             if (equipment._BodyNo == 1)
             {
-                bDetected = ListDIO[4].GetGDIO_InputStatus(0, 8);
+                bDetected = !ListDIO[4].GetGDIO_InputStatus(0, 8);
                 return bDetected;
             }
             else if (equipment._BodyNo == 2)
             {
-                bDetected = ListDIO[4].GetGDIO_InputStatus(0, 9);
+                bDetected = !ListDIO[4].GetGDIO_InputStatus(0, 9);
                 return bDetected;
             }
             else if (equipment._BodyNo == 3)
             {
-                bDetected = ListDIO[4].GetGDIO_InputStatus(0, 10);
+                bDetected = !ListDIO[4].GetGDIO_InputStatus(0, 10);
                 return bDetected;
             }
             else if (equipment._BodyNo == 4)
             {
-                bDetected = ListDIO[4].GetGDIO_InputStatus(0, 11);
+                bDetected = !ListDIO[4].GetGDIO_InputStatus(0, 11);
                 return bDetected;
             }
             return bDetected;

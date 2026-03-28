@@ -1,12 +1,13 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using RorzeUnit.Interface;
-using System.Collections.Generic;
-using System.Linq;
-using RorzeComm.Log;
-using System.Runtime.CompilerServices;
+﻿using RorzeComm.Log;
 using RorzeUnit.Class.EQ;
+using RorzeUnit.Class.RC500;
+using RorzeUnit.Interface;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace RorzeApi
 {
@@ -17,6 +18,7 @@ namespace RorzeApi
         private bool m_bSimulate = false;
 
         private List<I_Robot> ListTRB;
+        private List<I_RC5X0_Motion> ListTBL;
         private List<I_Loadport> ListSTG;
         private List<I_Aligner> ListALN;
         private List<I_RC5X0_IO> ListDIO;
@@ -36,6 +38,7 @@ namespace RorzeApi
 
         public frmUnitConnect1(
             List<I_Robot> listTRB,
+            List<I_RC5X0_Motion> listTBL,
             List<I_Loadport> listSTG,
             List<I_Aligner> listALN,
             List<I_RC5X0_IO> listDIO,
@@ -51,6 +54,7 @@ namespace RorzeApi
 
                 m_bSimulate = GParam.theInst.IsSimulate;
                 ListTRB = listTRB;
+                ListTBL = listTBL;
                 ListSTG = listSTG;
                 ListALN = listALN;
                 ListDIO = listDIO;
@@ -64,6 +68,12 @@ namespace RorzeApi
                 {
                     { enumUnit.TRB1,"RobotA" },
                     { enumUnit.TRB2,"RobotB" },
+                    { enumUnit.TBL1,"MotionCardA" },
+                    { enumUnit.TBL2,"MotionCardB" },
+                    { enumUnit.TBL3,"MotionCardC" },
+                    { enumUnit.TBL4,"MotionCardD" },
+                    { enumUnit.TBL5,"MotionCardE" },
+                    { enumUnit.TBL6,"MotionCardF" },
                     { enumUnit.STG1,"LoadportA" },
                     { enumUnit.STG2,"LoadportB" },
                     { enumUnit.STG3,"LoadportC" },
@@ -212,6 +222,15 @@ namespace RorzeApi
                         }
                     }
 
+                    foreach (I_RC5X0_Motion item in ListTBL)
+                    {
+                        int nIndx = item.BodyNo - 1;
+                        if (item.Disable == false) //&& GParam.theInst.GetTRB_TCPType(nIndx) == enumTCPType.Server)
+                        {
+                            item.Open();//client 去連 server
+                        }
+                    }
+
                     foreach (I_Loadport item in ListSTG)
                     {
                         int nIndx = item.BodyNo - 1;
@@ -311,6 +330,7 @@ namespace RorzeApi
             {
                 case enumUnit.TRB1: bConnected = ListTRB[0].Connected; break;
                 case enumUnit.TRB2: bConnected = ListTRB[1].Connected; break;
+                case enumUnit.TBL1: bConnected = ListTBL[0].Connected; break;
                 case enumUnit.ALN1: bConnected = ListALN[0].Connected; break;
                 case enumUnit.ALN2: bConnected = ListALN[1].Connected; break;
                 case enumUnit.STG1: bConnected = ListSTG[0].Connected; break;
@@ -352,6 +372,11 @@ namespace RorzeApi
                 case enumUnit.EQM3:
                     {
                         bConnected = ListEQM[2].Connected || ListEQM[2].Simulate;
+                    }
+                    return bConnected;//EQ要分開看，因為要考慮全部模擬只有EQ實際
+                case enumUnit.EQM4:
+                    {
+                        bConnected = ListEQM[3].Connected || ListEQM[3].Simulate;
                     }
                     return bConnected;//EQ要分開看，因為要考慮全部模擬只有EQ實際
             }

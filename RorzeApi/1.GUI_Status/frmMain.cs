@@ -42,6 +42,8 @@ namespace RorzeApi
 
         enumTransferMode m_eTransferMode = enumTransferMode.Display;
         enumTransferModeType m_eTransferModeType;
+
+        bool[] m_bPreferEQ = new bool[4] { false, false, false, false };//優先設備，預設都不優先
         bool m_bNoAign = false;
         string m_strRecipe = String.Empty;
 
@@ -1179,6 +1181,7 @@ namespace RorzeApi
                     if (ListEQM[0].Disable)
                     {
                         guiEquipmentStatus1.SetStatus = _0.GUI_UserCtrl.GUIEquipmentStatus.enumState.Disable;
+                        preferEQ_clb.Items.Remove("EQ1");                        
                     }
                     else if (ListEQM[0].IsProcessing)
                     {
@@ -1203,16 +1206,17 @@ namespace RorzeApi
                     if (ListEQM[1].Disable)
                     {
                         guiEquipmentStatus2.SetStatus = _0.GUI_UserCtrl.GUIEquipmentStatus.enumState.Disable;
+                        preferEQ_clb.Items.Remove("EQ2");
                     }
-                    else if (ListEQM[1].XYZ_Status == RorzeUnit.Class.EQ.Enum.enumMachineStatus.ACTION)
+                    else if (ListEQM[1].IsProcessing)
                     {
                         guiEquipmentStatus2.SetStatus = _0.GUI_UserCtrl.GUIEquipmentStatus.enumState.Moving;
                     }
-                    else if (ListEQM[1].XYZ_Status == RorzeUnit.Class.EQ.Enum.enumMachineStatus.ALARM)
+                    else if (ListEQM[1].IsError)
                     {
                         guiEquipmentStatus2.SetStatus = _0.GUI_UserCtrl.GUIEquipmentStatus.enumState.Error;
                     }
-                    else if (ListEQM[1].XYZ_Status == RorzeUnit.Class.EQ.Enum.enumMachineStatus.IDLE)
+                    else if (ListEQM[1].IsReady)
                     {
                         guiEquipmentStatus2.SetStatus = _0.GUI_UserCtrl.GUIEquipmentStatus.enumState.Idle;
                     }
@@ -1227,6 +1231,7 @@ namespace RorzeApi
                     if (ListEQM[2].Disable)
                     {
                         guiEquipmentStatus3.SetStatus = _0.GUI_UserCtrl.GUIEquipmentStatus.enumState.Disable;
+                        preferEQ_clb.Items.Remove("EQ3");
                     }
                     else if (ListEQM[2].IsProcessing)
                     {
@@ -1251,6 +1256,7 @@ namespace RorzeApi
                     if (ListEQM[3].Disable)
                     {
                         guiEquipmentStatus4.SetStatus = _0.GUI_UserCtrl.GUIEquipmentStatus.enumState.Disable;
+                        preferEQ_clb.Items.Remove("EQ4");
                     }
                     else if (ListEQM[3].IsProcessing)
                     {
@@ -2274,6 +2280,27 @@ namespace RorzeApi
                         {
                             ClearSelectWafer();
                             return;
+                        }
+                    }
+
+                    foreach (var item in preferEQ_clb.CheckedItems)
+                    {
+                        string name = item.ToString();
+
+                        switch (name)
+                        {
+                            case "EQ1":
+                                m_bPreferEQ[0] = true;
+                                break;
+                            case "EQ2":
+                                m_bPreferEQ[1] = true;
+                                break;
+                            case "EQ3":
+                                m_bPreferEQ[2] = true;
+                                break;
+                            case "EQ4":
+                                m_bPreferEQ[3] = true;
+                                break;
                         }
                     }
 

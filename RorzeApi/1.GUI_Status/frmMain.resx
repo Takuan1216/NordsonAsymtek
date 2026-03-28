@@ -1051,7 +1051,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageNotchFnc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 218</value>
+    <value>248, 185</value>
   </data>
   <data name="tabPageNotchFnc.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1075,10 +1075,10 @@
     <value>Fill</value>
   </data>
   <data name="tabCtrlTransferSub.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 273</value>
+    <value>3, 306</value>
   </data>
   <data name="tabCtrlTransferSub.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 245</value>
+    <value>256, 212</value>
   </data>
   <data name="tabCtrlTransferSub.TabIndex" type="System.Int32, mscorlib">
     <value>363</value>
@@ -1098,6 +1098,45 @@
   <data name="tlpTransferMenu.ColumnCount" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 188</value>
+  </data>
+  <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 31</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>364</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Prefer EQ:</value>
+  </data>
+  <data name="label6.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>tlpTransferMenu</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="label13.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1114,7 +1153,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 39</value>
+    <value>81, 31</value>
   </data>
   <data name="label13.TabIndex" type="System.Int32, mscorlib">
     <value>361</value>
@@ -1135,7 +1174,7 @@
     <value>tlpTransferMenu</value>
   </data>
   <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1147,13 +1186,13 @@
     <value>NoControl</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 48</value>
+    <value>3, 40</value>
   </data>
   <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 39</value>
+    <value>81, 31</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>360</value>
@@ -1174,7 +1213,7 @@
     <value>tlpTransferMenu</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btnTransferFunctionType.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1183,13 +1222,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnTransferFunctionType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 135</value>
+    <value>0, 111</value>
   </data>
   <data name="btnTransferFunctionType.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="btnTransferFunctionType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 45</value>
+    <value>87, 37</value>
   </data>
   <data name="btnTransferFunctionType.TabIndex" type="System.Int32, mscorlib">
     <value>331</value>
@@ -1207,7 +1246,7 @@
     <value>tlpTransferMenu</value>
   </data>
   <data name="&gt;&gt;btnTransferFunctionType.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="btnAlignFunction.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1216,13 +1255,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnAlignFunction.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 180</value>
+    <value>87, 148</value>
   </data>
   <data name="btnAlignFunction.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="btnAlignFunction.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 45</value>
+    <value>169, 37</value>
   </data>
   <data name="btnAlignFunction.TabIndex" type="System.Int32, mscorlib">
     <value>332</value>
@@ -1240,7 +1279,7 @@
     <value>tlpTransferMenu</value>
   </data>
   <data name="&gt;&gt;btnAlignFunction.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btnRecipeFunction.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1255,7 +1294,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="btnRecipeFunction.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 45</value>
+    <value>169, 37</value>
   </data>
   <data name="btnRecipeFunction.TabIndex" type="System.Int32, mscorlib">
     <value>333</value>
@@ -1273,7 +1312,7 @@
     <value>tlpTransferMenu</value>
   </data>
   <data name="&gt;&gt;btnRecipeFunction.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="btnTransferSource.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1282,13 +1321,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnTransferSource.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 135</value>
+    <value>87, 111</value>
   </data>
   <data name="btnTransferSource.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="btnTransferSource.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 45</value>
+    <value>84, 37</value>
   </data>
   <data name="btnTransferSource.TabIndex" type="System.Int32, mscorlib">
     <value>334</value>
@@ -1306,7 +1345,7 @@
     <value>tlpTransferMenu</value>
   </data>
   <data name="&gt;&gt;btnTransferSource.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="btnTransferTarget.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1315,13 +1354,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnTransferTarget.Location" type="System.Drawing.Point, System.Drawing">
-    <value>171, 135</value>
+    <value>171, 111</value>
   </data>
   <data name="btnTransferTarget.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="btnTransferTarget.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 45</value>
+    <value>85, 37</value>
   </data>
   <data name="btnTransferTarget.TabIndex" type="System.Int32, mscorlib">
     <value>335</value>
@@ -1339,7 +1378,7 @@
     <value>tlpTransferMenu</value>
   </data>
   <data name="&gt;&gt;btnTransferTarget.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1351,13 +1390,13 @@
     <value>NoControl</value>
   </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 93</value>
+    <value>3, 77</value>
   </data>
   <data name="label9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 39</value>
+    <value>81, 31</value>
   </data>
   <data name="label9.TabIndex" type="System.Int32, mscorlib">
     <value>360</value>
@@ -1378,7 +1417,7 @@
     <value>tlpTransferMenu</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1390,13 +1429,13 @@
     <value>NoControl</value>
   </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 93</value>
+    <value>90, 77</value>
   </data>
   <data name="label10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 39</value>
+    <value>78, 31</value>
   </data>
   <data name="label10.TabIndex" type="System.Int32, mscorlib">
     <value>360</value>
@@ -1417,7 +1456,7 @@
     <value>tlpTransferMenu</value>
   </data>
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="label12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1429,13 +1468,13 @@
     <value>NoControl</value>
   </data>
   <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>174, 93</value>
+    <value>174, 77</value>
   </data>
   <data name="label12.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 39</value>
+    <value>79, 31</value>
   </data>
   <data name="label12.TabIndex" type="System.Int32, mscorlib">
     <value>360</value>
@@ -1456,19 +1495,19 @@
     <value>tlpTransferMenu</value>
   </data>
   <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="btnTransferFunction.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnTransferFunction.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 45</value>
+    <value>87, 37</value>
   </data>
   <data name="btnTransferFunction.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="btnTransferFunction.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 45</value>
+    <value>169, 37</value>
   </data>
   <data name="btnTransferFunction.TabIndex" type="System.Int32, mscorlib">
     <value>330</value>
@@ -1486,7 +1525,43 @@
     <value>tlpTransferMenu</value>
   </data>
   <data name="&gt;&gt;btnTransferFunction.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
+  </data>
+  <data name="preferEQ_clb.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt</value>
+  </data>
+  <data name="preferEQ_clb.Items" xml:space="preserve">
+    <value>EQ1</value>
+  </data>
+  <data name="preferEQ_clb.Items1" xml:space="preserve">
+    <value>EQ2</value>
+  </data>
+  <data name="preferEQ_clb.Items2" xml:space="preserve">
+    <value>EQ3</value>
+  </data>
+  <data name="preferEQ_clb.Items3" xml:space="preserve">
+    <value>EQ4</value>
+  </data>
+  <data name="preferEQ_clb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>90, 188</value>
+  </data>
+  <data name="preferEQ_clb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 110</value>
+  </data>
+  <data name="preferEQ_clb.TabIndex" type="System.Int32, mscorlib">
+    <value>362</value>
+  </data>
+  <data name="&gt;&gt;preferEQ_clb.Name" xml:space="preserve">
+    <value>preferEQ_clb</value>
+  </data>
+  <data name="&gt;&gt;preferEQ_clb.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;preferEQ_clb.Parent" xml:space="preserve">
+    <value>tlpTransferMenu</value>
+  </data>
+  <data name="&gt;&gt;preferEQ_clb.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
   <data name="tlpTransferMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -1495,10 +1570,10 @@
     <value>3, 3</value>
   </data>
   <data name="tlpTransferMenu.RowCount" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="tlpTransferMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 270</value>
+    <value>256, 303</value>
   </data>
   <data name="tlpTransferMenu.TabIndex" type="System.Int32, mscorlib">
     <value>330</value>
@@ -1516,7 +1591,7 @@
     <value>2</value>
   </data>
   <data name="tlpTransferMenu.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label13" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label7" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnTransferFunctionType" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnAlignFunction" Row="4" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="btnRecipeFunction" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="btnTransferSource" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnTransferTarget" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label9" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label10" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label12" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnTransferFunction" Row="1" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,34,Percent,33,Percent,33" /&gt;&lt;Rows Styles="Percent,16.66667,Percent,16.66667,Percent,16.66667,Percent,16.66667,Percent,16.66667,Percent,16.66667" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label6" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label13" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label7" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnTransferFunctionType" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnAlignFunction" Row="4" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="btnRecipeFunction" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="btnTransferSource" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnTransferTarget" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label9" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label10" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label12" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnTransferFunction" Row="1" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="preferEQ_clb" Row="5" RowSpan="3" Column="1" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,34,Percent,33,Percent,33" /&gt;&lt;Rows Styles="Percent,12.49938,Percent,12.49938,Percent,12.49938,Percent,12.49938,Percent,12.49938,Percent,12.49938,Percent,12.50187,Percent,12.50187,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPageTransferFnc.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 23</value>

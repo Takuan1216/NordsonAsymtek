@@ -1390,6 +1390,47 @@ namespace RorzeUnit.Class.Robot
                 }
                 else
                 {
+                    if (DEQUData != null)
+                        StdtW(3000, enumRobotDataType.DEQU, 8, DEQUData[8]);
+
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 0, DTRBData[0]);
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 1, DTRBData[1]);
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 2, DTRBData[2]);
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 3, DTRBData[3]);
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 4, DTRBData[4]);
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 5, DTRBData[5]);
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 6, DTRBData[6]);
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 7, DTRBData[7]);
+
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 9, DTRBData[9]);//edge clamp
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 10, DTRBData[10]);
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 11, DTRBData[11]);
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 12, DTRBData[12]);
+
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 15, DTRBData[15]);//二段式取片上升比例
+
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 17, DTRBData[17]);
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 18, DTRBData[18]);
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 19, DTRBData[19]);
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 20, DTRBData[20]);
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 21, DTRBData[21]);
+                    StdtW(3000, enumRobotDataType.DTRB, nStage, 22, DTRBData[22]);
+                    //StdtW(3000, enumRobotDataType.DTRB, nStage, 23, DTRBData[23]);
+                    //StdtW(3000, enumRobotDataType.DTRB, nStage, 24, DTRBData[24]);
+
+                    StdtW(3000, enumRobotDataType.DTUL, nStage, 6, DTULData[6]);//unload offset
+                    StdtW(3000, enumRobotDataType.DTUL, nStage, 7, DTULData[7]);//unload offset
+                    StdtW(3000, enumRobotDataType.DTUL, nStage, 9, DTULData[9]);//二段式取片會往後縮
+                    StdtW(3000, enumRobotDataType.DTUL, nStage, 15, DTULData[15]);//edge clamp
+                    StdtW(3000, enumRobotDataType.DTUL, nStage, 16, DTULData[16]);//edge clamp
+
+                    StdtW(3000, enumRobotDataType.DCFG, nStage, 5, DCFGData[5]);
+                    StdtW(3000, enumRobotDataType.DCFG, nStage, 6, DCFGData[6]);//edge clamp
+                    StdtW(3000, enumRobotDataType.DCFG, nStage, 7, DCFGData[7]);//edge clamp
+                    StdtW(3000, enumRobotDataType.DCFG, nStage, 8, DCFGData[8]);
+                    StdtW(3000, enumRobotDataType.DCFG, nStage, 9, DCFGData[9]);
+
+                    WtdtW(15000);
                     //寫入ini紀錄
                     GParam.theInst.WriteRobotPos();
                 }

@@ -619,7 +619,7 @@ namespace RorzeUnit.Class.EQ
             {
                 ErrorMSG = "";
 
-                if (!Simulate)
+                if (!GParam.theInst.IsSimulate)
                 {
                     succeed = SetDoorOpen();               
                     if (!succeed && string.IsNullOrEmpty(ErrorMSG))
@@ -655,7 +655,7 @@ namespace RorzeUnit.Class.EQ
             {
                 ErrorMSG = "";
 
-                if (!Simulate)
+                if (!GParam.theInst.IsSimulate)
                 {
                     succeed = SetDoorClose();
                     if (!succeed && string.IsNullOrEmpty(ErrorMSG))

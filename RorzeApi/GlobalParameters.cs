@@ -553,6 +553,7 @@ namespace RorzeApi
 
 
         private bool[] m_bTrbDisable = new bool[Enum.GetNames(typeof(enumRobot)).Count()];       //  Disable    
+        private bool[] m_bTblDisable = new bool[Enum.GetNames(typeof(enumTBLModule)).Count()];   //  Disable  
         private bool[] m_bStgDisable = new bool[Enum.GetNames(typeof(enumLoadport)).Count()];    //  Disable    
         private bool[] m_bAlnDisable = new bool[Enum.GetNames(typeof(enumAligner)).Count()];     //  Disable          
         private bool[] m_bOCRDisable = new bool[Enum.GetNames(typeof(enumOCR)).Count()];         //  Disable    
@@ -584,7 +585,6 @@ namespace RorzeApi
         private string[] m_strIPAln = new string[Enum.GetNames(typeof(enumAligner)).Count()];       //  IP     
         private string[] m_strIPDio = new string[Enum.GetNames(typeof(enumIOModule)).Count()];      //  IP
         private string[] m_strIPOcr = new string[Enum.GetNames(typeof(enumOCR)).Count()];           //  IP
-        private string[] m_strIPExtXaxis = new string[Enum.GetNames(typeof(enumRobot)).Count()];    //  IP
 
         private int[] m_nNotchAngle = new int[Enum.GetNames(typeof(enumNotchAngle)).Count()];
 
@@ -914,7 +914,12 @@ namespace RorzeApi
                 {
                     case enumUnit.TRB1: bDisable = m_bTrbDisable[0]; break;
                     case enumUnit.TRB2: bDisable = m_bTrbDisable[1]; break;
-                    case enumUnit.TBL1: bDisable = m_bExtXaxisDisable[0]; break;
+                    case enumUnit.TBL1: bDisable = m_bTblDisable[0]; break;
+                    case enumUnit.TBL2: bDisable = m_bTblDisable[1]; break;
+                    case enumUnit.TBL3: bDisable = m_bTblDisable[2]; break;
+                    case enumUnit.TBL4: bDisable = m_bTblDisable[3]; break;
+                    case enumUnit.TBL5: bDisable = m_bTblDisable[4]; break;
+                    case enumUnit.TBL6: bDisable = m_bTblDisable[5]; break;
                     case enumUnit.ALN1: bDisable = m_bAlnDisable[0]; break;
                     case enumUnit.ALN2: bDisable = m_bAlnDisable[1]; break;
                     case enumUnit.STG1: bDisable = m_bStgDisable[0]; break;
@@ -1084,7 +1089,7 @@ namespace RorzeApi
         public string GetStgIP(int nIdx) { return m_strIPStg[nIdx]; }
         public string GetDioIP(int nIdx) { return m_strIPDio[nIdx]; }
         public string GetOcrIP(int nIdx) { return m_strIPOcr[nIdx]; }
-        public string GetExtXaxisIP(int nIdx) { return m_strIPExtXaxis[nIdx]; }
+        public string Getm_blIP(int nIdx) { return m_strIPTbl[nIdx]; }
         #endregion
         #region public function [Gem IP Address]
         public string GetGem1IP()
@@ -1920,7 +1925,7 @@ namespace RorzeApi
                 //---------------------------------------------------------------------------
                 for (int i = 0; i < Enum.GetNames(typeof(enumTBLModule)).Count(); i++)
                 {
-                    string strSection = "TBL";
+                    string strSection = string.Format("TBL{0}", i + 1);
                     nValue = myIni.GetIni(strSection, string.Format("TBL{0} Type(RC560:0,RC550:1)", i + 1), 1);
                     m_eTblType[i] = Enum.IsDefined(typeof(enumTblType), nValue) ? (enumTblType)nValue : enumTblType.None;
                 }
@@ -1958,6 +1963,11 @@ namespace RorzeApi
                     string strKey = string.Format("TRB{0} Disable", i + 1);
                     m_bTrbDisable[i] = myIni.GetIni("RorzeUnit Disable", strKey, true);
                 }
+                for (int i = 0; i < Enum.GetNames(typeof(enumTBLModule)).Count(); i++)
+                {
+                    string strKey = string.Format("TBL{0} Disable", i + 1);
+                    m_bTblDisable[i] = myIni.GetIni("RorzeUnit Disable", strKey, true);
+                }                
                 for (int i = 0; i < Enum.GetNames(typeof(enumLoadport)).Count(); i++)
                 {
                     string strKey = string.Format("STG{0} Disable", i + 1);
@@ -2034,8 +2044,12 @@ namespace RorzeApi
                 //---------------------------------------------------------------------------               
                 m_strIPTrb[0] = myIni.GetIni("RorzeUnit IP Address", "Rorze Robot1", "172.20.9.151");
                 m_strIPTrb[1] = myIni.GetIni("RorzeUnit IP Address", "Rorze Robot2", "172.20.9.152");
-                m_strIPExtXaxis[0] = myIni.GetIni("RorzeUnit IP Address", "Rorze RobotExternalXaxis1", "172.20.9.171");
-                m_strIPExtXaxis[1] = myIni.GetIni("RorzeUnit IP Address", "Rorze RobotExternalXaxis2", "172.20.9.172");
+                m_strIPTbl[0] = myIni.GetIni("RorzeUnit IP Address", "Rorze TBL1", "172.20.9.171");
+                m_strIPTbl[1] = myIni.GetIni("RorzeUnit IP Address", "Rorze TBL2", "172.20.9.172");
+                m_strIPTbl[2] = myIni.GetIni("RorzeUnit IP Address", "Rorze TBL3", "172.20.9.173");
+                m_strIPTbl[3] = myIni.GetIni("RorzeUnit IP Address", "Rorze TBL4", "172.20.9.174");
+                m_strIPTbl[4] = myIni.GetIni("RorzeUnit IP Address", "Rorze TBL5", "172.20.9.175");
+                m_strIPTbl[5] = myIni.GetIni("RorzeUnit IP Address", "Rorze TBL6", "172.20.9.176");
                 m_strIPAln[0] = myIni.GetIni("RorzeUnit IP Address", "Rorze Aligner_1", "172.20.9.161");
                 m_strIPAln[1] = myIni.GetIni("RorzeUnit IP Address", "Rorze Aligner_2", "172.20.9.162");
                 m_strIPStg[0] = myIni.GetIni("RorzeUnit IP Address", "Rorze Loadport_1", "172.20.9.101");

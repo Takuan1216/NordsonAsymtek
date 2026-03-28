@@ -72,6 +72,10 @@ namespace RorzeUnit.Class.EQ.Enum
 
         Unknown_Command = 14,
         ShutterDoorCloseFail = 15,
+        ShutterDoor1_protrude_sensor_detect = 16, //KN add 0328
+        ShutterDoor2_protrude_sensor_detect = 17, //KN add 0328
+        ShutterDoor3_protrude_sensor_detect = 18, //KN add 0328
+        ShutterDoor4_protrude_sensor_detect = 19, //KN add 0328
 
 
     }

@@ -1505,22 +1505,22 @@ namespace RorzeApi
                         case enumRbtAddress.EQM1:
                             m_listEQM[0].OnSutterDoorOpenComplete -= FinishShutterDoorOnOpen;
                             m_listEQM[0].OnSutterDoorOpenComplete += FinishShutterDoorOnOpen;
-                            m_listEQM[0].tShutterDoorOpenSet();
+                            m_listEQM[0].tShutterDoorOpenSetW();
                             break;
                         case enumRbtAddress.EQM2:
                             m_listEQM[1].OnSutterDoorOpenComplete -= FinishShutterDoorOnOpen;
                             m_listEQM[1].OnSutterDoorOpenComplete += FinishShutterDoorOnOpen;
-                            m_listEQM[1].tShutterDoorOpenSet();
+                            m_listEQM[1].tShutterDoorOpenSetW();
                             break;
                         case enumRbtAddress.EQM3:
                             m_listEQM[2].OnSutterDoorOpenComplete -= FinishShutterDoorOnOpen;
                             m_listEQM[2].OnSutterDoorOpenComplete += FinishShutterDoorOnOpen;
-                            m_listEQM[2].tShutterDoorOpenSet();
+                            m_listEQM[2].tShutterDoorOpenSetW();
                             break;
                         case enumRbtAddress.EQM4:
                             m_listEQM[3].OnSutterDoorOpenComplete -= FinishShutterDoorOnOpen;
                             m_listEQM[3].OnSutterDoorOpenComplete += FinishShutterDoorOnOpen;
-                            m_listEQM[3].tShutterDoorOpenSet();
+                            m_listEQM[3].tShutterDoorOpenSetW();
                             break;
                     }
                     break;

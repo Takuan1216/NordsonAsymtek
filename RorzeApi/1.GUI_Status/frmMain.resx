@@ -1120,7 +1120,7 @@
     <value>364</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
-    <value>Prefer EQ:</value>
+    <value>Apply EQ:</value>
   </data>
   <data name="label6.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -1527,40 +1527,40 @@
   <data name="&gt;&gt;btnTransferFunction.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="preferEQ_clb.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="applyEQ_clb.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 12pt</value>
   </data>
-  <data name="preferEQ_clb.Items" xml:space="preserve">
-    <value>EQ1</value>
+  <data name="applyEQ_clb.Items" xml:space="preserve">
+    <value>Nordson1</value>
   </data>
-  <data name="preferEQ_clb.Items1" xml:space="preserve">
-    <value>EQ2</value>
+  <data name="applyEQ_clb.Items1" xml:space="preserve">
+    <value>Nordson2</value>
   </data>
-  <data name="preferEQ_clb.Items2" xml:space="preserve">
-    <value>EQ3</value>
+  <data name="applyEQ_clb.Items2" xml:space="preserve">
+    <value>Nordson3</value>
   </data>
-  <data name="preferEQ_clb.Items3" xml:space="preserve">
-    <value>EQ4</value>
+  <data name="applyEQ_clb.Items3" xml:space="preserve">
+    <value>Nordson4</value>
   </data>
-  <data name="preferEQ_clb.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="applyEQ_clb.Location" type="System.Drawing.Point, System.Drawing">
     <value>90, 188</value>
   </data>
-  <data name="preferEQ_clb.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="applyEQ_clb.Size" type="System.Drawing.Size, System.Drawing">
     <value>159, 110</value>
   </data>
-  <data name="preferEQ_clb.TabIndex" type="System.Int32, mscorlib">
+  <data name="applyEQ_clb.TabIndex" type="System.Int32, mscorlib">
     <value>362</value>
   </data>
-  <data name="&gt;&gt;preferEQ_clb.Name" xml:space="preserve">
-    <value>preferEQ_clb</value>
+  <data name="&gt;&gt;applyEQ_clb.Name" xml:space="preserve">
+    <value>applyEQ_clb</value>
   </data>
-  <data name="&gt;&gt;preferEQ_clb.Type" xml:space="preserve">
+  <data name="&gt;&gt;applyEQ_clb.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;preferEQ_clb.Parent" xml:space="preserve">
+  <data name="&gt;&gt;applyEQ_clb.Parent" xml:space="preserve">
     <value>tlpTransferMenu</value>
   </data>
-  <data name="&gt;&gt;preferEQ_clb.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;applyEQ_clb.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
   <data name="tlpTransferMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -1591,7 +1591,7 @@
     <value>2</value>
   </data>
   <data name="tlpTransferMenu.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label6" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label13" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label7" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnTransferFunctionType" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnAlignFunction" Row="4" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="btnRecipeFunction" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="btnTransferSource" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnTransferTarget" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label9" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label10" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label12" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnTransferFunction" Row="1" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="preferEQ_clb" Row="5" RowSpan="3" Column="1" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,34,Percent,33,Percent,33" /&gt;&lt;Rows Styles="Percent,12.49938,Percent,12.49938,Percent,12.49938,Percent,12.49938,Percent,12.49938,Percent,12.49938,Percent,12.50187,Percent,12.50187,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label6" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label13" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label7" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnTransferFunctionType" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnAlignFunction" Row="4" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="btnRecipeFunction" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="btnTransferSource" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnTransferTarget" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label9" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label10" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label12" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="btnTransferFunction" Row="1" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="applyEQ_clb" Row="5" RowSpan="3" Column="1" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,34,Percent,33,Percent,33" /&gt;&lt;Rows Styles="Percent,12.49938,Percent,12.49938,Percent,12.49938,Percent,12.49938,Percent,12.49938,Percent,12.49938,Percent,12.50187,Percent,12.50187,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tabPageTransferFnc.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 23</value>

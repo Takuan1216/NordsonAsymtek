@@ -50,10 +50,10 @@
             this.lblEQ2Recipe = new System.Windows.Forms.Label();
             this.cbxEQ2Recipe = new System.Windows.Forms.ComboBox();
             this.tlpEQ1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblEQ1Name = new System.Windows.Forms.Label();
-            this.btnEQ1Recipe = new System.Windows.Forms.Button();
-            this.lblEQ1Recipe = new System.Windows.Forms.Label();
-            this.cbxEQ1Recipe = new System.Windows.Forms.ComboBox();
+            this.lblEQName = new System.Windows.Forms.Label();
+            this.btnEQRecipe = new System.Windows.Forms.Button();
+            this.lblEQRecipe = new System.Windows.Forms.Label();
+            this.cbxEQRecipe = new System.Windows.Forms.ComboBox();
             this.tlpBack = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.btnOCR_Back_Recip = new System.Windows.Forms.Button();
@@ -239,37 +239,37 @@
             // tlpEQ1
             // 
             resources.ApplyResources(this.tlpEQ1, "tlpEQ1");
-            this.tlpEQ1.Controls.Add(this.lblEQ1Name, 0, 0);
-            this.tlpEQ1.Controls.Add(this.btnEQ1Recipe, 1, 0);
-            this.tlpEQ1.Controls.Add(this.lblEQ1Recipe, 2, 0);
-            this.tlpEQ1.Controls.Add(this.cbxEQ1Recipe, 3, 0);
+            this.tlpEQ1.Controls.Add(this.lblEQName, 0, 0);
+            this.tlpEQ1.Controls.Add(this.btnEQRecipe, 1, 0);
+            this.tlpEQ1.Controls.Add(this.lblEQRecipe, 2, 0);
+            this.tlpEQ1.Controls.Add(this.cbxEQRecipe, 3, 0);
             this.tlpEQ1.Name = "tlpEQ1";
             // 
-            // lblEQ1Name
+            // lblEQName
             // 
-            resources.ApplyResources(this.lblEQ1Name, "lblEQ1Name");
-            this.lblEQ1Name.Name = "lblEQ1Name";
+            resources.ApplyResources(this.lblEQName, "lblEQName");
+            this.lblEQName.Name = "lblEQName";
             // 
-            // btnEQ1Recipe
+            // btnEQRecipe
             // 
-            this.btnEQ1Recipe.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.btnEQ1Recipe, "btnEQ1Recipe");
-            this.btnEQ1Recipe.Name = "btnEQ1Recipe";
-            this.btnEQ1Recipe.UseVisualStyleBackColor = false;
-            this.btnEQ1Recipe.Click += new System.EventHandler(this.btnText);
+            this.btnEQRecipe.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.btnEQRecipe, "btnEQRecipe");
+            this.btnEQRecipe.Name = "btnEQRecipe";
+            this.btnEQRecipe.UseVisualStyleBackColor = false;
+            this.btnEQRecipe.Click += new System.EventHandler(this.btnText);
             // 
-            // lblEQ1Recipe
+            // lblEQRecipe
             // 
-            resources.ApplyResources(this.lblEQ1Recipe, "lblEQ1Recipe");
-            this.lblEQ1Recipe.Name = "lblEQ1Recipe";
+            resources.ApplyResources(this.lblEQRecipe, "lblEQRecipe");
+            this.lblEQRecipe.Name = "lblEQRecipe";
             // 
-            // cbxEQ1Recipe
+            // cbxEQRecipe
             // 
-            resources.ApplyResources(this.cbxEQ1Recipe, "cbxEQ1Recipe");
-            this.tlpEQ1.SetColumnSpan(this.cbxEQ1Recipe, 2);
-            this.cbxEQ1Recipe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxEQ1Recipe.FormattingEnabled = true;
-            this.cbxEQ1Recipe.Name = "cbxEQ1Recipe";
+            resources.ApplyResources(this.cbxEQRecipe, "cbxEQRecipe");
+            this.tlpEQ1.SetColumnSpan(this.cbxEQRecipe, 2);
+            this.cbxEQRecipe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxEQRecipe.FormattingEnabled = true;
+            this.cbxEQRecipe.Name = "cbxEQRecipe";
             // 
             // tlpBack
             // 
@@ -447,13 +447,13 @@
         private System.Windows.Forms.ComboBox cbxRecipeList;
         private System.Windows.Forms.GroupBox btn;
         private System.Windows.Forms.Button btnOCR_Back_Recip;
-        private System.Windows.Forms.Button btnEQ1Recipe;
+        private System.Windows.Forms.Button btnEQRecipe;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbxOCR_Back_Recip;
-        private System.Windows.Forms.ComboBox cbxEQ1Recipe;
+        private System.Windows.Forms.ComboBox cbxEQRecipe;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lblEQ1Recipe;
-        private System.Windows.Forms.Label lblEQ1Name;
+        private System.Windows.Forms.Label lblEQRecipe;
+        private System.Windows.Forms.Label lblEQName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;

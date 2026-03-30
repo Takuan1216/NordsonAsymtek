@@ -6,6 +6,7 @@ using RorzeComm.Threading;
 using RorzeUnit.Class.Camera.Enum;
 using RorzeUnit.Class.EQ.Enum;
 using RorzeUnit.Class.EQ.Event;
+using RorzeUnit.Class.Robot.Enum;
 using RorzeUnit.Event;
 using RorzeUnit.Interface;
 using RorzeUnit.Net.Sockets;
@@ -179,8 +180,8 @@ namespace RorzeUnit.Class.EQ
         private SPollingThread _pollingAuto;        // Auto process
 
         private SInterruptOneThread _threadOrgn;    //  Thread
-		private SInterruptOneThread _threadShutterDoorOpen;
-        private SInterruptOneThread _threadShutterDoorClose;
+		private SInterruptOneThread _threadShutterDoorOpenW;
+        private SInterruptOneThread _threadShutterDoorCloseW;
         private SInterruptOneThread _threadGetRecipe;//  Thread
         #endregion
         #region =========================== Delegate ===========================================
@@ -190,8 +191,9 @@ namespace RorzeUnit.Class.EQ
         public dlgb_Object DlgShutterDoorOpen { get; set; }
         public dlgb_Object DlgShutterDoorClose { get; set; }
         public dlgb_Object DlgVacuumOff { get; set; }//委派外層
+        public dlgb_Object DlgSetDoorOpenW { get; set; }
         public dlgb_Object DlgSetDoorOpen { get; set; }
-        public dlgb_Object DlgSetDoorClose { get; set; }
+        public dlgb_Object DlgSetDoorCloseW { get; set; }
         public dlgb_o_b DlgSetRobotExtendIO { get; set; }
 
         public dlgb_Object DlgReadyUnload { get; set; }//委派外層
@@ -205,8 +207,18 @@ namespace RorzeUnit.Class.EQ
 
         public bool IsShutterDoorOpen { get { return DlgShutterDoorOpen != null && DlgShutterDoorOpen(this); } }
         public bool IsShutterDoorClose { get { return DlgShutterDoorClose != null && DlgShutterDoorClose(this); } }
-        public bool SetDoorOpen()
+        public bool SetDoorOpenW()
         {         
+            if (DlgSetDoorOpenW == null)
+            {
+                ErrorMSG = "DlgSetDoorOpenW is null (no door open handler).";
+                return false;
+            }
+
+            return DlgSetDoorOpenW(this);
+        }
+        public bool SetDoorOpen()
+        {
             if (DlgSetDoorOpen == null)
             {
                 ErrorMSG = "DlgSetDoorOpen is null (no door open handler).";
@@ -215,15 +227,15 @@ namespace RorzeUnit.Class.EQ
 
             return DlgSetDoorOpen(this);
         }
-        public bool SetDoorClose()
+        public bool SetDoorCloseW()
         {
-            if (DlgSetDoorClose == null)
+            if (DlgSetDoorCloseW == null)
             {
-                ErrorMSG = "DlgSetDoorClose is null (no door close handler).";
+                ErrorMSG = "DlgSetDoorCloseW is null (no door close handler).";
                 return false;
             }
 
-            return DlgSetDoorClose(this);
+            return DlgSetDoorCloseW(this);
         }
 
         public bool SetRobotExtendIO(bool bExtend)
@@ -302,8 +314,8 @@ namespace RorzeUnit.Class.EQ
 
             //  One Thread  
             _threadOrgn = new SInterruptOneThread(ExeOrgn);
-			_threadShutterDoorOpen = new SInterruptOneThread(ExeShutterDoorOpen);
-            _threadShutterDoorClose = new SInterruptOneThread(ExeShutterDoorClose);
+			_threadShutterDoorOpenW = new SInterruptOneThread(ExeShutterDoorOpenW);
+            _threadShutterDoorCloseW = new SInterruptOneThread(ExeShutterDoorCloseW);
             _threadGetRecipe = new SInterruptOneThread(ExeGetRecipe);
 
             _pollingAuto = new SPollingThread(100);
@@ -579,8 +591,8 @@ namespace RorzeUnit.Class.EQ
         }
         //========================= One Thread ========================================       
         public void tOrgnSet() { _threadOrgn.Set(); }
-		public void tShutterDoorOpenSet() { _threadShutterDoorOpen.Set(); }
-        public void tShutterDoorCloseSet() { _threadShutterDoorClose.Set(); }
+		public void tShutterDoorOpenSetW() { _threadShutterDoorOpenW.Set(); }
+        public void tShutterDoorCloseSetW() { _threadShutterDoorCloseW.Set(); }
         public void tGetRecipeSet() { _threadGetRecipe.Set(); }
         public void ExeOrgn()
         {
@@ -590,11 +602,10 @@ namespace RorzeUnit.Class.EQ
                 int test = _BodyNo;
                 m_executelog.WriteLog("[ EQ ] ExeOrgn:Start");
 
-                if (!Simulate && !SetDoorClose())
+                if (!Simulate && !SetDoorCloseW())
                     throw new SException((int)enumEQError.ShutterDoorCloseFail, string.Format("ShutterDoorClose failed"));
 
-                if (m_Socket.isConnected())
-                    GetRecipeListW();
+                GetRecipeListW();
                 IsProcessing = false;
                 ErrorMSG = ""; // HSC 
                 OnOrgnComplete?.Invoke(this, true);
@@ -610,9 +621,9 @@ namespace RorzeUnit.Class.EQ
                 OnOrgnComplete?.Invoke(this, false);
             }
         }
-        public void ExeShutterDoorOpen()
+        public void ExeShutterDoorOpenW()
         {
-            m_executelog.WriteLog("[ EQ ] ExeShutterDoorOpen:Start");
+            m_executelog.WriteLog("[ EQ ] ExeShutterDoorOpenW:Start");
 
             bool succeed = true;
             try
@@ -621,10 +632,10 @@ namespace RorzeUnit.Class.EQ
 
                 if (!GParam.theInst.IsSimulate)
                 {
-                    succeed = SetDoorOpen();               
+                    succeed = SetDoorOpenW();               //會等門開好
                     if (!succeed && string.IsNullOrEmpty(ErrorMSG))
                     {
-                        ErrorMSG = "Set Door Open failed.";
+                        ErrorMSG = "Set Door OpenW failed.";
                     }
                 }
 
@@ -634,21 +645,21 @@ namespace RorzeUnit.Class.EQ
             {
                 succeed = false;
                 ErrorMSG = ex.Message; // 或你想要的格式
-                m_errorlog.WriteLog("[ EQ ] <<SException>> ExeShutterDoorOpen:" + ex);
+                m_errorlog.WriteLog("[ EQ ] <<SException>> ExeShutterDoorOpenW:" + ex);
                 OnSutterDoorOpenComplete?.Invoke(this, false);
             }
             catch (Exception ex)
             {
                 succeed = false;
                 ErrorMSG = ex.Message;
-                m_errorlog.WriteLog("[ EQ ] <<Exception>> ExeShutterDoorOpen:" + ex);
+                m_errorlog.WriteLog("[ EQ ] <<Exception>> ExeShutterDoorOpenW:" + ex);
                 OnSutterDoorOpenComplete?.Invoke(this, false);
             }
         }
 
-        public void ExeShutterDoorClose()
+        public void ExeShutterDoorCloseW()
         {
-            m_executelog.WriteLog("[ EQ ] ExeShutterDoorClose:Start");
+            m_executelog.WriteLog("[ EQ ] ExeShutterDoorCloseW:Start");
 
             bool succeed = true;
             try
@@ -657,10 +668,10 @@ namespace RorzeUnit.Class.EQ
 
                 if (!GParam.theInst.IsSimulate)
                 {
-                    succeed = SetDoorClose();
+                    succeed = SetDoorCloseW();
                     if (!succeed && string.IsNullOrEmpty(ErrorMSG))
                     {
-                        ErrorMSG = "Set Door Close failed.";
+                        ErrorMSG = "Set DoorW Close failed.";
                     }
                 }
 
@@ -670,14 +681,14 @@ namespace RorzeUnit.Class.EQ
             {
                 succeed = false;
                 ErrorMSG = ex.Message; // 或你想要的格式
-                m_errorlog.WriteLog("[ EQ ] <<SException>> ExeShutterDoorClose:" + ex);
+                m_errorlog.WriteLog("[ EQ ] <<SException>> ExeShutterDoorCloseW:" + ex);
                 OnSutterDoorCloseComplete?.Invoke(this, false);
             }
             catch (Exception ex)
             {
                 succeed = false;
                 ErrorMSG = ex.Message;
-                m_errorlog.WriteLog("[ EQ ] <<Exception>> ExeShutterDoorClose:" + ex);
+                m_errorlog.WriteLog("[ EQ ] <<Exception>> ExeShutterDoorCloseW:" + ex);
                 OnSutterDoorCloseComplete?.Invoke(this, false);
             }
         }
@@ -702,11 +713,11 @@ namespace RorzeUnit.Class.EQ
         //========================= Send Command ======================================= 
         public void SendCommand(string strCommand)
         {
-            if (m_Socket.isConnected() == false)
-            {
-                SendAlmMsg(enumEQError.Socket_Disconnected);
-                throw new SException((int)enumEQError.Socket_Disconnected, string.Format("EQ Socket is disconnected!"));
-            }
+            //if (m_Socket.isConnected() == false)
+            //{
+            //    SendAlmMsg(enumEQError.Socket_Disconnected);
+            //    throw new SException((int)enumEQError.Socket_Disconnected, string.Format("EQ Socket is disconnected!"));
+            //}
             m_Socket.SendCommand(strCommand);
             OnReadData?.Invoke(this, new MessageEventArgs(new string[] { "send:" + strCommand }));
         }
@@ -791,10 +802,6 @@ namespace RorzeUnit.Class.EQ
 
         public void GetRecipeListW()
         {
-            if (Connected == false)
-            {
-                return;
-            }
             int nTimeout = GParam.theInst.GetEQAckTimeout;
             enumSendCmd eCmd = enumSendCmd.RecipeList;
             _signalSubSequence.Reset();
@@ -1095,6 +1102,11 @@ namespace RorzeUnit.Class.EQ
             m_errorlog.WriteLog(string.Format("[ EQ ] eAlarm Error : {0}_{1}", nCode, eCode));
             m_executelog.WriteLog(string.Format("[ EQ ] eAlarm Error : {0}{0}_{1}", nCode, eCode));
             OnOccurError?.Invoke(this, new OccurErrorEventArgs(nCode));
+        }
+        public void TriggerSException(enumEQError eEQError)
+        {
+            SendAlmMsg(eEQError);
+            throw new SException((int)(eEQError), "SException:" + eEQError);
         }
         #endregion
         #region =========================== CreateMessage ======================================

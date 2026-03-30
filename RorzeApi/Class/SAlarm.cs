@@ -182,7 +182,7 @@ namespace RorzeApi.Class
             DIO4_bit12_signal_abnormal = 101400162,
             DIO4_bit13_signal_abnormal = 101400163,
             DIO4_bit14_signal_abnormal = 101400164,
-            DIO4_bit15_signal_abnormal = 101400165,
+            DIO4_bit15_signal_abnormal = 101400165,            
         }
         #endregion
 

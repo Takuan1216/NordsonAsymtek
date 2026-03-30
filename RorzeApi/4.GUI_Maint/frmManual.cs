@@ -3109,7 +3109,7 @@ namespace RorzeApi
                     var eqm = ListEQM[index];
                     eqm.OnSutterDoorOpenComplete -= _ShutterDoorOpenCompleted;
                     eqm.OnSutterDoorOpenComplete += _ShutterDoorOpenCompleted;
-                    eqm.tShutterDoorOpenSet();
+                    eqm.tShutterDoorOpenSetW();
                 }
                 else
                 {
@@ -3156,7 +3156,7 @@ namespace RorzeApi
                     var eqm = ListEQM[index];
                     eqm.OnSutterDoorCloseComplete -= _ShutterDoorCloseCompleted;
                     eqm.OnSutterDoorCloseComplete += _ShutterDoorCloseCompleted;
-                    eqm.tShutterDoorCloseSet();
+                    eqm.tShutterDoorCloseSetW();
                 }
                 break; // 找到就可以跳出
             }

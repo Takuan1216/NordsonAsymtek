@@ -40,6 +40,7 @@ using System.Net.Sockets;
 using System.Security.Cryptography;
 using RorzeUnit.Class.Vibration;
 using RorzeUnit.Class.ADAM;
+using RorzeUnit.Class.EQ.Enum;
 
 
 namespace RorzeApi
@@ -301,6 +302,7 @@ namespace RorzeApi
         SAlarm _alarm;              //  管理收集所有單體異常
         STransfer _autoProcess;     //  自動傳片流程
 
+        // ShutterDoor
         private readonly Dictionary<int, (int OpenDo, int CloseDo, int OpenDi, int CloseDi)> _shutterMap
             = new Dictionary<int, (int OpenDo, int CloseDo, int OpenDi, int CloseDi)>
     {
@@ -309,7 +311,6 @@ namespace RorzeApi
                 { 3, (OpenDo: 5, CloseDo: 4, OpenDi: 5, CloseDi: 4)},
                 { 4, (OpenDo: 7, CloseDo: 6, OpenDi: 7, CloseDi: 6)},
     };
-
         private readonly Dictionary<int, (int nAdam, int Di_RDYtoLoad, int Di_RDYtoUnload, int Do_RDYtoLoad, int Do_RDYtoUnload)> _EQ_SMEMA_Map
             = new Dictionary<int, (int nAdam, int Di_RDYtoLoad, int Di_RDYtoUnload, int Do_RDYtoLoad, int Do_RDYtoUnload)>
     {
@@ -318,6 +319,9 @@ namespace RorzeApi
                 { 3, (nAdam: 1, Di_RDYtoLoad: 0, Di_RDYtoUnload: 1, Do_RDYtoLoad: 0, Do_RDYtoUnload: 1)},
                 { 4, (nAdam: 1, Di_RDYtoLoad: 2, Di_RDYtoUnload: 3, Do_RDYtoLoad: 2, Do_RDYtoUnload: 3)},
     };
+        private int shutterDoorTimeout = 5000;
+
+
 
         private int m_tryPing = 0;
 
@@ -2032,7 +2036,8 @@ namespace RorzeApi
                         equipment.DlgShutterDoorOpen = IsShutterDoorOpen;
                         equipment.DlgShutterDoorClose = IsShutterDoorClose;
 
-                        equipment.DlgSetDoorClose = ShutterDoorClose;
+                        equipment.DlgSetDoorCloseW = ShutterDoorCloseW;
+                        equipment.DlgSetDoorOpenW = ShutterDoorOpenW;
                         equipment.DlgSetDoorOpen = ShutterDoorOpen;
                         equipment.DlgSetRobotExtendIO = robotExtendCtrlIO;
 
@@ -5009,7 +5014,7 @@ namespace RorzeApi
                     _errorLog.WriteLog("[ Interlock ]:EQ is processing!!");
                     return true;
                 }
-                if (equipment.SetDoorOpen() == false)//會等門開好
+                if (equipment.SetDoorOpenW() == false)//會等門開好
                 {
                     _errorLog.WriteLog("[ Interlock ]:Failed to open Shutter door!!");
                     return true;
@@ -5082,7 +5087,7 @@ namespace RorzeApi
                     return true;
                 }
 
-                if (equipment.SetDoorOpen() == false)
+                if (equipment.SetDoorOpenW() == false)//會等門開好
                 {
                     _errorLog.WriteLog("[ Interlock ]:Failed to open Shutter door!!");
                     return true;
@@ -5154,7 +5159,7 @@ namespace RorzeApi
                     _errorLog.WriteLog("[ Interlock ]:EQ is processing!!");
                     return true;
                 }
-                if (equipment.SetDoorOpen() == false)
+                if (equipment.SetDoorOpenW() == false)//會等門開好
                 {
                     _errorLog.WriteLog("[ Interlock ]:Failed to open Shutter door!!");
                     return true;
@@ -5227,7 +5232,7 @@ namespace RorzeApi
                     return true;
                 }
 
-                if (equipment.SetDoorOpen() == false)
+                if (equipment.SetDoorOpenW() == false)//會等門開好
                 {
                     _errorLog.WriteLog("[ Interlock ]:Failed to open Shutter door!!");
                     return true;
@@ -5624,6 +5629,63 @@ namespace RorzeApi
             return result;
         }
 
+        private bool ShutterDoorOpenW(object sender)
+        {
+            SSEquipment equipment = sender as SSEquipment;
+            string ErrorMSG = "";
+            (int OpenDo, int CloseDo, int OpenDi, int CloseDi) bits;
+
+            if (!_shutterMap.TryGetValue(equipment._BodyNo, out bits))
+            {
+                ErrorMSG = $"ShutterDoorOpenW: shutterMap not found for BodyNo={equipment._BodyNo}.";
+                return false;
+            }
+
+            if (isEQDetectFinger(equipment))
+            {
+                ErrorMSG = "ShutterDoorOpenW: EQ detect finger interlock.";
+                return false;
+            }
+
+            if (isEFEMExtedToEQ(equipment))
+            {
+                ErrorMSG = "ShutterDoorOpenW: EFEM extended to EQ interlock.";
+                return false;
+            }
+
+            if (IsShutterDoorOpen(equipment))
+                return true;
+
+
+            try
+            {
+                ShutterDoorOpen(equipment);
+
+                bool ok = SpinWait.SpinUntil(() => IsShutterDoorOpen(equipment), shutterDoorTimeout);
+                if (!ok)
+                    ErrorMSG = "ShutterDoorOpenW: timeout waiting door open DI.";
+
+                return ok;
+            }
+            catch (Exception ex)
+            {
+                ErrorMSG = $"ShutterDoorOpenW exception: {ex.Message}";
+                _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorOpenW:" + ex);
+
+                return false;
+            }
+            finally
+            {
+                try
+                {
+                    ListDIO[4].SdobW(0, bits.OpenDo, false);
+                }
+                catch (Exception ex)
+                {
+                    _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorOpenW finally:" + ex);
+                }
+            }
+        }
         private bool ShutterDoorOpen(object sender)
         {
             SSEquipment equipment = sender as SSEquipment;
@@ -5657,12 +5719,7 @@ namespace RorzeApi
                 ListDIO[4].SdobW(0, bits.CloseDo, false);
                 Thread.Sleep(100);
                 ListDIO[4].SdobW(0, bits.OpenDo, true);
-
-                bool ok = SpinWait.SpinUntil(() => IsShutterDoorOpen(equipment), 5000);
-                if (!ok)
-                    ErrorMSG = "ShutterDoorOpen: timeout waiting door open DI.";
-
-                return ok;
+                return true;
             }
             catch (Exception ex)
             {
@@ -5683,7 +5740,7 @@ namespace RorzeApi
                 }
             }
         }
-        private bool ShutterDoorClose(object sender)
+        private bool ShutterDoorCloseW(object sender)
         {
             SSEquipment equipment = sender as SSEquipment;
             string ErrorMSG = "";
@@ -5691,19 +5748,19 @@ namespace RorzeApi
 
             if (!_shutterMap.TryGetValue(equipment._BodyNo, out bits))
             {
-                ErrorMSG = $"ShutterDoorClose: shutterMap not found for BodyNo={equipment._BodyNo}.";
+                ErrorMSG = $"ShutterDoorCloseW: shutterMap not found for BodyNo={equipment._BodyNo}.";
                 return false;
             }
 
             if (isEQDetectFinger(equipment))
             {
-                ErrorMSG = "ShutterDoorClose: EQ detect finger interlock.";
+                ErrorMSG = "ShutterDoorCloseW: EQ detect finger interlock.";
                 return false;
             }
 
             if (isEFEMExtedToEQ(equipment))
             {
-                ErrorMSG = "ShutterDoorClose: EFEM extended to EQ interlock.";
+                ErrorMSG = "ShutterDoorCloseW: EFEM extended to EQ interlock.";
                 return false;
             }
 
@@ -5717,19 +5774,42 @@ namespace RorzeApi
                 Thread.Sleep(100);
                 ListDIO[4].SdobW(0, bits.CloseDo, true);
 
-                bool ok = SpinWait.SpinUntil(() => IsShutterDoorClose(equipment), 5000);
-                if (!ok)
-                    ErrorMSG = "ShutterDoorClose: timeout waiting door open DI.";
+                Stopwatch sw = Stopwatch.StartNew();
 
-                return ok;
+                while (!IsShutterDoorClose(equipment))
+                {
+                    if (sw.ElapsedMilliseconds >= shutterDoorTimeout)
+                    {
+                        ErrorMSG = "ShutterDoorCloseW: timeout waiting door close DI.";
+                        _errorLog?.WriteLog("[ EQ ] " + ErrorMSG);
+                        return false;
+                    }
+
+                    // 例：危險狀態解除時做一次額外處理
+                    if (!isEQDetectFinger(equipment))
+                    {
+                        equipment.TriggerSException(enumEQError.ShutterDoor1_protrude_sensor_detect + (equipment._BodyNo - 1));
+                    }
+
+                    Thread.Sleep(100);
+                }
+                return true;
             }
-            catch (Exception ex)
+            catch (SException ex)
             {
-                ErrorMSG = $"ShutterDoorClose exception: {ex.Message}";
-                _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorClose:" + ex);
+                ErrorMSG = $"ShutterDoorCloseW exception: {ex.Message}";
+                _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorCloseW:" + ex);
 
                 return false;
             }
+            catch (Exception ex)
+            {
+                ErrorMSG = $"ShutterDoorCloseW exception: {ex.Message}";
+                _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorCloseW:" + ex);
+
+                return false;
+            }
+            
             finally
             {
                 try
@@ -5738,7 +5818,7 @@ namespace RorzeApi
                 }
                 catch (Exception ex)
                 {
-                    _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorClose finally:" + ex);
+                    _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorCloseW finally error:" + ex);
                 }
             }
         }
@@ -6527,7 +6607,7 @@ namespace RorzeApi
                 case enumPosition.EQM4:
                     ListEQM[ePos - enumPosition.EQM1].SetRobotExtendIO(false);
                     ListEQM[ePos - enumPosition.EQM1].SetRobotGetSMEMA(false);
-                    ListEQM[ePos - enumPosition.EQM1].SetDoorClose();
+                    ListEQM[ePos - enumPosition.EQM1].tShutterDoorCloseSetW();//用一次緒關門，不卡robot動作
                     break;
 
             }
@@ -6767,7 +6847,7 @@ namespace RorzeApi
                 case enumPosition.EQM4:
                     ListEQM[ePos - enumPosition.EQM1].SetRobotExtendIO(false);
                     ListEQM[ePos - enumPosition.EQM1].SetRobotPutSMEMA(false);
-                    ListEQM[ePos - enumPosition.EQM1].SetDoorClose();
+                    ListEQM[ePos - enumPosition.EQM1].tShutterDoorCloseSetW(); //用一次緒關門，不卡robot動作
                     break;
 
             }

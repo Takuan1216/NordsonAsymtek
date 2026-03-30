@@ -187,7 +187,7 @@ namespace RorzeApi.Class
         {
             _RecipeName = strRecipeName;
             _EQ_ProcessEnable = string.Join(",", listEQProcessEnable.Select(b => b ? "true" : "false"));
-            _EQRecipe = string.Join(",", listEQRecipe); ;
+            _EQRecipe = string.Join("", listEQRecipe);
             _M12 = M12;
             _T7 = T7;
             _HistoryUser = strHistoryUser;

@@ -43,7 +43,7 @@ namespace RorzeApi
         enumTransferMode m_eTransferMode = enumTransferMode.Display;
         enumTransferModeType m_eTransferModeType;
 
-        bool[] m_bPreferEQ = new bool[4] { false, false, false, false };//優先設備，預設都不優先
+        bool[] m_bApplyEQ = new bool[4] { false, false, false, false };//優先設備，預設都不優先
         bool m_bNoAign = false;
         string m_strRecipe = String.Empty;
 
@@ -420,19 +420,55 @@ namespace RorzeApi
 
                 guiEquipmentStatus1.Visible = (ListEQM[0] != null && ListEQM[0].Disable == false);
                 guiEquipmentStatus1.EQName = ListEQM[0] != null ? ListEQM[0]._Name : "Equipment";
-                if (ListEQM[0].Disable == false) ListEQM[0].EQ_WaferChange += Equipment_WaferChange;              //  更新UI
+                if (ListEQM[0].Disable == false)
+                {
+                    ListEQM[0].EQ_WaferChange += Equipment_WaferChange;              //  更新UI
+                    int index = applyEQ_clb.Items.IndexOf("Nordson1");
+                    if (index != -1)
+                    {
+                        applyEQ_clb.SetItemChecked(index, true);
+                    }
+                }
+                if (ListEQM[0].Disable == true) applyEQ_clb.Items.Remove("Nordson1");
 
                 guiEquipmentStatus2.Visible = (ListEQM[1] != null && ListEQM[1].Disable == false);
                 guiEquipmentStatus2.EQName = ListEQM[1] != null ? ListEQM[1]._Name : "Equipment";
-                if (ListEQM[1].Disable == false) ListEQM[1].EQ_WaferChange += Equipment_WaferChange;              //  更新UI
+                if (ListEQM[1].Disable == false)
+                {
+                    ListEQM[1].EQ_WaferChange += Equipment_WaferChange;              //  更新UI
+                    int index = applyEQ_clb.Items.IndexOf("Nordson2");
+                    if (index != -1)
+                    {
+                        applyEQ_clb.SetItemChecked(index, true);
+                    }
+                }
+                if (ListEQM[1].Disable == true) applyEQ_clb.Items.Remove("Nordson2");
 
                 guiEquipmentStatus3.Visible = (ListEQM[2] != null && ListEQM[2].Disable == false);
                 guiEquipmentStatus3.EQName = ListEQM[2] != null ? ListEQM[2]._Name : "Equipment";
-                if (ListEQM[2].Disable == false) ListEQM[2].EQ_WaferChange += Equipment_WaferChange;              //  更新UI
+                if (ListEQM[2].Disable == false)
+                {
+                    ListEQM[2].EQ_WaferChange += Equipment_WaferChange;              //  更新UI
+                    int index = applyEQ_clb.Items.IndexOf("Nordson3");
+                    if (index != -1)
+                    {
+                        applyEQ_clb.SetItemChecked(index, true);
+                    }
+                }
+                if (ListEQM[2].Disable == true) applyEQ_clb.Items.Remove("Nordson3");
 
                 guiEquipmentStatus4.Visible = (ListEQM[3] != null && ListEQM[3].Disable == false);
                 guiEquipmentStatus4.EQName = ListEQM[3] != null ? ListEQM[3]._Name : "Equipment";
-                if (ListEQM[3].Disable == false) ListEQM[3].EQ_WaferChange += Equipment_WaferChange;              //  更新UI
+                if (ListEQM[3].Disable == false)
+                {
+                    ListEQM[3].EQ_WaferChange += Equipment_WaferChange;              //  更新UI
+                    int index = applyEQ_clb.Items.IndexOf("Nordson4");
+                    if (index != -1)
+                    {
+                        applyEQ_clb.SetItemChecked(index, true);
+                    }
+                }
+                if (ListEQM[3].Disable == true) applyEQ_clb.Items.Remove("Nordson4");
 
                 //-----------------------------------------------------
                 if (GParam.theInst.IsUnitDisable(enumUnit.BUF1))
@@ -1181,7 +1217,7 @@ namespace RorzeApi
                     if (ListEQM[0].Disable)
                     {
                         guiEquipmentStatus1.SetStatus = _0.GUI_UserCtrl.GUIEquipmentStatus.enumState.Disable;
-                        preferEQ_clb.Items.Remove("EQ1");                        
+                        applyEQ_clb.Items.Remove("EQ1");                        
                     }
                     else if (ListEQM[0].IsProcessing)
                     {
@@ -1206,7 +1242,7 @@ namespace RorzeApi
                     if (ListEQM[1].Disable)
                     {
                         guiEquipmentStatus2.SetStatus = _0.GUI_UserCtrl.GUIEquipmentStatus.enumState.Disable;
-                        preferEQ_clb.Items.Remove("EQ2");
+                        applyEQ_clb.Items.Remove("EQ2");
                     }
                     else if (ListEQM[1].IsProcessing)
                     {
@@ -1231,7 +1267,7 @@ namespace RorzeApi
                     if (ListEQM[2].Disable)
                     {
                         guiEquipmentStatus3.SetStatus = _0.GUI_UserCtrl.GUIEquipmentStatus.enumState.Disable;
-                        preferEQ_clb.Items.Remove("EQ3");
+                        applyEQ_clb.Items.Remove("EQ3");
                     }
                     else if (ListEQM[2].IsProcessing)
                     {
@@ -1256,7 +1292,7 @@ namespace RorzeApi
                     if (ListEQM[3].Disable)
                     {
                         guiEquipmentStatus4.SetStatus = _0.GUI_UserCtrl.GUIEquipmentStatus.enumState.Disable;
-                        preferEQ_clb.Items.Remove("EQ4");
+                        applyEQ_clb.Items.Remove("EQ4");
                     }
                     else if (ListEQM[3].IsProcessing)
                     {
@@ -2283,28 +2319,29 @@ namespace RorzeApi
                         }
                     }
 
-                    foreach (var item in preferEQ_clb.CheckedItems)
+                    for (int i = 0; i < applyEQ_clb.Items.Count; i++)
                     {
-                        string name = item.ToString();
+                        string name = applyEQ_clb.Items[i].ToString();
+                        bool isChecked = applyEQ_clb.GetItemChecked(i);
 
                         switch (name)
                         {
-                            case "EQ1":
-                                m_bPreferEQ[0] = true;
+                            case "Nordson1":
+                                m_bApplyEQ[0] = isChecked;
                                 break;
-                            case "EQ2":
-                                m_bPreferEQ[1] = true;
+                            case "Nordson2":
+                                m_bApplyEQ[1] = isChecked;
                                 break;
-                            case "EQ3":
-                                m_bPreferEQ[2] = true;
+                            case "Nordson3":
+                                m_bApplyEQ[2] = isChecked;
                                 break;
-                            case "EQ4":
-                                m_bPreferEQ[3] = true;
+                            case "Nordson4":
+                                m_bApplyEQ[3] = isChecked;
                                 break;
                         }
                     }
 
-                    if (m_autoProcess.CreateJob(ref m_QueWaferJob, m_bNoAign, m_strRecipe) == false)//Main
+                    if (m_dbGrouprecipe.GetRecipeGroupList.ContainsKey(m_strRecipe) == false || m_autoProcess.CreateJob(ref m_QueWaferJob, m_bNoAign, m_strRecipe, m_bApplyEQ) == false)//Main
                     {
                         new frmMessageBox(string.Format("Create TransferJob fail!!!"), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning).ShowDialog();
                         return;

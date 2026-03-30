@@ -1819,18 +1819,18 @@ namespace RorzeApi.Class
                     if (robotManual.quePreCommand.Count > 0) goto DontMove;
                 }
 
-                //20250923 HSC
-                bool[] EQEnableFlags;
-                if (waferData.RecipeID == "")
-                {
-                    EQEnableFlags = null;
-                }
-                else
-                {
-                    SGroupRecipe rcpeContent = m_grouprecipe.GetRecipeGroupList[waferData.RecipeID];
-                    m_strXYZRecipe = rcpeContent.GetEQ_Recipe()[0];
-                    EQEnableFlags = rcpeContent.GetEQ_ProcessEnable();
-                }
+                ////20250923 HSC
+                //bool[] EQEnableFlags;
+                //if (waferData.RecipeID == "")
+                //{
+                //    EQEnableFlags = null;
+                //}
+                //else
+                //{
+                //    SGroupRecipe rcpeContent = m_grouprecipe.GetRecipeGroupList[waferData.RecipeID];
+                //    m_strXYZRecipe = rcpeContent.GetEQ_Recipe()[0];
+                //    EQEnableFlags = rcpeContent.GetEQ_ProcessEnable();
+                //}
 
                 enumRobotArms arm = enumRobotArms.Empty;
                 int nStgeIndx = -1;
@@ -2272,7 +2272,7 @@ namespace RorzeApi.Class
                                 goto DontMove;
                                 #endregion
                             }
-                            else if (GParam.theInst.IsUnitDisable(enumUnit.EQM1) != true && EQEnableFlags != null && EQEnableFlags[0] == true && waferData.AlgnComplete == true && waferData.Eqm1Complete == false && waferData.WaferIDComparison == enumWaferIDComparison.IDAgree)
+                            else if (GParam.theInst.IsUnitDisable(enumUnit.EQM1) != true && waferData.AlgnComplete == true && waferData.Eqm1Complete == false && waferData.WaferIDComparison == enumWaferIDComparison.IDAgree)
                             {
                                 SSEquipment equipment = ListEQM[0];
                                 #region Put Equipment
@@ -4296,7 +4296,7 @@ namespace RorzeApi.Class
 
         #region 建立傳送帳料
         private string m_strRecipeRecord;
-        public bool CreateJob(ref ConcurrentQueue<clsSelectWaferInfo> selectWaferInfo, bool bNoAign, string strRecipe)
+        public bool CreateJob(ref ConcurrentQueue<clsSelectWaferInfo> selectWaferInfo, bool bNoAign, string strRecipe, bool[] applyEQ)
         {
             bool bSuccess = false;
             lock (this)
@@ -4406,6 +4406,21 @@ namespace RorzeApi.Class
                         {
                             WriteLog(string.Format("Recipe is empty or wrong."));
                             return false;
+                        }
+                    }
+
+                    for (int i = 0; i < applyEQ.Length; i++)
+                    {
+                        if (applyEQ[i])
+                        {
+                            m_grouprecipe.GetRecipeGroupList.TryGetValue(strRecipe, out var list);
+                            List<string> test = ListEQM[i].RecipeList();
+                            // EQ啟用要問recipelist
+                            if (!test.Contains(list._EQRecipe))
+                            {
+                                WriteLog(string.Format($"Nordson{i+1} Recipe list dosen't include: {strRecipe}."));
+                                return false;
+                            }
                         }
                     }
                     #endregion

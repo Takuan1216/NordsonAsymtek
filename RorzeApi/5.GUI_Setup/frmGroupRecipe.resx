@@ -222,6 +222,645 @@
   <data name="tlpEQ4.ColumnCount" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
+  <data name="&gt;&gt;lblEQ4Name.Name" xml:space="preserve">
+    <value>lblEQ4Name</value>
+  </data>
+  <data name="&gt;&gt;lblEQ4Name.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEQ4Name.Parent" xml:space="preserve">
+    <value>tlpEQ4</value>
+  </data>
+  <data name="&gt;&gt;lblEQ4Name.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnEQ4Recipe.Name" xml:space="preserve">
+    <value>btnEQ4Recipe</value>
+  </data>
+  <data name="&gt;&gt;btnEQ4Recipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnEQ4Recipe.Parent" xml:space="preserve">
+    <value>tlpEQ4</value>
+  </data>
+  <data name="&gt;&gt;btnEQ4Recipe.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblEQ4Recipe.Name" xml:space="preserve">
+    <value>lblEQ4Recipe</value>
+  </data>
+  <data name="&gt;&gt;lblEQ4Recipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEQ4Recipe.Parent" xml:space="preserve">
+    <value>tlpEQ4</value>
+  </data>
+  <data name="&gt;&gt;lblEQ4Recipe.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;cbxEQ4Recipe.Name" xml:space="preserve">
+    <value>cbxEQ4Recipe</value>
+  </data>
+  <data name="&gt;&gt;cbxEQ4Recipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbxEQ4Recipe.Parent" xml:space="preserve">
+    <value>tlpEQ4</value>
+  </data>
+  <data name="&gt;&gt;cbxEQ4Recipe.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tlpEQ4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tlpEQ4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 398</value>
+  </data>
+  <data name="tlpEQ4.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tlpEQ4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>712, 78</value>
+  </data>
+  <data name="tlpEQ4.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="tlpEQ4.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ4.Name" xml:space="preserve">
+    <value>tlpEQ4</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ4.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tlpEQ4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblEQ4Name" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnEQ4Recipe" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblEQ4Recipe" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="cbxEQ4Recipe" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tlpEQ3.ColumnCount" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;lblEQ3Name.Name" xml:space="preserve">
+    <value>lblEQ3Name</value>
+  </data>
+  <data name="&gt;&gt;lblEQ3Name.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEQ3Name.Parent" xml:space="preserve">
+    <value>tlpEQ3</value>
+  </data>
+  <data name="&gt;&gt;lblEQ3Name.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnEQ3Recipe.Name" xml:space="preserve">
+    <value>btnEQ3Recipe</value>
+  </data>
+  <data name="&gt;&gt;btnEQ3Recipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnEQ3Recipe.Parent" xml:space="preserve">
+    <value>tlpEQ3</value>
+  </data>
+  <data name="&gt;&gt;btnEQ3Recipe.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblEQ3Recipe.Name" xml:space="preserve">
+    <value>lblEQ3Recipe</value>
+  </data>
+  <data name="&gt;&gt;lblEQ3Recipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEQ3Recipe.Parent" xml:space="preserve">
+    <value>tlpEQ3</value>
+  </data>
+  <data name="&gt;&gt;lblEQ3Recipe.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;cbxEQ3Recipe.Name" xml:space="preserve">
+    <value>cbxEQ3Recipe</value>
+  </data>
+  <data name="&gt;&gt;cbxEQ3Recipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbxEQ3Recipe.Parent" xml:space="preserve">
+    <value>tlpEQ3</value>
+  </data>
+  <data name="&gt;&gt;cbxEQ3Recipe.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tlpEQ3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tlpEQ3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 319</value>
+  </data>
+  <data name="tlpEQ3.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tlpEQ3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>712, 73</value>
+  </data>
+  <data name="tlpEQ3.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="tlpEQ3.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ3.Name" xml:space="preserve">
+    <value>tlpEQ3</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ3.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tlpEQ3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblEQ3Name" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnEQ3Recipe" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblEQ3Recipe" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="cbxEQ3Recipe" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tlpEQ2.ColumnCount" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;lblEQ2Name.Name" xml:space="preserve">
+    <value>lblEQ2Name</value>
+  </data>
+  <data name="&gt;&gt;lblEQ2Name.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEQ2Name.Parent" xml:space="preserve">
+    <value>tlpEQ2</value>
+  </data>
+  <data name="&gt;&gt;lblEQ2Name.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnEQ2Recipe.Name" xml:space="preserve">
+    <value>btnEQ2Recipe</value>
+  </data>
+  <data name="&gt;&gt;btnEQ2Recipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnEQ2Recipe.Parent" xml:space="preserve">
+    <value>tlpEQ2</value>
+  </data>
+  <data name="&gt;&gt;btnEQ2Recipe.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblEQ2Recipe.Name" xml:space="preserve">
+    <value>lblEQ2Recipe</value>
+  </data>
+  <data name="&gt;&gt;lblEQ2Recipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEQ2Recipe.Parent" xml:space="preserve">
+    <value>tlpEQ2</value>
+  </data>
+  <data name="&gt;&gt;lblEQ2Recipe.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;cbxEQ2Recipe.Name" xml:space="preserve">
+    <value>cbxEQ2Recipe</value>
+  </data>
+  <data name="&gt;&gt;cbxEQ2Recipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbxEQ2Recipe.Parent" xml:space="preserve">
+    <value>tlpEQ2</value>
+  </data>
+  <data name="&gt;&gt;cbxEQ2Recipe.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tlpEQ2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tlpEQ2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 240</value>
+  </data>
+  <data name="tlpEQ2.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tlpEQ2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>712, 73</value>
+  </data>
+  <data name="tlpEQ2.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="tlpEQ2.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ2.Name" xml:space="preserve">
+    <value>tlpEQ2</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tlpEQ2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblEQ2Name" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnEQ2Recipe" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblEQ2Recipe" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="cbxEQ2Recipe" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tlpEQ1.ColumnCount" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="lblEQName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblEQName.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblEQName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="lblEQName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="lblEQName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 67</value>
+  </data>
+  <data name="lblEQName.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lblEQName.Text" xml:space="preserve">
+    <value>EQ Recipe</value>
+  </data>
+  <data name="lblEQName.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblEQName.Name" xml:space="preserve">
+    <value>lblEQName</value>
+  </data>
+  <data name="&gt;&gt;lblEQName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEQName.Parent" xml:space="preserve">
+    <value>tlpEQ1</value>
+  </data>
+  <data name="&gt;&gt;lblEQName.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnEQRecipe.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="btnEQRecipe.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 15.75pt</value>
+  </data>
+  <data name="btnEQRecipe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>152, 10</value>
+  </data>
+  <data name="btnEQRecipe.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="btnEQRecipe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 53</value>
+  </data>
+  <data name="btnEQRecipe.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnEQRecipe.Text" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="&gt;&gt;btnEQRecipe.Name" xml:space="preserve">
+    <value>btnEQRecipe</value>
+  </data>
+  <data name="&gt;&gt;btnEQRecipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnEQRecipe.Parent" xml:space="preserve">
+    <value>tlpEQ1</value>
+  </data>
+  <data name="&gt;&gt;btnEQRecipe.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblEQRecipe.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblEQRecipe.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblEQRecipe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 3</value>
+  </data>
+  <data name="lblEQRecipe.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="lblEQRecipe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 67</value>
+  </data>
+  <data name="lblEQRecipe.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lblEQRecipe.Text" xml:space="preserve">
+    <value>Recipe</value>
+  </data>
+  <data name="lblEQRecipe.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblEQRecipe.Name" xml:space="preserve">
+    <value>lblEQRecipe</value>
+  </data>
+  <data name="&gt;&gt;lblEQRecipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEQRecipe.Parent" xml:space="preserve">
+    <value>tlpEQ1</value>
+  </data>
+  <data name="&gt;&gt;lblEQRecipe.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cbxEQRecipe.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="cbxEQRecipe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>430, 26</value>
+  </data>
+  <data name="cbxEQRecipe.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="cbxEQRecipe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 37</value>
+  </data>
+  <data name="cbxEQRecipe.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cbxEQRecipe.Name" xml:space="preserve">
+    <value>cbxEQRecipe</value>
+  </data>
+  <data name="&gt;&gt;cbxEQRecipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbxEQRecipe.Parent" xml:space="preserve">
+    <value>tlpEQ1</value>
+  </data>
+  <data name="&gt;&gt;cbxEQRecipe.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tlpEQ1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tlpEQ1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 161</value>
+  </data>
+  <data name="tlpEQ1.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tlpEQ1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>712, 73</value>
+  </data>
+  <data name="tlpEQ1.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ1.Name" xml:space="preserve">
+    <value>tlpEQ1</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tlpEQ1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tlpEQ1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblEQName" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnEQRecipe" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblEQRecipe" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="cbxEQRecipe" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tlpBack.ColumnCount" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>tlpBack</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnOCR_Back_Recip.Name" xml:space="preserve">
+    <value>btnOCR_Back_Recip</value>
+  </data>
+  <data name="&gt;&gt;btnOCR_Back_Recip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnOCR_Back_Recip.Parent" xml:space="preserve">
+    <value>tlpBack</value>
+  </data>
+  <data name="&gt;&gt;btnOCR_Back_Recip.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>tlpBack</value>
+  </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;cbxOCR_Back_Recip.Name" xml:space="preserve">
+    <value>cbxOCR_Back_Recip</value>
+  </data>
+  <data name="&gt;&gt;cbxOCR_Back_Recip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbxOCR_Back_Recip.Parent" xml:space="preserve">
+    <value>tlpBack</value>
+  </data>
+  <data name="&gt;&gt;cbxOCR_Back_Recip.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tlpBack.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tlpBack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 82</value>
+  </data>
+  <data name="tlpBack.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tlpBack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>712, 73</value>
+  </data>
+  <data name="tlpBack.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;tlpBack.Name" xml:space="preserve">
+    <value>tlpBack</value>
+  </data>
+  <data name="&gt;&gt;tlpBack.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tlpBack.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tlpBack.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tlpBack.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label7" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnOCR_Back_Recip" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label9" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="cbxOCR_Back_Recip" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tlpFront.ColumnCount" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>tlpFront</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnOCR_Front_Recipe.Name" xml:space="preserve">
+    <value>btnOCR_Front_Recipe</value>
+  </data>
+  <data name="&gt;&gt;btnOCR_Front_Recipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnOCR_Front_Recipe.Parent" xml:space="preserve">
+    <value>tlpFront</value>
+  </data>
+  <data name="&gt;&gt;btnOCR_Front_Recipe.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>tlpFront</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;cbxOCR_Front_Recipe.Name" xml:space="preserve">
+    <value>cbxOCR_Front_Recipe</value>
+  </data>
+  <data name="&gt;&gt;cbxOCR_Front_Recipe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbxOCR_Front_Recipe.Parent" xml:space="preserve">
+    <value>tlpFront</value>
+  </data>
+  <data name="&gt;&gt;cbxOCR_Front_Recipe.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tlpFront.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tlpFront.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="tlpFront.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tlpFront.Size" type="System.Drawing.Size, System.Drawing">
+    <value>712, 73</value>
+  </data>
+  <data name="tlpFront.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;tlpFront.Name" xml:space="preserve">
+    <value>tlpFront</value>
+  </data>
+  <data name="&gt;&gt;tlpFront.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tlpFront.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tlpFront.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tlpFront.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label4" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnOCR_Front_Recipe" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label8" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="cbxOCR_Front_Recipe" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 33</value>
+  </data>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>718, 479</value>
+  </data>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
+    <value>btn</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tlpEQ4" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tlpEQ3" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tlpEQ2" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tlpEQ1" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tlpBack" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tlpFront" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,16.66667,Percent,16.66667,Percent,16.66667,Percent,16.66667,Percent,16.66667,Percent,16.66667" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="btn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 18pt</value>
+  </data>
+  <data name="btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 55</value>
+  </data>
+  <data name="btn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>726, 515</value>
+  </data>
+  <data name="btn.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btn.Text" xml:space="preserve">
+    <value>Process sequence</value>
+  </data>
+  <data name="&gt;&gt;btn.Name" xml:space="preserve">
+    <value>btn</value>
+  </data>
+  <data name="&gt;&gt;btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;btn.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="lblEQ4Name.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -362,42 +1001,6 @@
   </data>
   <data name="&gt;&gt;cbxEQ4Recipe.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="tlpEQ4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tlpEQ4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 398</value>
-  </data>
-  <data name="tlpEQ4.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tlpEQ4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>712, 78</value>
-  </data>
-  <data name="tlpEQ4.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="tlpEQ4.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ4.Name" xml:space="preserve">
-    <value>tlpEQ4</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ4.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ4.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tlpEQ4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblEQ4Name" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnEQ4Recipe" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblEQ4Recipe" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="cbxEQ4Recipe" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="tlpEQ3.ColumnCount" type="System.Int32, mscorlib">
-    <value>5</value>
   </data>
   <data name="lblEQ3Name.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -540,42 +1143,6 @@
   <data name="&gt;&gt;cbxEQ3Recipe.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="tlpEQ3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tlpEQ3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 319</value>
-  </data>
-  <data name="tlpEQ3.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tlpEQ3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>712, 73</value>
-  </data>
-  <data name="tlpEQ3.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="tlpEQ3.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ3.Name" xml:space="preserve">
-    <value>tlpEQ3</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ3.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ3.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tlpEQ3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblEQ3Name" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnEQ3Recipe" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblEQ3Recipe" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="cbxEQ3Recipe" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="tlpEQ2.ColumnCount" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <data name="lblEQ2Name.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -717,207 +1284,6 @@
   <data name="&gt;&gt;cbxEQ2Recipe.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="tlpEQ2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tlpEQ2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 240</value>
-  </data>
-  <data name="tlpEQ2.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tlpEQ2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>712, 73</value>
-  </data>
-  <data name="tlpEQ2.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="tlpEQ2.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ2.Name" xml:space="preserve">
-    <value>tlpEQ2</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ2.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tlpEQ2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblEQ2Name" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnEQ2Recipe" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblEQ2Recipe" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="cbxEQ2Recipe" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="tlpEQ1.ColumnCount" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="lblEQ1Name.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblEQ1Name.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="lblEQ1Name.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="lblEQ1Name.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="lblEQ1Name.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 67</value>
-  </data>
-  <data name="lblEQ1Name.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="lblEQ1Name.Text" xml:space="preserve">
-    <value>EQ1 Recipe</value>
-  </data>
-  <data name="lblEQ1Name.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;lblEQ1Name.Name" xml:space="preserve">
-    <value>lblEQ1Name</value>
-  </data>
-  <data name="&gt;&gt;lblEQ1Name.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblEQ1Name.Parent" xml:space="preserve">
-    <value>tlpEQ1</value>
-  </data>
-  <data name="&gt;&gt;lblEQ1Name.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnEQ1Recipe.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="btnEQ1Recipe.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 15.75pt</value>
-  </data>
-  <data name="btnEQ1Recipe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>152, 10</value>
-  </data>
-  <data name="btnEQ1Recipe.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="btnEQ1Recipe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 53</value>
-  </data>
-  <data name="btnEQ1Recipe.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="btnEQ1Recipe.Text" xml:space="preserve">
-    <value>Enable</value>
-  </data>
-  <data name="&gt;&gt;btnEQ1Recipe.Name" xml:space="preserve">
-    <value>btnEQ1Recipe</value>
-  </data>
-  <data name="&gt;&gt;btnEQ1Recipe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnEQ1Recipe.Parent" xml:space="preserve">
-    <value>tlpEQ1</value>
-  </data>
-  <data name="&gt;&gt;btnEQ1Recipe.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lblEQ1Recipe.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblEQ1Recipe.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="lblEQ1Recipe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 3</value>
-  </data>
-  <data name="lblEQ1Recipe.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="lblEQ1Recipe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 67</value>
-  </data>
-  <data name="lblEQ1Recipe.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="lblEQ1Recipe.Text" xml:space="preserve">
-    <value>Recipe</value>
-  </data>
-  <data name="lblEQ1Recipe.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;lblEQ1Recipe.Name" xml:space="preserve">
-    <value>lblEQ1Recipe</value>
-  </data>
-  <data name="&gt;&gt;lblEQ1Recipe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblEQ1Recipe.Parent" xml:space="preserve">
-    <value>tlpEQ1</value>
-  </data>
-  <data name="&gt;&gt;lblEQ1Recipe.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="cbxEQ1Recipe.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="cbxEQ1Recipe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 26</value>
-  </data>
-  <data name="cbxEQ1Recipe.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="cbxEQ1Recipe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 37</value>
-  </data>
-  <data name="cbxEQ1Recipe.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;cbxEQ1Recipe.Name" xml:space="preserve">
-    <value>cbxEQ1Recipe</value>
-  </data>
-  <data name="&gt;&gt;cbxEQ1Recipe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbxEQ1Recipe.Parent" xml:space="preserve">
-    <value>tlpEQ1</value>
-  </data>
-  <data name="&gt;&gt;cbxEQ1Recipe.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tlpEQ1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tlpEQ1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 161</value>
-  </data>
-  <data name="tlpEQ1.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tlpEQ1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>712, 73</value>
-  </data>
-  <data name="tlpEQ1.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ1.Name" xml:space="preserve">
-    <value>tlpEQ1</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ1.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tlpEQ1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tlpEQ1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblEQ1Name" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnEQ1Recipe" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblEQ1Recipe" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="cbxEQ1Recipe" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="tlpBack.ColumnCount" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1049,39 +1415,6 @@
   </data>
   <data name="&gt;&gt;cbxOCR_Back_Recip.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="tlpBack.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tlpBack.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 82</value>
-  </data>
-  <data name="tlpBack.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tlpBack.Size" type="System.Drawing.Size, System.Drawing">
-    <value>712, 73</value>
-  </data>
-  <data name="tlpBack.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;tlpBack.Name" xml:space="preserve">
-    <value>tlpBack</value>
-  </data>
-  <data name="&gt;&gt;tlpBack.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tlpBack.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tlpBack.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="tlpBack.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label7" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnOCR_Back_Recip" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label9" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="cbxOCR_Back_Recip" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="tlpFront.ColumnCount" type="System.Int32, mscorlib">
-    <value>5</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1224,99 +1557,6 @@
   <data name="&gt;&gt;cbxOCR_Front_Recipe.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="tlpFront.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tlpFront.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="tlpFront.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tlpFront.Size" type="System.Drawing.Size, System.Drawing">
-    <value>712, 73</value>
-  </data>
-  <data name="tlpFront.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;tlpFront.Name" xml:space="preserve">
-    <value>tlpFront</value>
-  </data>
-  <data name="&gt;&gt;tlpFront.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tlpFront.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tlpFront.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="tlpFront.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label4" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnOCR_Front_Recipe" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label8" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="cbxOCR_Front_Recipe" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,20,Percent,20,Percent,20,Percent,20,Percent,20" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 33</value>
-  </data>
-  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>718, 479</value>
-  </data>
-  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
-    <value>btn</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tlpEQ4" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tlpEQ3" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tlpEQ2" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tlpEQ1" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tlpBack" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tlpFront" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,16.66667,Percent,16.66667,Percent,16.66667,Percent,16.66667,Percent,16.66667,Percent,16.66667" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="btn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 18pt</value>
-  </data>
-  <data name="btn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 55</value>
-  </data>
-  <data name="btn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="btn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>726, 515</value>
-  </data>
-  <data name="btn.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="btn.Text" xml:space="preserve">
-    <value>Process sequence</value>
-  </data>
-  <data name="&gt;&gt;btn.Name" xml:space="preserve">
-    <value>btn</value>
-  </data>
-  <data name="&gt;&gt;btn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;btn.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1347,8 +1587,131 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblLastModfiyUser" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label5" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblLastModifyDate" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,30,Percent,70" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 584</value>
+  </data>
+  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>723, 71</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Modify info</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="tableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblLastModfiyUser.Name" xml:space="preserve">
+    <value>lblLastModfiyUser</value>
+  </data>
+  <data name="&gt;&gt;lblLastModfiyUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblLastModfiyUser.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;lblLastModfiyUser.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblLastModifyDate.Name" xml:space="preserve">
+    <value>lblLastModifyDate</value>
+  </data>
+  <data name="&gt;&gt;lblLastModifyDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblLastModifyDate.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;lblLastModifyDate.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 18</value>
+  </data>
+  <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>715, 50</value>
+  </data>
+  <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblLastModfiyUser" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label5" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblLastModifyDate" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,30,Percent,70" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="lblLastModfiyUser.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1487,66 +1850,6 @@
   </data>
   <data name="&gt;&gt;lblLastModifyDate.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="tableLayoutPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 18</value>
-  </data>
-  <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>715, 50</value>
-  </data>
-  <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
-    <value>tableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblLastModfiyUser" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label5" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblLastModifyDate" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,30,Percent,70" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 584</value>
-  </data>
-  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>723, 71</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Modify info</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>

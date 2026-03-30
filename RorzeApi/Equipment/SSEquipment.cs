@@ -605,8 +605,7 @@ namespace RorzeUnit.Class.EQ
                 if (!Simulate && !SetDoorCloseW())
                     throw new SException((int)enumEQError.ShutterDoorCloseFail, string.Format("ShutterDoorClose failed"));
 
-                if (m_Socket.isConnected())
-                    GetRecipeListW();
+                GetRecipeListW();
                 IsProcessing = false;
                 ErrorMSG = ""; // HSC 
                 OnOrgnComplete?.Invoke(this, true);
@@ -714,11 +713,11 @@ namespace RorzeUnit.Class.EQ
         //========================= Send Command ======================================= 
         public void SendCommand(string strCommand)
         {
-            if (m_Socket.isConnected() == false)
-            {
-                SendAlmMsg(enumEQError.Socket_Disconnected);
-                throw new SException((int)enumEQError.Socket_Disconnected, string.Format("EQ Socket is disconnected!"));
-            }
+            //if (m_Socket.isConnected() == false)
+            //{
+            //    SendAlmMsg(enumEQError.Socket_Disconnected);
+            //    throw new SException((int)enumEQError.Socket_Disconnected, string.Format("EQ Socket is disconnected!"));
+            //}
             m_Socket.SendCommand(strCommand);
             OnReadData?.Invoke(this, new MessageEventArgs(new string[] { "send:" + strCommand }));
         }
@@ -803,10 +802,6 @@ namespace RorzeUnit.Class.EQ
 
         public void GetRecipeListW()
         {
-            if (Connected == false)
-            {
-                return;
-            }
             int nTimeout = GParam.theInst.GetEQAckTimeout;
             enumSendCmd eCmd = enumSendCmd.RecipeList;
             _signalSubSequence.Reset();

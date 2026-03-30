@@ -67,6 +67,7 @@
             this.tabPageNotchFnc = new System.Windows.Forms.TabPage();
             this.guiNotchAngle1 = new RorzeApi.GUI.GUINotchAngle();
             this.tlpTransferMenu = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnTransferFunctionType = new System.Windows.Forms.Button();
@@ -78,6 +79,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.btnTransferFunction = new System.Windows.Forms.Button();
+            this.applyEQ_clb = new System.Windows.Forms.CheckedListBox();
             this.btnTransferShow = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnUIPickWaferAllClear = new System.Windows.Forms.Button();
@@ -124,8 +126,6 @@
             this.DGVCJlist = new System.Windows.Forms.DataGridView();
             this.pnlLeft = new System.Windows.Forms.Panel();
             this.cbxViewSlotInfo = new System.Windows.Forms.ComboBox();
-            this.preferEQ_clb = new System.Windows.Forms.CheckedListBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.pnlRight.SuspendLayout();
             this.tabCtrlTransferFnc.SuspendLayout();
             this.tabPageUnit.SuspendLayout();
@@ -433,8 +433,13 @@
             this.tlpTransferMenu.Controls.Add(this.label10, 1, 2);
             this.tlpTransferMenu.Controls.Add(this.label12, 2, 2);
             this.tlpTransferMenu.Controls.Add(this.btnTransferFunction, 1, 1);
-            this.tlpTransferMenu.Controls.Add(this.preferEQ_clb, 1, 5);
+            this.tlpTransferMenu.Controls.Add(this.applyEQ_clb, 1, 5);
             this.tlpTransferMenu.Name = "tlpTransferMenu";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
             // 
             // label13
             // 
@@ -505,6 +510,21 @@
             this.btnTransferFunction.Name = "btnTransferFunction";
             this.btnTransferFunction.UseVisualStyleBackColor = true;
             this.btnTransferFunction.Click += new System.EventHandler(this.btnTransferFunction_Click);
+            // 
+            // applyEQ_clb
+            // 
+            this.applyEQ_clb.BackColor = System.Drawing.SystemColors.Control;
+            this.applyEQ_clb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tlpTransferMenu.SetColumnSpan(this.applyEQ_clb, 2);
+            resources.ApplyResources(this.applyEQ_clb, "applyEQ_clb");
+            this.applyEQ_clb.FormattingEnabled = true;
+            this.applyEQ_clb.Items.AddRange(new object[] {
+            resources.GetString("applyEQ_clb.Items"),
+            resources.GetString("applyEQ_clb.Items1"),
+            resources.GetString("applyEQ_clb.Items2"),
+            resources.GetString("applyEQ_clb.Items3")});
+            this.applyEQ_clb.Name = "applyEQ_clb";
+            this.tlpTransferMenu.SetRowSpan(this.applyEQ_clb, 3);
             // 
             // btnTransferShow
             // 
@@ -1004,26 +1024,6 @@
             this.cbxViewSlotInfo.Name = "cbxViewSlotInfo";
             this.cbxViewSlotInfo.SelectionChangeCommitted += new System.EventHandler(this.cbxViewSlotInfo_SelectionChangeCommitted);
             // 
-            // preferEQ_clb
-            // 
-            this.preferEQ_clb.BackColor = System.Drawing.SystemColors.Control;
-            this.preferEQ_clb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tlpTransferMenu.SetColumnSpan(this.preferEQ_clb, 2);
-            resources.ApplyResources(this.preferEQ_clb, "preferEQ_clb");
-            this.preferEQ_clb.FormattingEnabled = true;
-            this.preferEQ_clb.Items.AddRange(new object[] {
-            resources.GetString("preferEQ_clb.Items"),
-            resources.GetString("preferEQ_clb.Items1"),
-            resources.GetString("preferEQ_clb.Items2"),
-            resources.GetString("preferEQ_clb.Items3")});
-            this.preferEQ_clb.Name = "preferEQ_clb";
-            this.tlpTransferMenu.SetRowSpan(this.preferEQ_clb, 3);
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
-            // 
             // frmMain
             // 
             resources.ApplyResources(this, "$this");
@@ -1174,7 +1174,7 @@
         private _0.GUI_UserCtrl.GUIEquipmentStatus guiEquipmentStatus3;
         private _0.GUI_UserCtrl.GUIEquipmentStatus guiEquipmentStatus2;
         private _0.GUI_UserCtrl.GUIEquipmentStatus guiEquipmentStatus4;
-        private System.Windows.Forms.CheckedListBox preferEQ_clb;
+        private System.Windows.Forms.CheckedListBox applyEQ_clb;
         private System.Windows.Forms.Label label6;
     }
 }

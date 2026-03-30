@@ -41,7 +41,7 @@ namespace RorzeApi
             }*/
 
             TableLayoutPanel tlpEQ = tlpEQ1;
-            Label lblEQ = lblEQ1Name;
+            Label lblEQ = lblEQName;
             tlpEQ.Visible = false;
             lblEQ.Text = "disable";
             for (int i = 0; i < m_listEQM.Count; i++)
@@ -121,14 +121,14 @@ namespace RorzeApi
             bool findT7 = false;
             string ErrorStr = string.Empty;
             frmMessageBox frm;
-            // cbxRecipeList.Text = "";
-            cbxEQ1Recipe.Text = "";
+            //cbxRecipeList.Text = "";
+            cbxEQRecipe.Text = "";
             cbxOCR_Front_Recipe.Text = "";
             cbxOCR_Back_Recip.Text = "";
-            btnEQ1Recipe.BackColor = Color.White;
+            btnEQRecipe.BackColor = Color.White;
             btnOCR_Front_Recipe.BackColor = Color.White;
             btnOCR_Back_Recip.BackColor = Color.White;
-            cbxEQ1Recipe.Enabled = false;
+            cbxEQRecipe.Enabled = false;
             cbxOCR_Front_Recipe.Enabled = false;
             cbxOCR_Back_Recip.Enabled = false;
 
@@ -136,14 +136,14 @@ namespace RorzeApi
             lblLastModifyDate.Text = "";
             if (_grouprecipe.GetRecipeGroupList.ContainsKey(cbxRecipeList.Text))
             {
-                bool[] listEQEnable = _grouprecipe.GetRecipeGroupList[cbxRecipeList.Text].GetEQ_ProcessEnable();
-                string[] listEQRecipe = _grouprecipe.GetRecipeGroupList[cbxRecipeList.Text].GetEQ_Recipe();
+                //bool[] listEQEnable = _grouprecipe.GetRecipeGroupList[cbxRecipeList.Text].GetEQ_ProcessEnable();
+                //string[] listEQRecipe = _grouprecipe.GetRecipeGroupList[cbxRecipeList.Text].GetEQ_Recipe();
 
-                Label[] lblEQName = new Label[] { lblEQ1Name, lblEQ2Name, lblEQ3Name, lblEQ4Name };
-                Button[] btnEQrecipe = new Button[] { btnEQ1Recipe, btnEQ2Recipe, btnEQ3Recipe, btnEQ4Recipe };
-                ComboBox[] cbxEQrecipe = new ComboBox[] { cbxEQ1Recipe, cbxEQ2Recipe, cbxEQ3Recipe, cbxEQ4Recipe };
-                bool[] bFindEQrecipe = new bool[] { false, false, false, false };
-                for (int i = 0; i < listEQRecipe.Length; i++)
+                //Label[] lblEQName = new Label[] { lblEQ1Name, lblEQ2Name, lblEQ3Name, lblEQ4Name };
+                //Button[] btnEQrecipe = new Button[] { btnEQ1Recipe, btnEQ2Recipe, btnEQ3Recipe, btnEQ4Recipe };
+                //ComboBox[] cbxEQrecipe = new ComboBox[] { cbxEQ1Recipe, cbxEQ2Recipe, cbxEQ3Recipe, cbxEQ4Recipe };
+                //bool[] bFindEQrecipe = new bool[] { false, false, false, false };
+                for (int i = 0; i < m_listEQM.Count; i++)
                 {
                     SSEquipment equipment = m_listEQM[i];
 
@@ -152,21 +152,23 @@ namespace RorzeApi
                         continue;
                     }
 
-                    if (listEQEnable != null && listEQEnable.Length > i)
-                        btnEQrecipe[i].BackColor = listEQEnable[i] ? Color.LightBlue : Color.White;
+                    //if (listEQEnable != null && listEQEnable.Length > i)
+                    //    btnEQrecipe[i].BackColor = listEQEnable[i] ? Color.LightBlue : Color.White;
+
+                    btnEQRecipe.BackColor = Enum.GetValues(typeof(enumEQM)).Cast<enumEQM>().Any(eq => !GParam.theInst.EqmDisable((int)eq)) ? Color.LightBlue : Color.White;
 
 
-                    foreach (string item in equipment.RecipeList())
-                    {
-                        if (item == listEQRecipe[0])//找對應清單內哪一個
-                        {
+                    //foreach (string item in equipment.RecipeList())
+                    //{
+                    //    if (item == listEQRecipe[0])//找對應清單內哪一個
+                    //    {
 
-                            cbxEQrecipe[i].Enabled = true;
-                            cbxEQrecipe[i].Text = item;
-                            bFindEQrecipe[i] = true;
-                            break;
-                        }
-                    }
+                    //        cbxEQrecipe[i].Enabled = true;
+                    //        cbxEQrecipe[i].Text = item;
+                    //        bFindEQrecipe[i] = true;
+                    //        break;
+                    //    }
+                    //}
                 }
 
                 if (_grouprecipe.GetRecipeGroupList[cbxRecipeList.Text]._M12 != "")
@@ -210,9 +212,18 @@ namespace RorzeApi
                     if (item == null || item.Disable || item.RecipeList().Count == 0)
                         continue;
                     int nIndex = item._BodyNo - 1;
+                    if (btnEQRecipe.BackColor == Color.LightBlue)
+                    {
+                        cbxEQRecipe.Enabled = true;
+                        cbxEQRecipe.Text = _grouprecipe.GetRecipeGroupList[cbxRecipeList.Text]._EQRecipe;
+                    }
+                    else
+                    {
+                        cbxEQRecipe.Enabled = false;
+                    }
 
-                    if (!bFindEQrecipe[nIndex])
-                        ErrorStr += item._Name + ",";
+                    //if (!bFindEQrecipe[nIndex])
+                    //    ErrorStr += item._Name + ",";
                 }
 
                 if (!findM12)
@@ -238,10 +249,10 @@ namespace RorzeApi
             Button btn = sender as Button;
             btn.BackColor = btn.BackColor == Color.White ? Color.LightBlue : Color.White;
 
-            if (btn == btnEQ1Recipe)
+            if (btn == btnEQRecipe)
             {
-                cbxEQ1Recipe.Enabled = (btn.BackColor == Color.White) ? false : true;
-                cbxEQ1Recipe.SelectedIndex = -1;
+                cbxEQRecipe.Enabled = (btn.BackColor == Color.White) ? false : true;
+                cbxEQRecipe.SelectedIndex = -1;
             }
             if (btn == btnEQ2Recipe)
             {
@@ -275,7 +286,7 @@ namespace RorzeApi
             if (this.Visible)
             {
                 cbxRecipeList.Items.Clear();
-                cbxEQ1Recipe.Items.Clear();
+                cbxEQRecipe.Items.Clear();
                 cbxOCR_Front_Recipe.Items.Clear();
                 cbxOCR_Back_Recip.Items.Clear();
 
@@ -300,12 +311,8 @@ namespace RorzeApi
                             cbxEQ[i].Items.Add(EQRecipe);
                     }
                 }*/
-
-                ComboBox cbxEQ = cbxEQ1Recipe;
-                Label lblEQrecipe = lblEQ1Recipe; 
-                Button btnEQrecipe = btnEQ1Recipe;
-                cbxEQ.Visible = false;
-                lblEQrecipe.Text = "NoRecipe";
+                cbxEQRecipe.Visible = false;
+                lblEQRecipe.Text = "NoRecipe";
                 for (int i = 0; i < m_listEQM.Count; i++)
                 {
                     SSEquipment equipment = m_listEQM[i];
@@ -317,11 +324,11 @@ namespace RorzeApi
                     else
                     {
                         foreach (string EQRecipe in equipment.RecipeList())
-                            if (!cbxEQ.Items.Contains(EQRecipe))
+                            if (!cbxEQRecipe.Items.Contains(EQRecipe))
                             {
-                                cbxEQ.Visible = true;
-                                lblEQrecipe.Text = "Recipe";
-                                cbxEQ.Items.Add(EQRecipe);
+                                cbxEQRecipe.Visible = true;
+                                lblEQRecipe.Text = "Recipe";
+                                cbxEQRecipe.Items.Add(EQRecipe);
                             }
                     }
                 }
@@ -338,13 +345,13 @@ namespace RorzeApi
                 }
 
                 cbxRecipeList.Text = "";
-                cbxEQ1Recipe.Text = "";
+                cbxEQRecipe.Text = "";
                 cbxOCR_Front_Recipe.Text = "";
                 cbxOCR_Back_Recip.Text = "";
-                btnEQ1Recipe.BackColor = Color.White;
+                btnEQRecipe.BackColor = Color.White;
                 btnOCR_Front_Recipe.BackColor = Color.White;
                 btnOCR_Back_Recip.BackColor = Color.White;
-                cbxEQ1Recipe.Enabled = false;
+                cbxEQRecipe.Enabled = false;
                 cbxOCR_Front_Recipe.Enabled = false;
                 cbxOCR_Back_Recip.Enabled = false;
 
@@ -365,8 +372,8 @@ namespace RorzeApi
                 return;
             }
 
-            if (btnEQ1Recipe.BackColor == Color.LightBlue
-                && cbxEQ1Recipe.Visible && cbxEQ1Recipe.Text == "")
+            if (btnEQRecipe.BackColor == Color.LightBlue
+                && cbxEQRecipe.Visible && cbxEQRecipe.Text == "")
             {
                 frm = new frmMessageBox(string.Format("Need selete EQ1 recipe , Please check it"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 frm.ShowDialog();
@@ -417,8 +424,8 @@ namespace RorzeApi
             {
                 if (new frmMessageBox(string.Format("Do you want to modify {0} Group Recipe", cbxRecipeList.Text), "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ShowDialog() == DialogResult.Yes)
                 {
-                    List<bool> listEQ_Enable = new List<bool> { btnEQ1Recipe.BackColor == Color.LightBlue, btnEQ2Recipe.BackColor == Color.LightBlue, btnEQ3Recipe.BackColor == Color.LightBlue, btnEQ4Recipe.BackColor == Color.LightBlue };
-                    List<string> listEQ_Recipe = new List<string>() { cbxEQ1Recipe.Text, cbxEQ2Recipe.Text, cbxEQ3Recipe.Text, cbxEQ4Recipe.Text };
+                    List<bool> listEQ_Enable = new List<bool> { btnEQRecipe.BackColor == Color.LightBlue, btnEQ2Recipe.BackColor == Color.LightBlue, btnEQ3Recipe.BackColor == Color.LightBlue, btnEQ4Recipe.BackColor == Color.LightBlue };
+                    List<string> listEQ_Recipe = new List<string>() { cbxEQRecipe.Text, cbxEQ2Recipe.Text, cbxEQ3Recipe.Text, cbxEQ4Recipe.Text };
                     _grouprecipe.ModifyRecipe(cbxRecipeList.Text, listEQ_Enable, listEQ_Recipe, (btnOCR_Front_Recipe.BackColor == Color.LightBlue) ? cbxOCR_Front_Recipe.Text : "", (btnOCR_Back_Recip.BackColor == Color.LightBlue) ? cbxOCR_Back_Recip.Text : "", _user.UserID);
                 }
 
@@ -427,8 +434,8 @@ namespace RorzeApi
             {
                 if (new frmMessageBox(string.Format("Do you want to create {0} Group Recipe", cbxRecipeList.Text), "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ShowDialog() == DialogResult.Yes)
                 {
-                    List<bool> listEQ_Enable = new List<bool> { btnEQ1Recipe.BackColor == Color.LightBlue, btnEQ2Recipe.BackColor == Color.LightBlue, btnEQ3Recipe.BackColor == Color.LightBlue, btnEQ4Recipe.BackColor == Color.LightBlue };
-                    List<string> listEQ_Recipe = new List<string>() { cbxEQ1Recipe.Text, cbxEQ2Recipe.Text, cbxEQ3Recipe.Text, cbxEQ4Recipe.Text };
+                    List<bool> listEQ_Enable = new List<bool> { btnEQRecipe.BackColor == Color.LightBlue, btnEQ2Recipe.BackColor == Color.LightBlue, btnEQ3Recipe.BackColor == Color.LightBlue, btnEQ4Recipe.BackColor == Color.LightBlue };
+                    List<string> listEQ_Recipe = new List<string>() { cbxEQRecipe.Text, cbxEQ2Recipe.Text, cbxEQ3Recipe.Text, cbxEQ4Recipe.Text };
 
                     _grouprecipe.ModifyRecipe(cbxRecipeList.Text, listEQ_Enable, listEQ_Recipe, (btnOCR_Front_Recipe.BackColor == Color.LightBlue) ? cbxOCR_Front_Recipe.Text : "", (btnOCR_Back_Recip.BackColor == Color.LightBlue) ? cbxOCR_Back_Recip.Text : "", _user.UserID);
                     cbxRecipeList.Items.Clear();

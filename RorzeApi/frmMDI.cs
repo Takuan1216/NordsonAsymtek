@@ -2176,7 +2176,7 @@ namespace RorzeApi
 
                     str = "Constructing Transfer Manager Object.";
                     frmloading.AddMessage(str);
-                    _autoProcess = new STransfer(ListTRB, ListSTG, ListALN, ListE84, ListOCR, ListBUF, _JobControl, _grouprecipe, _dbProcess, _alarm, _DataBase, _VIDControl, ListEQM);
+                    _autoProcess = new STransfer(ListTRB, ListSTG, ListALN, ListE84, ListOCR, ListBUF, _JobControl, _grouprecipe, _dbProcess, _alarm, _DataBase, _VIDControl, ListEQM, ListAdam);
                     WriteLog(str);
                 }
                 #endregion =====================================================================  
@@ -5035,6 +5035,11 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target no wafer !!");
                             return true;
                         }
+                        if (equipment.IsReadyUnload == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Unload!!");
+                            return true;
+                        }
                         equipment.SetRobotGetSMEMA(true);
                         break;
                     case enumRobotAction.Unlaod:
@@ -5046,6 +5051,11 @@ namespace RorzeApi
                         if (equipment.Wafer != null)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target has wafer !!");
+                            return true;
+                        }
+                        if (equipment.IsReadyLoad == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Load!!");
                             return true;
                         }
                         equipment.SetRobotPutSMEMA(true);
@@ -5108,6 +5118,11 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target no wafer !!");
                             return true;
                         }
+                        if (equipment.IsReadyUnload == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Unload!!");
+                            return true;
+                        }
                         equipment.SetRobotGetSMEMA(true);
                         break;
                     case enumRobotAction.Unlaod:
@@ -5119,6 +5134,11 @@ namespace RorzeApi
                         if (equipment.Wafer != null)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target has wafer !!");
+                            return true;
+                        }
+                        if (equipment.IsReadyLoad == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Load!!");
                             return true;
                         }
                         equipment.SetRobotPutSMEMA(true);
@@ -5180,6 +5200,11 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target no wafer !!");
                             return true;
                         }
+                        if (equipment.IsReadyUnload == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Unload!!");
+                            return true;
+                        }
                         equipment.SetRobotGetSMEMA(true);
                         break;
                     case enumRobotAction.Unlaod:
@@ -5191,6 +5216,11 @@ namespace RorzeApi
                         if (equipment.Wafer != null)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target has wafer !!");
+                            return true;
+                        }
+                        if (equipment.IsReadyLoad == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Load!!");
                             return true;
                         }
                         equipment.SetRobotPutSMEMA(true);
@@ -5253,6 +5283,11 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target no wafer !!");
                             return true;
                         }
+                        if (equipment.IsReadyUnload == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Unload!!");
+                            return true;
+                        }
                         equipment.SetRobotGetSMEMA(true);
                         break;
                     case enumRobotAction.Unlaod:
@@ -5264,6 +5299,11 @@ namespace RorzeApi
                         if (equipment.Wafer != null)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target has wafer !!");
+                            return true;
+                        }
+                        if (equipment.IsReadyLoad == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Load!!");
                             return true;
                         }
                         equipment.SetRobotPutSMEMA(true);
@@ -5641,17 +5681,17 @@ namespace RorzeApi
                 return false;
             }
 
-            if (isEQDetectFinger(equipment))
+            if (isEQDetectFinger(equipment) && !GParam.theInst.IsSimulate)
             {
                 ErrorMSG = "ShutterDoorOpenW: EQ detect finger interlock.";
                 return false;
             }
 
-            if (isEFEMExtedToEQ(equipment))
-            {
-                ErrorMSG = "ShutterDoorOpenW: EFEM extended to EQ interlock.";
-                return false;
-            }
+            //if (isEFEMExtedToEQ(equipment))
+            //{
+            //    ErrorMSG = "ShutterDoorOpenW: EFEM extended to EQ interlock.";
+            //    return false;
+            //}
 
             if (IsShutterDoorOpen(equipment))
                 return true;
@@ -5659,6 +5699,7 @@ namespace RorzeApi
 
             try
             {
+                if (GParam.theInst.IsSimulate) return true;
                 ShutterDoorOpen(equipment);
 
                 bool ok = SpinWait.SpinUntil(() => IsShutterDoorOpen(equipment), shutterDoorTimeout);

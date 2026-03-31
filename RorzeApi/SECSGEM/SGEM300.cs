@@ -5233,7 +5233,7 @@ namespace RorzeApi.SECSGEM
                         #region MTRLOUTSPEC
                         case "MTRLOUTSPEC":
                             MTRLOUTSPECCount = _secsdriver.DataItemIn(SecsFormateType.L, ref secsMsg, ref Value);
-
+                            bool[] bApplyEQ = new bool[4] { false, false, false, false };
                             for (int j = 0; j < MTRLOUTSPECCount; j++)
                             {
                                 SubListCount = _secsdriver.DataItemIn(SecsFormateType.L, ref secsMsg, ref Value);
@@ -5250,6 +5250,7 @@ namespace RorzeApi.SECSGEM
                                 string TempWafer_LotID = "";
                                 string TempWafer_WaferID_B = "";
                                 FindCarrier = false;
+                                
                                 for (int k = 0; k < SubListCount; k++)
 
                                 {
@@ -5357,7 +5358,7 @@ namespace RorzeApi.SECSGEM
 
 
 
-                                _jobcontrol.PJlist[ExcutPJID].AssginSourceSlotInfo(SourceCarrierID, SourceSlot, TagetCarrierID, TagetSlot, TagetPort,
+                                _jobcontrol.PJlist[ExcutPJID].AssginSourceSlotInfo(SourceCarrierID, SourceSlot, TagetCarrierID, TagetSlot, TagetPort, bApplyEQ,
                                     WaferID: TempWafer_WaferID_B, lotID: TempWafer_LotID,
                                     dNotchAngle: PJobject.Align_Angle, UseAligner: PJobject.Use_Align, UseOCR: PJobject.Use_OCR, OCR_Recipe: PJobject.RecipeName);
 
@@ -5456,13 +5457,14 @@ namespace RorzeApi.SECSGEM
 
 
                             PJobject = _jobcontrol.PJlist[ExcutePJ];
+                            bool[] bApplyEQ = new bool[4] { false, false, false, false };
 
                             for (int i = 1; i <= 25; i++)
                             {
 
                                 if (PJobject.ContainsSourceSlot(excuteCarrier, i) == true)
                                 {
-                                    _jobcontrol.PJlist[ExcutePJ].AssginSourceSlotInfo(excuteCarrier, i, excuteCarrier, i, carrierList[excuteCarrier],
+                                    _jobcontrol.PJlist[ExcutePJ].AssginSourceSlotInfo(excuteCarrier, i, excuteCarrier, i, carrierList[excuteCarrier], bApplyEQ,
                                     dNotchAngle: PJobject.Align_Angle, UseAligner: PJobject.Use_Align, UseOCR: PJobject.Use_OCR, OCR_Recipe: PJobject.RecipeName);
 
 

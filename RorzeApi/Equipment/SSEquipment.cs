@@ -600,9 +600,13 @@ namespace RorzeUnit.Class.EQ
             {
                 //待確認原點流程
                 int test = _BodyNo;
+                if (test == 4)
+                {
+
+                }
                 m_executelog.WriteLog("[ EQ ] ExeOrgn:Start");
 
-                if (!Simulate && !SetDoorCloseW())
+                if (!SetDoorCloseW())
                     throw new SException((int)enumEQError.ShutterDoorCloseFail, string.Format("ShutterDoorClose failed"));
 
                 GetRecipeListW();

@@ -1006,6 +1006,8 @@ namespace RorzeUnit.Class.Robot
                 this.ResetInPos();
                 this.ResetOrgnSinal();
                 this.OrgnW(m_nAckTimeout);
+                this.WaitInPos(300000);
+                this.WaitOrgnCompleted(m_nAckTimeout);
                 if (!ExtXaxisDisable)
                 {
                     TBL_560.ResetInPos();
@@ -1018,9 +1020,6 @@ namespace RorzeUnit.Class.Robot
                 }
 
                 SpinWait.SpinUntil(() => false, 2000);
-
-                this.WaitInPos(300000);
-                this.WaitOrgnCompleted(m_nAckTimeout);
 
                 this.GpioW(m_nAckTimeout);
                 if (!ExtXaxisDisable)

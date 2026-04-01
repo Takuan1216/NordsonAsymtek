@@ -84,11 +84,19 @@ namespace RorzeUnit.Class
         private enumFromLoader m_eFromLoadport;                     //#22 Source Loadport
 
         private bool m_robotorder;                                  //#23 Kevin Robot order this wafer , So Finish need check
-        private Dictionary<enumPosition, bool> m_bEqProcessComplete = new Dictionary<enumPosition, bool>();//#24 Equipment 完成
-
-
+        private bool m_bEqProcessComplete = false;//#24 Equipment 完成
         Dictionary<string, string> m_dicMeasureData = new Dictionary<string, string>();   //#25 Equipment 結果
         List<InspectData> m_listInspectData = new List<InspectData>();  //#25 Equipment 結果
+        private bool[] m_ApplyEQ = new bool[4] { false, false, false, false };
+
+        private enumPosition _usingEQ = enumPosition.UnKnow;
+        private bool IsEQM(enumPosition pos)
+        {
+            return pos == enumPosition.EQM1 ||
+                   pos == enumPosition.EQM2 ||
+                   pos == enumPosition.EQM3 ||
+                   pos == enumPosition.EQM4;
+        }
         #endregion
 
         #region public
@@ -190,46 +198,20 @@ namespace RorzeUnit.Class
         //  #23
         public bool Robotorder { get { return m_robotorder; } set { m_robotorder = value; } }
         //  #24 Equipment 完成
-        public bool Eqm1Complete
+        public bool EqmComplete
         {
             get
             {
                 // 若不存在就視為false或丟錯誤，看你需求
-                bool value;
-                if (m_bEqProcessComplete.TryGetValue(enumPosition.EQM1, out value))
-                {
-                    return value;
-                }
-                else
-                {
-                    return false;
-                }
+                return m_bEqProcessComplete;
             }
             set
             {
-                m_bEqProcessComplete[enumPosition.EQM1] = value;
+                m_bEqProcessComplete = value;
             }
         }
-        public bool IsEqProcessComplete()
-        {
-            bool allTrue = m_bEqProcessComplete.All(item => item.Value);
-            return allTrue;
-        }
-        public bool IsEqProcessComplete(enumPosition ePos)
-        {
-            bool bComplete = false;
-            if (m_bEqProcessComplete.ContainsKey(ePos))
-                bComplete = m_bEqProcessComplete[ePos];
 
-            return bComplete;
-        }
-        public void SetEqProcessComplete(enumPosition ePos)
-        {
-            if (m_bEqProcessComplete.ContainsKey(ePos))
-                m_bEqProcessComplete[ePos] = true;
-        }
-
-
+        public bool[] WApplyEQ { get { return m_ApplyEQ; } set { m_ApplyEQ = value; } }
 
 
         //  #25 Equipment 結果
@@ -248,13 +230,20 @@ namespace RorzeUnit.Class
                 m_dicMeasureData.Add(item.Key, item.Value);
             }
         }
-
-
-
         public List <InspectData> GetInspectData()
         {
             return m_listInspectData;
         }
+
+        public void SetUsingEQ(enumPosition pos)
+        {
+            if (!IsEQM(pos))
+                throw new ArgumentException("UsingEQ 只能是 EQM1 ~ EQM4");
+
+            _usingEQ = pos;
+        }
+
+        public enumPosition GetUsingEQ { get { return _usingEQ; } }
 
         #endregion
 
@@ -289,18 +278,8 @@ namespace RorzeUnit.Class
                 m_strToFoupID = strFoupID;                           //  #20 預設跟取的地方一樣
                 m_dNotchAngle = -1;                                  //  #21          
                 m_eFromLoadport = owner;                             //#22 預設跟取的地方一樣
-                m_bEqProcessComplete[enumPosition.EQM1] = false;     //  #24 預設wafer尚未進入EQ1
-                m_bEqProcessComplete[enumPosition.EQM2] = false;     //  #24 預設wafer尚未進入EQ2
                 m_robotorder = false;
                 DataSync();
-
-                for (int i = 0; i < 4; i++)
-                {
-                    if (isEQDisable.Length > i)
-                        m_bEqProcessComplete.Add(enumPosition.EQM1 + i, isEQDisable[i]);
-                    else
-                        m_bEqProcessComplete.Add(enumPosition.EQM1 + i, true);
-                }
 
 
             }

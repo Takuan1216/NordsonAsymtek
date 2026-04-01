@@ -2038,7 +2038,11 @@ namespace RorzeApi
 
                         equipment.DlgSetDoorCloseW = ShutterDoorCloseW;
                         equipment.DlgSetDoorOpenW = ShutterDoorOpenW;
+<<<<<<< HEAD
                         equipment.DlgSetDoorOpen = ShutterDoorOpen;
+=======
+                        //equipment.DlgSetDoorOpen = ShutterDoorOpen;
+>>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                         equipment.DlgSetRobotExtendIO = robotExtendCtrlIO;
 
                         equipment.DlgReadyUnload = EQ_ReadyToUnload;
@@ -2176,7 +2180,7 @@ namespace RorzeApi
 
                     str = "Constructing Transfer Manager Object.";
                     frmloading.AddMessage(str);
-                    _autoProcess = new STransfer(ListTRB, ListSTG, ListALN, ListE84, ListOCR, ListBUF, _JobControl, _grouprecipe, _dbProcess, _alarm, _DataBase, _VIDControl, ListEQM);
+                    _autoProcess = new STransfer(ListTRB, ListSTG, ListALN, ListE84, ListOCR, ListBUF, _JobControl, _grouprecipe, _dbProcess, _alarm, _DataBase, _VIDControl, ListEQM, ListAdam);
                     WriteLog(str);
                 }
                 #endregion =====================================================================  
@@ -5035,6 +5039,11 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target no wafer !!");
                             return true;
                         }
+                        if (equipment.IsReadyUnload == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Unload!!");
+                            return true;
+                        }
                         equipment.SetRobotGetSMEMA(true);
                         break;
                     case enumRobotAction.Unlaod:
@@ -5046,6 +5055,11 @@ namespace RorzeApi
                         if (equipment.Wafer != null)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target has wafer !!");
+                            return true;
+                        }
+                        if (equipment.IsReadyLoad == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Load!!");
                             return true;
                         }
                         equipment.SetRobotPutSMEMA(true);
@@ -5108,6 +5122,11 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target no wafer !!");
                             return true;
                         }
+                        if (equipment.IsReadyUnload == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Unload!!");
+                            return true;
+                        }
                         equipment.SetRobotGetSMEMA(true);
                         break;
                     case enumRobotAction.Unlaod:
@@ -5119,6 +5138,11 @@ namespace RorzeApi
                         if (equipment.Wafer != null)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target has wafer !!");
+                            return true;
+                        }
+                        if (equipment.IsReadyLoad == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Load!!");
                             return true;
                         }
                         equipment.SetRobotPutSMEMA(true);
@@ -5180,6 +5204,11 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target no wafer !!");
                             return true;
                         }
+                        if (equipment.IsReadyUnload == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Unload!!");
+                            return true;
+                        }
                         equipment.SetRobotGetSMEMA(true);
                         break;
                     case enumRobotAction.Unlaod:
@@ -5191,6 +5220,11 @@ namespace RorzeApi
                         if (equipment.Wafer != null)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target has wafer !!");
+                            return true;
+                        }
+                        if (equipment.IsReadyLoad == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Load!!");
                             return true;
                         }
                         equipment.SetRobotPutSMEMA(true);
@@ -5253,6 +5287,11 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target no wafer !!");
                             return true;
                         }
+                        if (equipment.IsReadyUnload == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Unload!!");
+                            return true;
+                        }
                         equipment.SetRobotGetSMEMA(true);
                         break;
                     case enumRobotAction.Unlaod:
@@ -5264,6 +5303,11 @@ namespace RorzeApi
                         if (equipment.Wafer != null)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target has wafer !!");
+                            return true;
+                        }
+                        if (equipment.IsReadyLoad == false)
+                        {
+                            _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Load!!");
                             return true;
                         }
                         equipment.SetRobotPutSMEMA(true);
@@ -5406,9 +5450,9 @@ namespace RorzeApi
         //  EQ有實體的訊號(rc530)
         private bool EQ_WaferExist(object sender)
         {
+            SSEquipment equipment = sender as SSEquipment;
             try
             {
-                SSEquipment equipment = sender as SSEquipment;
                 if (equipment.Simulate || GParam.theInst.IsSimulate || equipment.Disable)
                 {
                     return equipment.Wafer != null;
@@ -5440,12 +5484,12 @@ namespace RorzeApi
             }
             catch (SException ex)
             {
-                _errorLog.WriteLog("[ MDI ]:<<SException>> EQ_WaferExist:" + ex);
+                _errorLog.WriteLog(string.Format("[ MDI ]:<<SException>> EQ{0}: EQ_WaferExist:" + ex, equipment._BodyNo));
                 return false;
             }
             catch (Exception ex)
             {
-                _errorLog.WriteLog("[ MDI ]:<<Exception>> EQ_WaferExist:" + ex);
+                _errorLog.WriteLog(string.Format("[ MDI ]:<<Exception>> EQ{0}: EQ_WaferExist:" + ex, equipment._BodyNo));
                 return false;
             }
         }
@@ -5453,10 +5497,9 @@ namespace RorzeApi
         //  EQ有實體的訊號(rc530)
         private bool EQ_StageReady(object sender)
         {
+            SSEquipment equipment = sender as SSEquipment;
             try
             {
-
-                SSEquipment equipment = sender as SSEquipment;
                 if (equipment.Simulate || GParam.theInst.IsSimulate || equipment.Disable)
                 {
                     return equipment.Wafer != null;
@@ -5488,21 +5531,21 @@ namespace RorzeApi
             }
             catch (SException ex)
             {
-                _errorLog.WriteLog("[ MDI ]:<<SException>> EQ_WaferExist:" + ex);
+                _errorLog.WriteLog(string.Format("[ MDI ]:<<SException>> EQ{0}: EQ_StageReady:" + ex, equipment._BodyNo));
                 return false;
             }
             catch (Exception ex)
             {
-                _errorLog.WriteLog("[ MDI ]:<<Exception>> EQ_WaferExist:" + ex);
+                _errorLog.WriteLog(string.Format("[ MDI ]:<<Exception>> EQ{0}: EQ_StageReady:" + ex, equipment._BodyNo));
                 return false;
             }
 
         }
         private bool EQ_MaintDoorOpen(object sender)
         {
+            SSEquipment equipment = sender as SSEquipment;
             try
             {
-                SSEquipment equipment = sender as SSEquipment;
                 if (equipment.Simulate || GParam.theInst.IsSimulate || equipment.Disable)
                 {
                     return false;
@@ -5534,12 +5577,12 @@ namespace RorzeApi
             }
             catch (SException ex)
             {
-                _errorLog.WriteLog("[ MDI ]:<<SException>> EQ_WaferExist:" + ex);
+                _errorLog.WriteLog(string.Format("[ MDI ]:<<SException>> EQ{0}: EQ_MaintDoorOpen:" + ex, equipment._BodyNo));
                 return false;
             }
             catch (Exception ex)
             {
-                _errorLog.WriteLog("[ MDI ]:<<Exception>> EQ_WaferExist:" + ex);
+                _errorLog.WriteLog(string.Format("[ MDI ]:<<Exception>> EQ{0}: EQ_MaintDoorOpen:" + ex, equipment._BodyNo));
                 return false;
             }
 
@@ -5618,6 +5661,7 @@ namespace RorzeApi
 
             raw = ListDIO[2].GetGDIO_OutputStatus(0, bit);
 
+
             // EQIOSwitchToExtend:
             // 0: raw 表示 retracted(縮回)  => extend = !raw  (原本邏輯)
             // 1: raw 表示 extended(伸出)   => extend = raw
@@ -5630,6 +5674,7 @@ namespace RorzeApi
         }
 
         private bool ShutterDoorOpenW(object sender)
+<<<<<<< HEAD
         {
             SSEquipment equipment = sender as SSEquipment;
             string ErrorMSG = "";
@@ -5687,6 +5732,8 @@ namespace RorzeApi
             }
         }
         private bool ShutterDoorOpen(object sender)
+=======
+>>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
         {
             SSEquipment equipment = sender as SSEquipment;
             string ErrorMSG = "";
@@ -5694,21 +5741,21 @@ namespace RorzeApi
 
             if (!_shutterMap.TryGetValue(equipment._BodyNo, out bits))
             {
-                ErrorMSG = $"ShutterDoorOpen: shutterMap not found for BodyNo={equipment._BodyNo}.";
+                ErrorMSG = $"ShutterDoorOpenW: shutterMap not found for BodyNo={equipment._BodyNo}.";
                 return false;
             }
 
-            if (isEQDetectFinger(equipment))
+            if (isEQDetectFinger(equipment) && !GParam.theInst.IsSimulate)
             {
-                ErrorMSG = "ShutterDoorOpen: EQ detect finger interlock.";
+                ErrorMSG = $"ShutterDoorOpenW: EQ detect finger interlock for BodyNo={equipment._BodyNo}.";
                 return false;
             }
 
-            if (isEFEMExtedToEQ(equipment))
-            {
-                ErrorMSG = "ShutterDoorOpen: EFEM extended to EQ interlock.";
-                return false;
-            }
+            //if (isEFEMExtedToEQ(equipment))
+            //{
+            //    ErrorMSG = "ShutterDoorOpenW: EFEM extended to EQ interlock.";
+            //    return false;
+            //}
 
             if (IsShutterDoorOpen(equipment))
                 return true;
@@ -5716,15 +5763,32 @@ namespace RorzeApi
 
             try
             {
+                if (GParam.theInst.IsSimulate) return true;
                 ListDIO[4].SdobW(0, bits.CloseDo, false);
                 Thread.Sleep(100);
                 ListDIO[4].SdobW(0, bits.OpenDo, true);
+<<<<<<< HEAD
                 return true;
+=======
+
+                bool ok = SpinWait.SpinUntil(() => IsShutterDoorOpen(equipment), shutterDoorTimeout);
+                if (!ok)
+                    ErrorMSG = $"ShutterDoorOpenW: timeout waiting door open DI for BodyNo={equipment._BodyNo}..";
+
+                return ok;
+>>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
+            }
+            catch (SException ex)
+            {
+                ErrorMSG = $"ShutterDoorOpenW exception: {ex.Message}";
+                _errorLog?.WriteLog(string.Format("EQ{0}: [ EQ ] <<SException>> ShutterDoorOpenW:" + ex, equipment._BodyNo));
+
+                return false;
             }
             catch (Exception ex)
             {
-                ErrorMSG = $"ShutterDoorOpen exception: {ex.Message}";
-                _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorOpen:" + ex);
+                ErrorMSG = $"ShutterDoorOpenW exception: {ex.Message}";
+                _errorLog?.WriteLog(string.Format("EQ{0}: [ EQ ] <<Exception>> ShutterDoorOpenW:" + ex, equipment._BodyNo));
 
                 return false;
             }
@@ -5736,10 +5800,67 @@ namespace RorzeApi
                 }
                 catch (Exception ex)
                 {
-                    _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorOpen finally:" + ex);
+                    _errorLog?.WriteLog(string.Format("EQ{0} [ EQ ] <<Exception>> ShutterDoorOpenW finally:" + ex, equipment._BodyNo));
                 }
             }
         }
+<<<<<<< HEAD
+=======
+        //private bool ShutterDoorOpen(object sender)
+        //{
+        //    SSEquipment equipment = sender as SSEquipment;
+        //    string ErrorMSG = "";
+        //    (int OpenDo, int CloseDo, int OpenDi, int CloseDi) bits;
+
+        //    if (!_shutterMap.TryGetValue(equipment._BodyNo, out bits))
+        //    {
+        //        ErrorMSG = $"ShutterDoorOpen: shutterMap not found for BodyNo={equipment._BodyNo}.";
+        //        return false;
+        //    }
+
+        //    if (isEQDetectFinger(equipment))
+        //    {
+        //        ErrorMSG = "ShutterDoorOpen: EQ detect finger interlock.";
+        //        return false;
+        //    }
+
+        //    if (isEFEMExtedToEQ(equipment))
+        //    {
+        //        ErrorMSG = "ShutterDoorOpen: EFEM extended to EQ interlock.";
+        //        return false;
+        //    }
+
+        //    if (IsShutterDoorOpen(equipment))
+        //        return true;
+
+
+        //    try
+        //    {
+        //        ListDIO[4].SdobW(0, bits.CloseDo, false);
+        //        Thread.Sleep(100);
+        //        ListDIO[4].SdobW(0, bits.OpenDo, true);
+        //        return true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ErrorMSG = $"ShutterDoorOpen exception: {ex.Message}";
+        //        _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorOpen:" + ex);
+
+        //        return false;
+        //    }
+        //    finally
+        //    {
+        //        try
+        //        {
+        //            ListDIO[4].SdobW(0, bits.OpenDo, false);
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorOpen finally:" + ex);
+        //        }
+        //    }
+        //}
+>>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
         private bool ShutterDoorCloseW(object sender)
         {
             SSEquipment equipment = sender as SSEquipment;
@@ -5754,13 +5875,21 @@ namespace RorzeApi
 
             if (isEQDetectFinger(equipment))
             {
+<<<<<<< HEAD
                 ErrorMSG = "ShutterDoorCloseW: EQ detect finger interlock.";
+=======
+                ErrorMSG = $"ShutterDoorCloseW: EQ detect finger interlock for BodyNo={equipment._BodyNo}.";
+>>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                 return false;
             }
 
             if (isEFEMExtedToEQ(equipment))
             {
+<<<<<<< HEAD
                 ErrorMSG = "ShutterDoorCloseW: EFEM extended to EQ interlock.";
+=======
+                ErrorMSG = $"ShutterDoorCloseW: EFEM extended to EQ interlock for BodyNo={equipment._BodyNo}.";
+>>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                 return false;
             }
 
@@ -5780,13 +5909,21 @@ namespace RorzeApi
                 {
                     if (sw.ElapsedMilliseconds >= shutterDoorTimeout)
                     {
+<<<<<<< HEAD
                         ErrorMSG = "ShutterDoorCloseW: timeout waiting door close DI.";
+=======
+                        ErrorMSG = $"ShutterDoorCloseW: timeout waiting door close DI  for BodyNo={equipment._BodyNo}.";
+>>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                         _errorLog?.WriteLog("[ EQ ] " + ErrorMSG);
                         return false;
                     }
 
                     // 例：危險狀態解除時做一次額外處理
+<<<<<<< HEAD
                     if (!isEQDetectFinger(equipment))
+=======
+                    if (isEQDetectFinger(equipment))
+>>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                     {
                         equipment.TriggerSException(enumEQError.ShutterDoor1_protrude_sensor_detect + (equipment._BodyNo - 1));
                     }
@@ -5798,14 +5935,22 @@ namespace RorzeApi
             catch (SException ex)
             {
                 ErrorMSG = $"ShutterDoorCloseW exception: {ex.Message}";
+<<<<<<< HEAD
                 _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorCloseW:" + ex);
+=======
+                _errorLog?.WriteLog(string.Format("EQ{0}: [ EQ ] <<SException>> ShutterDoorCloseW:" + ex, equipment._BodyNo));
+>>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
 
                 return false;
             }
             catch (Exception ex)
             {
                 ErrorMSG = $"ShutterDoorCloseW exception: {ex.Message}";
+<<<<<<< HEAD
                 _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorCloseW:" + ex);
+=======
+                _errorLog?.WriteLog(string.Format("EQ{0}: [ EQ ] <<Exception>> ShutterDoorCloseW:" + ex, equipment._BodyNo));
+>>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
 
                 return false;
             }
@@ -5818,7 +5963,11 @@ namespace RorzeApi
                 }
                 catch (Exception ex)
                 {
+<<<<<<< HEAD
                     _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorCloseW finally error:" + ex);
+=======
+                    _errorLog?.WriteLog(string.Format("EQ{0} [ EQ ] <<Exception>> ShutterDoorCloseW finally:" + ex, equipment._BodyNo));
+>>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                 }
             }
         }
@@ -5837,7 +5986,10 @@ namespace RorzeApi
                     return false;
             }
             if (GParam.theInst.EQIOSwitchToExtend == 0)
+            {
                 ListDIO[2].SdobW(0, bit, !bExtend);
+                ListDIO[2].GdioW(0, bit);
+            }                
             else
                 ListDIO[2].SdobW(0, bit, bExtend);
             return true;

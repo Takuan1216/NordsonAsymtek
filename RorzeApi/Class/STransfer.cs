@@ -32,6 +32,7 @@ using RorzeUnit.Class.EQ;
 using static RorzeUnit.Net.Sockets.sClient;
 using System.Reflection;
 using RorzeUnit.Class.Robot;
+using RorzeUnit.Class.ADAM;
 
 namespace RorzeApi.Class
 {
@@ -46,6 +47,7 @@ namespace RorzeApi.Class
         private List<I_Buffer> ListBUF;
 
         private List<SSEquipment> ListEQM;
+        private List<ADAM6066> ListAdam;
 
         SGroupRecipeManager m_grouprecipe;
         SGEM300 m_Gem;
@@ -78,7 +80,7 @@ namespace RorzeApi.Class
             PJCJManager jobControl,
             SGroupRecipeManager grouprecipe,
             SProcessDB dbProcess,
-            SAlarm alarm, SSSorterSQL mySQL, VIDManager Vid, List<SSEquipment> listEQM)
+            SAlarm alarm, SSSorterSQL mySQL, VIDManager Vid, List<SSEquipment> listEQM, List<ADAM6066> listAdam)
         {
             try
             {
@@ -96,6 +98,7 @@ namespace RorzeApi.Class
                 m_MySQL = mySQL;
                 m_VID = Vid;
                 ListEQM = listEQM;
+                ListAdam = listAdam;
                 // job 
                 jobAutoProcess = new SPollingThread(100);
                 jobAutoProcess.DoPolling += JobAutoProcess_DoPolling;
@@ -755,7 +758,10 @@ namespace RorzeApi.Class
                             }
                             if (ListALN[0] != null && ListALN[0].Disable == false) nWaferCanBuffer += 1;
                             if (ListALN[1] != null && ListALN[1].Disable == false) nWaferCanBuffer += 1;
-
+                            int EQCount = 0;
+                            EQCount = ExeWafer.WApplyEQ.Count(x => x) - 1;
+                            if(EQCount > 0)
+                            nWaferCanBuffer += EQCount;
 
                             if (robotUnit.RobotHardwareAllow(ExeWafer.ToLoadport))//出發與抵達是同一隻手臂 Sorter 傳送
                             {
@@ -2272,13 +2278,37 @@ namespace RorzeApi.Class
                                 goto DontMove;
                                 #endregion
                             }
+<<<<<<< HEAD
                             else if (GParam.theInst.IsUnitDisable(enumUnit.EQM1) != true && waferData.AlgnComplete == true && waferData.Eqm1Complete == false && waferData.WaferIDComparison == enumWaferIDComparison.IDAgree)
+=======
+                            else if (waferData.AlgnComplete == true && waferData.EqmComplete == false && waferData.WaferIDComparison == enumWaferIDComparison.IDAgree)
+>>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                             {
-                                SSEquipment equipment = ListEQM[0];
+                                SSEquipment equipment = ListEQM[waferData.GetUsingEQ - enumPosition.EQM1];
                                 #region Put Equipment
 
+                                if (equipment.Simulate)
+                                {
+                                    switch (equipment._BodyNo)
+                                    {
+                                        case 1:
+                                            ListAdam[0].setInputValue(0, true);
+                                            break;
+                                        case 2:
+                                            ListAdam[0].setInputValue(2, true);
+                                            break;
+                                        case 3:
+                                            ListAdam[1].setInputValue(0, true);
+                                            break;
+                                        case 4:
+                                            ListAdam[1].setInputValue(2, true);
+                                            break;
+                                    }                                         
+                                }
+
                                 if (equipment.Wafer != null) { goto DontMove; }//有片子不能傳
-                                if (equipment.IsWaferExist == true) { goto DontMove; }//有片子不能傳                   
+                                if (equipment.IsWaferExist == true) { goto DontMove; }//有片子不能傳
+                                if (equipment.IsReadyLoad == false) { goto DontMove; }                                                      //
                                 // if (equipment.IsReady == false) { goto DontMove; }//位置不對不能傳 HSC bypass
                                 arm = waferData.Position == SWafer.enumPosition.UpperArm ? enumRobotArms.UpperArm : enumRobotArms.LowerArm;
 
@@ -2304,6 +2334,26 @@ namespace RorzeApi.Class
 
                                 //move robot 
                                 robotManual.PutWaferByInterLockW_ExtXaxis(robotManual.GetAckTimeout, arm, enumPosition.EQM1, nStgeIndx, 1, waferData);
+
+                                if (equipment.Simulate)
+                                {
+                                    switch (equipment._BodyNo)
+                                    {
+                                        case 1:
+                                            ListAdam[0].setInputValue(0, false);
+                                            break;
+                                        case 2:
+                                            ListAdam[0].setInputValue(2, false);
+                                            break;
+                                        case 3:
+                                            ListAdam[1].setInputValue(0, false);
+                                            break;
+                                        case 4:
+                                            ListAdam[1].setInputValue(2, false);
+                                            break;
+                                    }
+                                }
+
                                 //過帳
                                 equipment.Wafer = waferData;
 
@@ -3087,7 +3137,25 @@ namespace RorzeApi.Class
                             #endregion
 
                             // if (equipment.IsWaferExist == false) { goto DontMove; }//沒片子不能取 HSC bypass
-                            // if (equipment.IsReady == false) { goto DontMove; }//位置不對不能傳  HSC bypass
+                            if (equipment.Simulate)
+                            {
+                                switch (equipment._BodyNo)
+                                {
+                                    case 1:
+                                        ListAdam[0].setInputValue(1, true);
+                                        break;
+                                    case 2:
+                                        ListAdam[0].setInputValue(3, true);
+                                        break;
+                                    case 3:
+                                        ListAdam[1].setInputValue(1, true);
+                                        break;
+                                    case 4:
+                                        ListAdam[1].setInputValue(3, true);
+                                        break;
+                                }
+                            }
+                            if (equipment.IsReadyUnload == false) { goto DontMove; }//位置不對不能傳  HSC bypass
 
                             nStgeIndx = GParam.theInst.GetDicPosRobot(robotManual.BodyNo, waferData.Position);
 
@@ -3132,7 +3200,26 @@ namespace RorzeApi.Class
                                     waferData.WaferID_F, waferData.WaferID_B, string.Format("The robot take wafer from EQ use {0}.", arm));
 
                             //  move robot 
-                            robotManual.TakeWaferByInterLockW_ExtXaxis(robotManual.GetAckTimeout, arm, waferData.Position, nStgeIndx, 1, waferData); 
+                            robotManual.TakeWaferByInterLockW_ExtXaxis(robotManual.GetAckTimeout, arm, waferData.Position, nStgeIndx, 1, waferData);
+
+                            if (equipment.Simulate)
+                            {
+                                switch (equipment._BodyNo)
+                                {
+                                    case 1:
+                                        ListAdam[0].setInputValue(1, false);
+                                        break;
+                                    case 2:
+                                        ListAdam[0].setInputValue(3, false);
+                                        break;
+                                    case 3:
+                                        ListAdam[1].setInputValue(1, false);
+                                        break;
+                                    case 4:
+                                        ListAdam[1].setInputValue(3, false);
+                                        break;
+                                }
+                            }
 
                             //  move data
                             WriteLog(string.Format("[TRB{0}]:Transfer data from [{1}] to [{2}].", robotManual.BodyNo, waferData.Position, arm));
@@ -3755,6 +3842,10 @@ namespace RorzeApi.Class
                                         theWafer.WaferIDComparison = theWafer.AlgnComplete ? SWafer.enumWaferIDComparison.IDAgree : SWafer.enumWaferIDComparison.UnKnow;
                                         theWafer.NotchAngle = transferInfo.NotchAngle;
                                         theWafer.WaferInforID_B = transferInfo.WaferIDByHost; // T7 
+                                        theWafer.WApplyEQ = transferInfo.ApplyEQ;
+
+                                        // 依 ApplyEQ 輪流指定 EQM1~EQM4
+                                        theWafer.SetUsingEQ(GetNextAvailableEQ(transferInfo.ApplyEQ, ref eqRoundRobinIndex));
 
                                         //theWafer.WaferID_B = transferInfo.WaferIDByHost;    //這不應該要把HOST寫入，要由OCR讀取決定                                          
 
@@ -3887,6 +3978,10 @@ namespace RorzeApi.Class
                                     theWafer.WaferIDComparison = theWafer.AlgnComplete ? SWafer.enumWaferIDComparison.IDAgree : SWafer.enumWaferIDComparison.UnKnow;
                                     theWafer.NotchAngle = transferInfo.NotchAngle;
                                     theWafer.WaferInforID_B = transferInfo.WaferIDByHost;
+                                    theWafer.WApplyEQ = transferInfo.ApplyEQ;
+
+                                    // 依 ApplyEQ 輪流指定 EQM1~EQM4
+                                    theWafer.SetUsingEQ(GetNextAvailableEQ(transferInfo.ApplyEQ, ref eqRoundRobinIndex));
 
                                     //if (theWafer.WaferID_B == "")//有經有ID，UNDO的流程
                                     //    theWafer.WaferID_B = transferInfo.WaferIDByHost;
@@ -3969,7 +4064,7 @@ namespace RorzeApi.Class
                 int nIndex = equipment._BodyNo - 1;
 
                 //  檢查是否有晶片=>沒有wafer或已經完成製成
-                if (equipment.Wafer == null || equipment.Wafer.IsEqProcessComplete(enumPosition.EQM1 + nIndex)) { goto DontMove; }
+                if (equipment.Wafer == null || equipment.Wafer.EqmComplete) { goto DontMove; }
                 //if (equipment.IsWaferExist == false) { goto DontMove; }//沒片不能做
                 //if (equipment.IsReady == false) { goto DontMove; }
 
@@ -3988,92 +4083,9 @@ namespace RorzeApi.Class
                 WriteLog("[Equipment]:send wafer information to eq");
 
                 SGroupRecipe RecipeContent = m_grouprecipe.GetRecipeGroupList[waferData.RecipeID];
-
-                if (RecipeContent.GetEQ_Recipe()[nIndex] == "")
-                {
-                    //沒有Recipe
-                }
-
-                //recipe名稱用_切割，底線前為各項條件
-                string recipe = RecipeContent.GetEQ_Recipe()[nIndex];
-
-                //equipment.load_recipeW(recipe); // HSC EQ MOD
-
-                SpinWait.SpinUntil(() => false, 500);
-
-                int count = 0;
-                for (int i = 0; i < 3; i++)
-                {
-                    count++;
-                    try
-                    {
-                        //equipment.start_measureW(); // HSC EQ MOD
-                        break;
-                    }
-                    catch (SException ex)
-                    {
-                        WriteLog("[Equipment]:<<SException>> " + ex);
-
-                        if (m_IsCycle == false)
-                        {
-                            frmMessageBox frm;
-                            frm = new frmMessageBox(string.Format("Equipment process complete timeout , click [yes] process end or [no] retry"), "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                            if (frm.ShowDialog() == DialogResult.Yes)
-                            {
-                                AutoProcessAbort(this, new EventArgs());
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        AutoProcessAbort(this, new EventArgs());
-                        WriteLog("[Equipment]:<<Exception>> " + ex);
-                    }
-                }
-
-                if (count >= 2)
-                {
-                    // throw new SException((int)enumEQError.AckTimeout, string.Format("Wait {0} Ack retry fail", enumSendCmd.start_measure));  // HSC EQ MOD
-                }
-
-                SpinWait.SpinUntil(() => false, 500);
-
-                count = 0;
-                for (int i = 0; i < 3; i++)
-                {
-                    count++;
-                    try
-                    {
-                        // equipment.total_resultW();  // HSC EQ MOD
-                        break;
-                    }
-                    catch (SException ex)
-                    {
-                        WriteLog("[Equipment]:<<SException>> " + ex);
-
-                        if (m_IsCycle == false)
-                        {
-                            frmMessageBox frm;
-                            frm = new frmMessageBox(string.Format("Equipment process complete timeout , click [yes] process end or [no] retry"), "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                            if (frm.ShowDialog() == DialogResult.Yes)
-                            {
-                                AutoProcessAbort(this, new EventArgs());
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        AutoProcessAbort(this, new EventArgs());
-                        WriteLog("[Equipment]:<<Exception>> " + ex);
-                    }
-                }
-                if (count >= 2)
-                {
-                    // throw new SException((int)enumEQError.AckTimeout, string.Format("Wait {0} Ack retry fail", enumSendCmd.start_measure));  // HSC EQ MOD
-                }
-
+                string[] test = RecipeContent.GetEQ_Recipe();
                 WriteLog("[Equipment]:wafer process complete flag on");
-                waferData.SetEqProcessComplete(enumPosition.EQM1 + nIndex);
+                waferData.EqmComplete = true;
 
                 /*if (GParam.theInst.IsAfterProcessToAln || equipment.Wafer.WaferSize == enumWaferSize.Frame)//使用者想要回foup前再過一次aligner
                 {
@@ -4089,12 +4101,13 @@ namespace RorzeApi.Class
                 m_dbProcess.CreateProcessWaferbyStation(DateTime.Now, waferData.FoupID, waferData.CJID, waferData.PJID, waferData.RecipeID, waferData.Slot,
                         waferData.WaferID_F, waferData.WaferID_B,
                         "Equipment Process Complete");
-                System.Threading.SpinWait.SpinUntil(() => false, 100);
+                System.Threading.SpinWait.SpinUntil(() => false, 80000);
 
 
                 //測試先讓回foup前再過一次aligner
                 //equipment.Wafer.AlgnComplete = false;
 
+                SpinWait.SpinUntil(() => false, 100);
 
                 // Process finish
                 WriteLog("[Equipment]:process finish and assignQueue to robot");
@@ -4430,12 +4443,12 @@ namespace RorzeApi.Class
 
                     string strCJID = "CJID-" + DateTime.Now.ToString("yyyyMMddHHmmssfff");//CJ:Foup_Slot to Foup_Slot        
                     WriteLog("Create CJ ->" + strCJID);
-                    if (CreateCJPJ(ref selectWaferInfo, strCJID, bUndoForReadFail, strRecipe, bNoAign) == false)
+                    if (CreateCJPJ(ref selectWaferInfo, strCJID, applyEQ, bUndoForReadFail, strRecipe, bNoAign) == false)
                     {
                         WriteLog("Create CJPJ Fail.");
                         return false;
                     }
-                    if (ExecuteCJPJ(strRecipe, bNoAign, strCJID) == false)//鎖ORDER                  
+                    if (ExecuteCJPJ(strRecipe, bNoAign, strCJID, applyEQ) == false)//鎖ORDER                  
                     {
                         WriteLog("Execute CJPJ Fail.");
                         return false;
@@ -4451,7 +4464,7 @@ namespace RorzeApi.Class
             }
             return bSuccess;
         }
-        private bool CreateCJPJ(ref ConcurrentQueue<clsSelectWaferInfo> selectWaferInfo, string strCJID, bool bUndoForReadFail = false, string OCR_Recipe = "", bool UseAligner = false)
+        private bool CreateCJPJ(ref ConcurrentQueue<clsSelectWaferInfo> selectWaferInfo, string strCJID, bool[] applyEQ, bool bUndoForReadFail = false, string OCR_Recipe = "", bool UseAligner = false)
         {
             lock (this)
             {
@@ -4534,6 +4547,7 @@ namespace RorzeApi.Class
                                 strSourceCarrierID, temp.SourceSlotIdx + 1,
                                 strTargetCarrierID, temp.TargetSlotIdx + 1,
                                 temp.TargetLpBodyNo,
+                                applyEQ,
                                 temp.NotchAngle,
                                 "",
                                 "",
@@ -4573,7 +4587,7 @@ namespace RorzeApi.Class
                 return bSuccess;
             }
         }
-        private bool ExecuteCJPJ(string strRecipe, bool bNoAign, string strCJID)
+        private bool ExecuteCJPJ(string strRecipe, bool bNoAign, string strCJID, bool[] applyEQ)
         {
             //bool bWaferInStocker, bWaferOutStocker;
             //===========依照 CJ 中的 PJ 更改 Wafer 資料
@@ -4617,6 +4631,26 @@ namespace RorzeApi.Class
 
             return true;
         } //Remote
+
+        private int eqRoundRobinIndex = 0;
+        private SWafer.enumPosition GetNextAvailableEQ(bool[] applyEQ, ref int rrIndex)
+        {
+            if (applyEQ == null || applyEQ.Length < 4)
+                throw new ArgumentException("ApplyEQ 必須至少有 4 個元素");
+
+            for (int i = 0; i < 4; i++)
+            {
+                int idx = (rrIndex + i) % 4;
+
+                if (applyEQ[idx])
+                {
+                    rrIndex = (idx + 1) % 4;
+                    return SWafer.enumPosition.EQM1 + idx;
+                }
+            }
+
+            throw new Exception("ApplyEQ 沒有任何可用的 EQ");
+        }
 
 
 

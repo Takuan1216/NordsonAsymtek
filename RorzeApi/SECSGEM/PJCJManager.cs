@@ -213,6 +213,7 @@ namespace RorzeApi.SECSGEM
 
             public string WaferIDByHost { get; set; }
             public string LotIDByHost { get; set; }
+            public bool[] ApplyEQ { get; set; }
             public TransferInfo(int sourceSlot)
             {
                 SourceSlot = sourceSlot;
@@ -352,7 +353,7 @@ namespace RorzeApi.SECSGEM
         }
 
         //分配CarrierID中哪一片slot要傳送到Target slot
-        public bool AssginSourceSlotInfo(string strSourceCarrierID, int nSourceSlot, string strTargertCarrierID, int nTargetSlot, int nTargetStg, double dNotchAngle = 0, string WaferID = "", string lotID = "", bool UseAligner = false, bool UseOCR = false, string OCR_Recipe = "")
+        public bool AssginSourceSlotInfo(string strSourceCarrierID, int nSourceSlot, string strTargertCarrierID, int nTargetSlot, int nTargetStg, bool[] bApplyEQ, double dNotchAngle = 0, string WaferID = "", string lotID = "", bool UseAligner = false, bool UseOCR = false, string OCR_Recipe = "")
         {
             foreach (SSourceTransInfo sourceTransInfo in SourceTransInfoList)
             {
@@ -369,6 +370,7 @@ namespace RorzeApi.SECSGEM
                         transferInfo.UseAligner = UseAligner;
                         transferInfo.UseOCR = UseOCR;
                         transferInfo.OCRName = OCR_Recipe;
+                        transferInfo.ApplyEQ = bApplyEQ;
                     }
                 }
             }

@@ -2341,11 +2341,32 @@ namespace RorzeApi
                         }
                     }
 
+<<<<<<< HEAD
                     if (m_dbGrouprecipe.GetRecipeGroupList.ContainsKey(m_strRecipe) == false || m_autoProcess.CreateJob(ref m_QueWaferJob, m_bNoAign, m_strRecipe, m_bApplyEQ) == false)//Main
+=======
+                    for (int i = 0; i < m_bApplyEQ.Length; i++)
+                    {
+                        if (m_bApplyEQ[i])
+                        {
+                            m_dbGrouprecipe.GetRecipeGroupList.TryGetValue(m_strRecipe, out var list);
+                            List<string> EQRecipeList = ListEQM[i].RecipeList();
+                            // EQ啟用要問recipelist
+                            if (!EQRecipeList.Contains(list._EQRecipe))
+                            {
+                                new frmMessageBox(string.Format($"Nordson{i + 1} Recipe list dosen't include: {m_strRecipe}."), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning).ShowDialog();
+                                return;
+                            }
+                        }
+                    }
+
+                    if (m_autoProcess.CreateJob(ref m_QueWaferJob, m_bNoAign, m_strRecipe, m_bApplyEQ) == false)//Main
+>>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                     {
                         new frmMessageBox(string.Format("Create TransferJob fail!!!"), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning).ShowDialog();
                         return;
                     }
+
+                    
 
                     if (tabCtrlTransferFnc.SelectedTab != tabPageUnit)
                         btnTransferShow.PerformClick();

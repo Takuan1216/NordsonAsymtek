@@ -2038,11 +2038,7 @@ namespace RorzeApi
 
                         equipment.DlgSetDoorCloseW = ShutterDoorCloseW;
                         equipment.DlgSetDoorOpenW = ShutterDoorOpenW;
-<<<<<<< HEAD
-                        equipment.DlgSetDoorOpen = ShutterDoorOpen;
-=======
                         //equipment.DlgSetDoorOpen = ShutterDoorOpen;
->>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                         equipment.DlgSetRobotExtendIO = robotExtendCtrlIO;
 
                         equipment.DlgReadyUnload = EQ_ReadyToUnload;
@@ -5674,66 +5670,6 @@ namespace RorzeApi
         }
 
         private bool ShutterDoorOpenW(object sender)
-<<<<<<< HEAD
-        {
-            SSEquipment equipment = sender as SSEquipment;
-            string ErrorMSG = "";
-            (int OpenDo, int CloseDo, int OpenDi, int CloseDi) bits;
-
-            if (!_shutterMap.TryGetValue(equipment._BodyNo, out bits))
-            {
-                ErrorMSG = $"ShutterDoorOpenW: shutterMap not found for BodyNo={equipment._BodyNo}.";
-                return false;
-            }
-
-            if (isEQDetectFinger(equipment))
-            {
-                ErrorMSG = "ShutterDoorOpenW: EQ detect finger interlock.";
-                return false;
-            }
-
-            if (isEFEMExtedToEQ(equipment))
-            {
-                ErrorMSG = "ShutterDoorOpenW: EFEM extended to EQ interlock.";
-                return false;
-            }
-
-            if (IsShutterDoorOpen(equipment))
-                return true;
-
-
-            try
-            {
-                ShutterDoorOpen(equipment);
-
-                bool ok = SpinWait.SpinUntil(() => IsShutterDoorOpen(equipment), shutterDoorTimeout);
-                if (!ok)
-                    ErrorMSG = "ShutterDoorOpenW: timeout waiting door open DI.";
-
-                return ok;
-            }
-            catch (Exception ex)
-            {
-                ErrorMSG = $"ShutterDoorOpenW exception: {ex.Message}";
-                _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorOpenW:" + ex);
-
-                return false;
-            }
-            finally
-            {
-                try
-                {
-                    ListDIO[4].SdobW(0, bits.OpenDo, false);
-                }
-                catch (Exception ex)
-                {
-                    _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorOpenW finally:" + ex);
-                }
-            }
-        }
-        private bool ShutterDoorOpen(object sender)
-=======
->>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
         {
             SSEquipment equipment = sender as SSEquipment;
             string ErrorMSG = "";
@@ -5767,16 +5703,12 @@ namespace RorzeApi
                 ListDIO[4].SdobW(0, bits.CloseDo, false);
                 Thread.Sleep(100);
                 ListDIO[4].SdobW(0, bits.OpenDo, true);
-<<<<<<< HEAD
-                return true;
-=======
 
                 bool ok = SpinWait.SpinUntil(() => IsShutterDoorOpen(equipment), shutterDoorTimeout);
                 if (!ok)
                     ErrorMSG = $"ShutterDoorOpenW: timeout waiting door open DI for BodyNo={equipment._BodyNo}..";
 
                 return ok;
->>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
             }
             catch (SException ex)
             {
@@ -5804,8 +5736,6 @@ namespace RorzeApi
                 }
             }
         }
-<<<<<<< HEAD
-=======
         //private bool ShutterDoorOpen(object sender)
         //{
         //    SSEquipment equipment = sender as SSEquipment;
@@ -5860,7 +5790,6 @@ namespace RorzeApi
         //        }
         //    }
         //}
->>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
         private bool ShutterDoorCloseW(object sender)
         {
             SSEquipment equipment = sender as SSEquipment;
@@ -5875,21 +5804,13 @@ namespace RorzeApi
 
             if (isEQDetectFinger(equipment))
             {
-<<<<<<< HEAD
-                ErrorMSG = "ShutterDoorCloseW: EQ detect finger interlock.";
-=======
                 ErrorMSG = $"ShutterDoorCloseW: EQ detect finger interlock for BodyNo={equipment._BodyNo}.";
->>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                 return false;
             }
 
             if (isEFEMExtedToEQ(equipment))
             {
-<<<<<<< HEAD
-                ErrorMSG = "ShutterDoorCloseW: EFEM extended to EQ interlock.";
-=======
                 ErrorMSG = $"ShutterDoorCloseW: EFEM extended to EQ interlock for BodyNo={equipment._BodyNo}.";
->>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                 return false;
             }
 
@@ -5909,21 +5830,13 @@ namespace RorzeApi
                 {
                     if (sw.ElapsedMilliseconds >= shutterDoorTimeout)
                     {
-<<<<<<< HEAD
-                        ErrorMSG = "ShutterDoorCloseW: timeout waiting door close DI.";
-=======
                         ErrorMSG = $"ShutterDoorCloseW: timeout waiting door close DI  for BodyNo={equipment._BodyNo}.";
->>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                         _errorLog?.WriteLog("[ EQ ] " + ErrorMSG);
                         return false;
                     }
 
                     // 例：危險狀態解除時做一次額外處理
-<<<<<<< HEAD
-                    if (!isEQDetectFinger(equipment))
-=======
                     if (isEQDetectFinger(equipment))
->>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                     {
                         equipment.TriggerSException(enumEQError.ShutterDoor1_protrude_sensor_detect + (equipment._BodyNo - 1));
                     }
@@ -5935,22 +5848,14 @@ namespace RorzeApi
             catch (SException ex)
             {
                 ErrorMSG = $"ShutterDoorCloseW exception: {ex.Message}";
-<<<<<<< HEAD
-                _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorCloseW:" + ex);
-=======
                 _errorLog?.WriteLog(string.Format("EQ{0}: [ EQ ] <<SException>> ShutterDoorCloseW:" + ex, equipment._BodyNo));
->>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
 
                 return false;
             }
             catch (Exception ex)
             {
                 ErrorMSG = $"ShutterDoorCloseW exception: {ex.Message}";
-<<<<<<< HEAD
-                _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorCloseW:" + ex);
-=======
                 _errorLog?.WriteLog(string.Format("EQ{0}: [ EQ ] <<Exception>> ShutterDoorCloseW:" + ex, equipment._BodyNo));
->>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
 
                 return false;
             }
@@ -5963,11 +5868,7 @@ namespace RorzeApi
                 }
                 catch (Exception ex)
                 {
-<<<<<<< HEAD
-                    _errorLog?.WriteLog("[ EQ ] <<Exception>> ShutterDoorCloseW finally error:" + ex);
-=======
                     _errorLog?.WriteLog(string.Format("EQ{0} [ EQ ] <<Exception>> ShutterDoorCloseW finally:" + ex, equipment._BodyNo));
->>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                 }
             }
         }

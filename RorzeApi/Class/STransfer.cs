@@ -2278,11 +2278,7 @@ namespace RorzeApi.Class
                                 goto DontMove;
                                 #endregion
                             }
-<<<<<<< HEAD
-                            else if (GParam.theInst.IsUnitDisable(enumUnit.EQM1) != true && waferData.AlgnComplete == true && waferData.Eqm1Complete == false && waferData.WaferIDComparison == enumWaferIDComparison.IDAgree)
-=======
                             else if (waferData.AlgnComplete == true && waferData.EqmComplete == false && waferData.WaferIDComparison == enumWaferIDComparison.IDAgree)
->>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                             {
                                 SSEquipment equipment = ListEQM[waferData.GetUsingEQ - enumPosition.EQM1];
                                 #region Put Equipment
@@ -4419,21 +4415,6 @@ namespace RorzeApi.Class
                         {
                             WriteLog(string.Format("Recipe is empty or wrong."));
                             return false;
-                        }
-                    }
-
-                    for (int i = 0; i < applyEQ.Length; i++)
-                    {
-                        if (applyEQ[i])
-                        {
-                            m_grouprecipe.GetRecipeGroupList.TryGetValue(strRecipe, out var list);
-                            List<string> test = ListEQM[i].RecipeList();
-                            // EQ啟用要問recipelist
-                            if (!test.Contains(list._EQRecipe))
-                            {
-                                WriteLog(string.Format($"Nordson{i+1} Recipe list dosen't include: {strRecipe}."));
-                                return false;
-                            }
                         }
                     }
                     #endregion

@@ -2341,9 +2341,6 @@ namespace RorzeApi
                         }
                     }
 
-<<<<<<< HEAD
-                    if (m_dbGrouprecipe.GetRecipeGroupList.ContainsKey(m_strRecipe) == false || m_autoProcess.CreateJob(ref m_QueWaferJob, m_bNoAign, m_strRecipe, m_bApplyEQ) == false)//Main
-=======
                     for (int i = 0; i < m_bApplyEQ.Length; i++)
                     {
                         if (m_bApplyEQ[i])
@@ -2360,7 +2357,6 @@ namespace RorzeApi
                     }
 
                     if (m_autoProcess.CreateJob(ref m_QueWaferJob, m_bNoAign, m_strRecipe, m_bApplyEQ) == false)//Main
->>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                     {
                         new frmMessageBox(string.Format("Create TransferJob fail!!!"), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning).ShowDialog();
                         return;

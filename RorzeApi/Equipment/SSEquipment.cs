@@ -606,11 +606,7 @@ namespace RorzeUnit.Class.EQ
                 }
                 m_executelog.WriteLog("[ EQ ] ExeOrgn:Start");
 
-<<<<<<< HEAD
-                if (!Simulate && !SetDoorCloseW())
-=======
                 if (!SetDoorCloseW())
->>>>>>> debug/Shutterdoor-close-sensor-check-alarm-trigger
                     throw new SException((int)enumEQError.ShutterDoorCloseFail, string.Format("ShutterDoorClose failed"));
 
                 GetRecipeListW();

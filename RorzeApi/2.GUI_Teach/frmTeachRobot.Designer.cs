@@ -376,7 +376,7 @@
             // 
             resources.ApplyResources(this.nudExtXDownArmPos, "nudExtXDownArmPos");
             this.nudExtXDownArmPos.Maximum = new decimal(new int[] {
-            2000000,
+            3000000,
             0,
             0,
             0});
@@ -391,7 +391,7 @@
             // 
             resources.ApplyResources(this.nudExtXUpArmPos, "nudExtXUpArmPos");
             this.nudExtXUpArmPos.Maximum = new decimal(new int[] {
-            2000000,
+            3000000,
             0,
             0,
             0});

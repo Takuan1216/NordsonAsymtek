@@ -806,7 +806,14 @@ namespace RorzeUnit.Class.RC500
         private void AxisMabs(enumRC550Axis axis, int pluse, int spd)
         {
             _signalAck[enumRC5X0Command_Motion.MABS].Reset();
-            m_Socket.SendCommand(string.Format("{0}.MABS({1},{2})", m_AxisName[(int)axis], pluse, spd));
+            if(spd == -1)
+            {
+                m_Socket.SendCommand(string.Format("{0}.MABS({1})", m_AxisName[(int)axis], pluse));
+            }
+            else
+            {
+                m_Socket.SendCommand(string.Format("{0}.MABS({1},{2})", m_AxisName[(int)axis], pluse, spd));
+            }                
         }
         public void AxisMabsW(int nTimeout, enumRC550Axis axis, int pluse, int spd = 0)
         {

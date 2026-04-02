@@ -311,7 +311,14 @@ namespace RorzeApi
                                         }
                                     }
                                 if (cbxRobotStage.Items.Count != -1) cbxRobotStage.SelectedIndex = 0;
-                                if (cbxShutterDoor.Items.Count != -1) cbxShutterDoor.SelectedIndex = 0;
+                                if (cbxShutterDoor.Items.Count > 0)
+                                {
+                                    cbxShutterDoor.SelectedIndex = 0;
+                                }
+                                else
+                                {
+                                    cbxShutterDoor.SelectedIndex = -1;
+                                }
                             }
                             else
                             {

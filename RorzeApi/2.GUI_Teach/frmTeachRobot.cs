@@ -887,6 +887,7 @@ namespace RorzeApi
             m_eStep = eTeachStep.Prepare;
 
             Cursor.Current = Cursors.WaitCursor;
+            m_robot.TBL_560.GetPulse(m_eXAX1, true);
             DoOrgn();
         }
         private void btnSave_Click(object sender, EventArgs e)
@@ -1490,7 +1491,7 @@ namespace RorzeApi
                     }
                     break;
                 default:
-                    //FinishLoadportOnDock(this, new LoadPortEventArgs("", 0, true));
+                    FinishLoadportOnDock(this, new LoadPortEventArgs("", 0, true));
                     break;
             }
 
@@ -1879,6 +1880,7 @@ namespace RorzeApi
                 m_robot.TBL_560.ResetProcessCompleted();
                 m_robot.TBL_560.SspdW(m_robot.GetAckTimeout, GParam.theInst.GetRobot_MaintSpeed(m_robot.BodyNo - 1));//進入就降到ModeSpeed
                 m_robot.TBL_560.WaitProcessCompleted(m_robot.GetAckTimeout);
+                m_robot.TBL_560.GetPulse(m_eXAX1, true);
             }
 
             rtbInstruct.Clear();

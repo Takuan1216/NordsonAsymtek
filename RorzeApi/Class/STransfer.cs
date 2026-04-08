@@ -33,6 +33,7 @@ using static RorzeUnit.Net.Sockets.sClient;
 using System.Reflection;
 using RorzeUnit.Class.Robot;
 using RorzeUnit.Class.ADAM;
+using RorzeComm;
 
 namespace RorzeApi.Class
 {
@@ -61,6 +62,8 @@ namespace RorzeApi.Class
         // jobAutoProcess
 
         SPollingThread jobAutoProcess;
+
+        public dlgb_v dlgE84LoadUnldAllow { get; set; }
 
         private string m_strXYZRecipe;
 
@@ -213,18 +216,17 @@ namespace RorzeApi.Class
             try
             {
                 if (loaderUnit.Disable || e84Unit.Disable || e84Unit.GetAutoMode == false) { return; }
-                //if light curtain triggered
-                //{
-                //    // if CS_0 AND VALID ON
-                //    // loaderUnit.stop()
-                //}
 
-                // RB201 E84 RJ Type
+                // LPBuiltInE84 Type
+                if (loaderUnit.IsE84Handshaking) { return; } // E84交握中，不送指令
+                if (loaderUnit.IsE84CommandSent) { return; } // E84指令已送出，等待交握或STOP
+                if (dlgE84LoadUnldAllow != null && dlgE84LoadUnldAllow() == false) { return; } // DIO1 bit8 OFF，不允許
+                if (loaderUnit.IsCS0On) { return; } // CS_0 (input 57) 仍為 ON，不送指令
                 if (loaderUnit.FoupExist == false && loaderUnit.StatusMachine == enumStateMachine.PS_ReadyToLoad && loaderUnit.IsMoving == false && loaderUnit.InPos == enumLoadPortStatus.InPos)  // LOAD
                 {
                     loaderUnit.LoadW(3000);
                 }
-                else if(loaderUnit.FoupExist == true && loaderUnit.StatusMachine == enumStateMachine.PS_ReadyToUnload && loaderUnit.IsMoving == false && loaderUnit.InPos == enumLoadPortStatus.InPos) // UNLD
+                else if (loaderUnit.FoupExist == true && loaderUnit.StatusMachine == enumStateMachine.PS_ReadyToUnload && loaderUnit.IsMoving == false && loaderUnit.InPos == enumLoadPortStatus.InPos) // UNLD
                 {
                     loaderUnit.UnldW(3000);
                 }
@@ -1658,9 +1660,35 @@ namespace RorzeApi.Class
                                 // D └───────┘ C
                                 //      ╚╦╝ FINGER
                                 //       ║                          
-                                alignerManual.ResetInPos();
-                                alignerManual.AlgnDW(alignerManual._AckTimeout, waferData.NotchAngle.ToString());//0~360
-                                alignerManual.WaitInPos(alignerManual._MotionTimeout);
+                                switch (waferData.GetUsingEQ)
+                                {
+                                    case enumPosition.EQM1:
+                                        alignerManual.ResetInPos();
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, waferData.NotchAngle.ToString());//0~360
+                                        alignerManual.WaitInPos(alignerManual._MotionTimeout);
+                                        break;
+                                    case enumPosition.EQM2:
+                                        alignerManual.ResetInPos();
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, waferData.NotchAngle.ToString());//0~360
+                                        alignerManual.WaitInPos(alignerManual._MotionTimeout);
+                                        break;
+                                    case enumPosition.EQM3:
+                                        alignerManual.ResetInPos();
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, waferData.NotchAngle.ToString());//0~360
+                                        alignerManual.WaitInPos(alignerManual._MotionTimeout);
+                                        break;
+                                    case enumPosition.EQM4:
+                                        alignerManual.ResetInPos();
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, waferData.NotchAngle.ToString());//0~360
+                                        alignerManual.WaitInPos(alignerManual._MotionTimeout);
+                                        break;
+
+                                    default:
+                                        alignerManual.ResetInPos();
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, waferData.NotchAngle.ToString());//0~360
+                                        alignerManual.WaitInPos(alignerManual._MotionTimeout);
+                                        break;
+                                }
 
                                 waferData.WaferIDComparison = enumWaferIDComparison.IDAgree;
                             }
@@ -1668,17 +1696,36 @@ namespace RorzeApi.Class
 
                             if (ocrRecipe_Front == null && ocrRecipe_Back == null && waferData.NotchAngle == -1)//甚麼都不要~
                             {
-                                alignerManual.ResetInPos();
-                                alignerManual.AlgnDW(alignerManual._AckTimeout, "0");//0~360
-                                alignerManual.WaitInPos(alignerManual._MotionTimeout);
-
+                                switch (waferData.GetUsingEQ)
+                                {
+                                    case enumPosition.EQM1:
+                                        alignerManual.ResetInPos();
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, "0");//0~360
+                                        alignerManual.WaitInPos(alignerManual._MotionTimeout);
+                                        break;
+                                    case enumPosition.EQM2:
+                                        alignerManual.ResetInPos();
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, "0");//0~360
+                                        alignerManual.WaitInPos(alignerManual._MotionTimeout);
+                                        break;
+                                    case enumPosition.EQM3:
+                                        alignerManual.ResetInPos();
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, "0");//0~360
+                                        alignerManual.WaitInPos(alignerManual._MotionTimeout);
+                                        break;
+                                    case enumPosition.EQM4:
+                                        alignerManual.ResetInPos();
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, "0");//0~360
+                                        alignerManual.WaitInPos(alignerManual._MotionTimeout);
+                                        break;
+                                    default:
+                                        alignerManual.ResetInPos();
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, "0");//0~360
+                                        alignerManual.WaitInPos(alignerManual._MotionTimeout);
+                                        break;
+                                }
                                 waferData.WaferIDComparison = enumWaferIDComparison.IDAgree;
                             }
-
-
-
-
-
                         }
                         break;
                 }
@@ -2278,7 +2325,7 @@ namespace RorzeApi.Class
                                 goto DontMove;
                                 #endregion
                             }
-                            else if (waferData.AlgnComplete == true && waferData.EqmComplete == false && waferData.WaferIDComparison == enumWaferIDComparison.IDAgree)
+                            else if (waferData.AlgnComplete == true && waferData.GetUsingEQ != enumPosition.UnKnow && waferData.EqmComplete == false && waferData.WaferIDComparison == enumWaferIDComparison.IDAgree)
                             {
                                 SSEquipment equipment = ListEQM[waferData.GetUsingEQ - enumPosition.EQM1];
                                 #region Put Equipment
@@ -2304,7 +2351,7 @@ namespace RorzeApi.Class
 
                                 if (equipment.Wafer != null) { goto DontMove; }//有片子不能傳
                                 if (equipment.IsWaferExist == true) { goto DontMove; }//有片子不能傳
-                                if (equipment.IsReadyLoad == false) { goto DontMove; }                                                      //
+                                if (equipment.IsReadyLoad == false) { goto DontMove; }//
                                 // if (equipment.IsReady == false) { goto DontMove; }//位置不對不能傳 HSC bypass
                                 arm = waferData.Position == SWafer.enumPosition.UpperArm ? enumRobotArms.UpperArm : enumRobotArms.LowerArm;
 
@@ -3841,7 +3888,10 @@ namespace RorzeApi.Class
                                         theWafer.WApplyEQ = transferInfo.ApplyEQ;
 
                                         // 依 ApplyEQ 輪流指定 EQM1~EQM4
-                                        theWafer.SetUsingEQ(GetNextAvailableEQ(transferInfo.ApplyEQ, ref eqRoundRobinIndex));
+                                        if (!GParam.theInst.EqmDisable(0) && !GParam.theInst.EqmDisable(1) && !GParam.theInst.EqmDisable(2) && !GParam.theInst.EqmDisable(3))
+                                        {
+                                            theWafer.SetUsingEQ(GetNextAvailableEQ(transferInfo.ApplyEQ, ref eqRoundRobinIndex));
+                                        }
 
                                         //theWafer.WaferID_B = transferInfo.WaferIDByHost;    //這不應該要把HOST寫入，要由OCR讀取決定                                          
 
@@ -3977,8 +4027,10 @@ namespace RorzeApi.Class
                                     theWafer.WApplyEQ = transferInfo.ApplyEQ;
 
                                     // 依 ApplyEQ 輪流指定 EQM1~EQM4
-                                    theWafer.SetUsingEQ(GetNextAvailableEQ(transferInfo.ApplyEQ, ref eqRoundRobinIndex));
-
+                                    if(!GParam.theInst.EqmDisable(0) && !GParam.theInst.EqmDisable(1) && !GParam.theInst.EqmDisable(2) && !GParam.theInst.EqmDisable(3))
+                                    {
+                                        theWafer.SetUsingEQ(GetNextAvailableEQ(transferInfo.ApplyEQ, ref eqRoundRobinIndex));
+                                    }   
                                     //if (theWafer.WaferID_B == "")//有經有ID，UNDO的流程
                                     //    theWafer.WaferID_B = transferInfo.WaferIDByHost;
 

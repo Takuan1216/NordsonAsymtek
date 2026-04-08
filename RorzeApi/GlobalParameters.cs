@@ -34,7 +34,7 @@ namespace RorzeApi
     public enum enumAlignerType : int { None = -1, RA320 = 0, RA420, TurnTable, PanelXYR, TAL303 };
     public enum enumLoadportType : int { None = -1, RV201, RB201, Other };
     public enum enumRFID { None = -1, UNISON = 0, HEART, OMRON, BRILLIAN };
-    public enum enumE84Type : int { SB058 = 0, FITC };
+    public enum enumE84Type : int { SB058 = 0, FITC, LPBuiltInE84 };
     public enum enumCameraType : int { None = 0, NPD }
     public enum enumBarcodeType : int { None = 0, KeyenceSR2000 = 1, CognexDM370 = 2, KeyenceSR710 = 3 }
     public enum enumOcrType : int { IS1740 = 0, WID120 = 1, TZ0031 };
@@ -652,6 +652,7 @@ namespace RorzeApi
         { get; private set; }
         public bool IsAutoRemote { get; private set; }
         public bool IsAutoDock { get; private set; }
+		public bool E84LightCurtainCheck { get; private set; }
         public bool IsSecsEnable { get; private set; }
         public string GetServerIP { get; private set; }
         public int GetServerPort { get; private set; }
@@ -1591,7 +1592,7 @@ namespace RorzeApi
             m_DicAllLanguageTranfer.Add("WaferInOut", "进出晶圆");//frmMain
             m_DicAllLanguageTranfer.Add("ReadID", "读取条码");//frmMain
             m_DicAllLanguageTranfer.Add("No Aligner", "不校准");//frmMain
-            m_DicAllLanguageTranfer.Add("Aligner", "校准晶圆");//frmMain
+            m_DicAllLanguageTranfer.Add("Alignment", "校准晶圆");//frmMain
             m_DicAllLanguageTranfer.Add("Please select wafer.", "请选择晶圆");//frmMain
             m_DicAllLanguageTranfer.Add("WaferIn need alignment.", "请选择校准");//frmMain
             m_DicAllLanguageTranfer.Add("Display need alignment.", "请选择校准");//frmMain
@@ -1799,6 +1800,7 @@ namespace RorzeApi
                 XYZMode = (enumXYZMode)myIni.GetIni("System", "XYZ Mode( Auto:0, Manual:1)", 0);
                 IsAutoRemote = myIni.GetIni("System", "AutoRemote", false);
                 IsAutoDock = myIni.GetIni("System", "AutoDock", false);
+				E84LightCurtainCheck = myIni.GetIni("System", "E84LightCurtainCheck", true);
                 IsSecsEnable = myIni.GetIni("System", "SECS Enable", false);
                 GetServerIP = myIni.GetIni("System", "Server IP", "172.20.9.200");
                 GetServerPort = myIni.GetIni("System", "Server Port", 12000);
@@ -2035,7 +2037,7 @@ namespace RorzeApi
                 m_bE84Disable[6] = myIni.GetIni("E84 Disable", "E84_7_Disable", true);
                 m_bE84Disable[7] = myIni.GetIni("E84 Disable", "E84_8_Disable", true);
                 //---------------------------------------------------------------------------
-                E84Type = (enumE84Type)myIni.GetIni("E84 TP TimeOut", " E84 Type(0:Remote IO,1:FITC)", 0);
+                E84Type = (enumE84Type)myIni.GetIni("E84 TP TimeOut", " E84 Type(0:Remote IO,1:FITC,2:LPBuiltInE84)", 0);
                 m_nE84Tp[0] = myIni.GetIni("E84 TP TimeOut", "TP1 TimeOut", 2);
                 m_nE84Tp[1] = myIni.GetIni("E84 TP TimeOut", "TP2 TimeOut", 2);
                 m_nE84Tp[2] = myIni.GetIni("E84 TP TimeOut", "TP3 TimeOut", 60);

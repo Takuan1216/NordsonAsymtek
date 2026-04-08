@@ -114,6 +114,7 @@ namespace RorzeUnit.Class.Robot
         public string[] DTRBData { get; set; }
         public string[] DTULData { get; set; }
         public string[] DCFGData { get; set; }
+        public string[] GPOSData { get; set; }
         public Dictionary<int, string[]> DAPMData { get; set; } = new Dictionary<int, string[]>();
         public string[] GetRac2Data { get { return _Rac2Data; } }//robot mapping
 
@@ -560,6 +561,9 @@ namespace RorzeUnit.Class.Robot
                 case enumRobotCommand.GetIO:
                     AnalysisGPIO(e.Frame.Value);
                     break;
+                case enumRobotCommand.GetPos:
+                    AnalysisGPOS(e.Frame.Value);
+                    break;
                 case enumRobotCommand.DequGTDT:
                     AnalysisDEQU_GTDT(e.Frame.Value);
                     break;
@@ -716,6 +720,14 @@ namespace RorzeUnit.Class.Robot
             GPIO = new SRR757GPIO(strFrame.Split('/')[0], strFrame.Split('/')[1]);
 
             OnIOChange?.Invoke(this, new SRR757IOChengeEventArgs(GPIO));
+        }
+        private void AnalysisGPOS(string strFrame)
+        {
+            if (!strFrame.Contains('/'))
+            {
+                return;
+            }
+            GPOSData = strFrame.Split('/');
         }
         private void AnalysisDEQU_GTDT(string strFrame)
         {
@@ -1693,29 +1705,29 @@ namespace RorzeUnit.Class.Robot
         }
         public void MoveToStandbyByInterLockW_ExtXaxis(int nTimeout, bool HaveWafer, enumPosition ePosition, enumRobotArms eRobotArms, int nStg0to399, int nSlot)
         {
-            WriteLog("MoveToStandbyByInterLock:Start");
+            WriteLog("MoveToStandbyByInterLockW_ExtXaxis:Start");
 
             if (IsError)
             {
                 SendAlmMsg(enumRobotError.InterlockStop);
-                throw new SException((int)(enumRobotError.InterlockStop), "MoveToStandbyByInterLock InterlockStop is error stg0~399: " + nStg0to399 + " " + eRobotArms + " invalid");
+                throw new SException((int)(enumRobotError.InterlockStop), "MoveToStandbyByInterLockW_ExtXaxis InterlockStop is error stg0~399: " + nStg0to399 + " " + eRobotArms + " invalid");
             }
             if (BodyNo == 2 && PinSafety == false)
             {
                 SendAlmMsg(enumRobotError.Robot_Pin_Not_Safety);
-                throw new SException((int)(enumRobotError.Robot_Pin_Not_Safety), "MoveToStandbyByInterLock InterlockStop Pin not safety stg0~399: " + nStg0to399 + " " + eRobotArms + " invalid");
+                throw new SException((int)(enumRobotError.Robot_Pin_Not_Safety), "MoveToStandbyByInterLockW_ExtXaxis InterlockStop Pin not safety stg0~399: " + nStg0to399 + " " + eRobotArms + " invalid");
             }
             if (!GParam.theInst.DicRobPos.ContainsKey(ePosition))
             {
                 SendAlmMsg(enumRobotError.InterlockStop);
-                throw new SException((int)(enumRobotError.InterlockStop), "MoveToStandbyByInterLock InterlockStop position can not find position: " + ePosition.ToString() + " " + eRobotArms + " invalid");
+                throw new SException((int)(enumRobotError.InterlockStop), "MoveToStandbyByInterLockW_ExtXaxis InterlockStop position can not find position: " + ePosition.ToString() + " " + eRobotArms + " invalid");
             }
             if (m_pStageInterlock[nStg0to399] != null)
             {
                 if (m_pStageInterlock[nStg0to399](this, enumRobotAction.Standby, eRobotArms, nSlot))
                 {
                     SendAlmMsg(enumRobotError.InterlockStop);
-                    throw new SException((int)(enumRobotError.InterlockStop), "MoveToStandbyByInterLock InterlockStop stg0~399:" + nStg0to399);
+                    throw new SException((int)(enumRobotError.InterlockStop), "MoveToStandbyByInterLockW_ExtXaxis InterlockStop stg0~399:" + nStg0to399);
                 }
             }
 
@@ -3303,6 +3315,127 @@ namespace RorzeUnit.Class.Robot
                     SendAlmMsg(enumRobotError.InterlockStop);
 
                 _signals[enumRobotSignalTable.MotionCompleted].Reset();
+
+
+
+                #region =========================== 確認X軸移動是否經過AOI ===============================================
+                int X_Pos = TBL_560.GetPulse(m_eXAX1, true);
+                int X_Target;
+
+                if (armSelect == enumRobotArms.UpperArm)
+                    X_Target = pos.Pos_ARM1;
+                else if (armSelect == enumRobotArms.LowerArm)
+                    X_Target = pos.Pos_ARM2;
+                else
+                    throw new SException((int)(enumRobotError.InterlockStop), "MoveToStandbyByInterLockW_ExtXaxis Get X Motor pulse error:");
+
+                bool bDanger = Math.Max(X_Pos, X_Target) >= 1050000 && Math.Min(X_Pos, X_Target) <= 1650000;
+
+                #endregion 
+
+                if (bDanger)
+                {
+                    this.GposW(m_nAckTimeout);
+                    if (GPOSData[3] != "000")
+                    {
+                        // 上arm收回
+                        this.ResetInPos();
+                        UpperArm.AbsolutePosW(3000, 0);
+                        this.WaitInPos(60000);
+                    }
+                    if (GPOSData[4] != "000")
+                    {
+                        // 下arm收回
+                        this.ResetInPos();
+                        LowerArm.AbsolutePosW(3000, 0);
+                        this.WaitInPos(60000);
+                    }
+
+                    //降Z軸
+                    this.ResetInPos();
+                    Lifter.AbsolutePosW(3000, 0);
+                    this.WaitInPos(60000);
+
+                    //移動外掛X軸
+                    TBL_560.ResetInPos();
+                    if (armSelect == enumRobotArms.UpperArm)
+                        TBL_560.AxisMabsW(nTimeout, pos.Pos_ARM1);
+                    else if (armSelect == enumRobotArms.LowerArm)
+                        TBL_560.AxisMabsW(nTimeout, pos.Pos_ARM2);
+                    TBL_560.WaitInPos(m_nMotionTimeout);
+
+                    //全軸動作
+                    HomeW(nTimeout, (HaveWafer == true) ? 2 : 1, armSelect, nStage, nSlot);
+                    enumRobotCommand e = enumRobotCommand.Home;
+                    if (!_signalAck[e].WaitOne(nTimeout))
+                    {
+                        SendAlmMsg(enumRobotError.AckTimeout);
+                        throw new SException((int)enumRobotError.AckTimeout, string.Format("Send command and wait Ack was timeout. [{0}]", _dicCmdsTable[e]));
+                    }
+                    if (_signalAck[e].bAbnormalTerminal)
+                    {
+                        SendAlmMsg(enumRobotError.SendCommandFailure);
+                        throw new SException((int)enumRobotError.SendCommandFailure, string.Format("Send command and wait Ack was Failure. [{0}]", _dicCmdsTable[e]));
+                    }
+
+                }
+                else
+                {
+                    Home(HaveWafer, armSelect, nStage, nSlot);
+                    enumRobotCommand e = enumRobotCommand.Home;
+                    if (!_signalAck[e].WaitOne(nTimeout))
+                    {
+                        SendAlmMsg(enumRobotError.AckTimeout);
+                        throw new SException((int)enumRobotError.AckTimeout, string.Format("Send command and wait Ack was timeout. [{0}]", _dicCmdsTable[e]));
+                    }
+                    if (_signalAck[e].bAbnormalTerminal)
+                    {
+                        SendAlmMsg(enumRobotError.SendCommandFailure);
+                        throw new SException((int)enumRobotError.SendCommandFailure, string.Format("Send command and wait Ack was Failure. [{0}]", _dicCmdsTable[e]));
+                    }
+
+                    if (!ExtXaxisDisable)
+                    {
+                        TBL_560.ResetInPos();
+                        if (armSelect == enumRobotArms.UpperArm)
+                            TBL_560.AxisMabsW(nTimeout, pos.Pos_ARM1);
+                        else if (armSelect == enumRobotArms.LowerArm)
+                            TBL_560.AxisMabsW(nTimeout, pos.Pos_ARM2);
+                        TBL_560.WaitInPos(m_nMotionTimeout);
+                    }
+                }
+                                   
+                
+                    
+            }
+            else
+            {
+                SpinWait.SpinUntil(() => false, 100);
+            }
+            _signalSubSequence.Set();
+        }
+        /*public virtual void MoveToStandbyPosW_Ext_Xaxis(int nTimeout, bool HaveWafer, enumPosition ePosition, enumRobotArms armSelect, int nStage, int nSlot)
+        {
+            //加入震動指令
+            string strCmd = string.Format("HOME({0},{1},{2},{3})",
+                (HaveWafer == true) ? "2" : "1",
+                armSelect == enumRobotArms.LowerArm ? 2 : 1,
+                nStage + 1,
+                nSlot);
+            OnNotifyVibration?.Invoke(this, string.Format("oTRB{0}.{1}", BodyNo, strCmd));
+
+            _signalSubSequence.Reset();
+
+
+            if (!m_bSimulate)
+            {
+                RobPos pos = null;
+                if (GParam.theInst.DicRobPos.ContainsKey(ePosition))
+                    pos = GParam.theInst.DicRobPos[ePosition];
+                else
+                    SendAlmMsg(enumRobotError.InterlockStop);
+
+                _signals[enumRobotSignalTable.MotionCompleted].Reset();
                 Home(HaveWafer, armSelect, nStage, nSlot);
                 enumRobotCommand e = enumRobotCommand.Home;
 
@@ -3326,14 +3459,14 @@ namespace RorzeUnit.Class.Robot
                         TBL_560.AxisMabsW(nTimeout, pos.Pos_ARM2);
                     TBL_560.WaitInPos(m_nMotionTimeout);
                 }
-                    
+
             }
             else
             {
                 SpinWait.SpinUntil(() => false, 100);
             }
             _signalSubSequence.Set();
-        }
+        }*/
 
         public virtual void Home()
         {
@@ -5911,6 +6044,15 @@ namespace RorzeUnit.Class.Robot
                         AnalysisDMPR_GTDT("+0000001300,020,+0000000200,+0000001300,+0000000000,00,+0000000000,+0000000000,+0000000000,+0000000000,+0000000000,+0000000000,1,000,+0000000000,+0000000000,+0000000000,+0000030000,+0000500000,+0000200000,+0000000000,+0000000000,+0000000000,+0000000000,+0000000000,\"\"");
                         DMPRData[13] = "25";//slot number
 
+                        break;
+                    case enumRobotDataType.DAPM:
+
+                        //DAPM.STDT[1] = 6,+0000742151,+0000000000,+0000015000,+0000000000,+0000105500,+0000140000,-0000043500,+0000000000,+0000340000,+0000000000,+0000000000,-0000089801
+                        //DAPM.STDT[2] = +0000025000,+0000005000,+0000015000,+0000070000,+0000110000,0000100000,0000200000,0000059000,0000011800,0000500000,0000500000,0000310000,0000310000
+                        if (nStage == 2)
+                            AnalysisDAPM_GTDT("+0000025000,+0000005000,+0000015000,+0000070000,+0000110000,0000100000,0000200000,0000059000,0000011800,0000500000,0000500000,0000310000,0000310000");
+                        else
+                            AnalysisDAPM_GTDT("6,+0000741548,+0000000000,+0000015000,+0000000000,+0000105500,+0000140000,-0000043500,+0000000000,+0000340000,+0000000000,+0000000000,-0000089703");
                         break;
 
                 }

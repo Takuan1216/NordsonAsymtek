@@ -518,7 +518,7 @@ namespace RorzeApi
                     item.OnORGNComplete += _loadport_OnORGNComplete;
                 }
             }
-            //Alinger
+            //Aligner
             for (int i = 0; i < ListALN.Count; i++)
             {
                 I_Aligner item = ListALN[i];
@@ -554,7 +554,7 @@ namespace RorzeApi
                 if (item == null || item.Disable) continue;
                 item.OnORGNComplete -= _loadport_OnORGNComplete;
             }
-            //  Alinger
+            //  Aligner
             foreach (I_Aligner item in ListALN)
             {
                 if (item == null || item.Disable) continue;

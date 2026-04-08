@@ -760,6 +760,24 @@ namespace RorzeApi.Class
                             writeAlarm((int)enumAlarmCode.DIO1_bit00_signal_abnormal + i + 20 * (dio.BodyNo - 1), " " + strIOName);
                         else
                             AlarmReset((int)enumAlarmCode.DIO1_bit00_signal_abnormal + i + 20 * (dio.BodyNo - 1));
+
+                        // DIO1 bit8 = light curtain: 觸發時對正在執行E84的LP下STOP
+                        if (dio.BodyNo == 1 && i == 8 && e.Input[i] == false)
+                        {
+                            foreach (I_Loadport lp in ListSTG)
+                            {
+                                if (lp == null || lp.Disable || GParam.theInst.E84LightCurtainCheck == false) continue;
+                                if (lp.IsE84CommandSent || lp.IsE84Handshaking)
+                                {
+                                    I_Loadport lpCapture = lp;
+                                    System.Threading.Tasks.Task.Run(() =>
+                                    {
+                                        try { lpCapture.StopW(3000); }
+                                        catch (Exception ex) { WriteLog("<<Exception>> LightCurtain StopW:" + ex); }
+                                    });
+                                }
+                            }
+                        }
                     }
                 }
             }

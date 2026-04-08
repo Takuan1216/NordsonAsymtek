@@ -389,6 +389,36 @@ namespace RorzeApi.Class
             });
         }
 
+/// <summary>
+        /// 上傳感測器數據（FFU/DPR 等）
+        /// </summary>
+        /// <param name="unit">單體名稱（例如：Effm）</param>
+        /// <param name="bodyNumber">機體編號</param>
+        /// <param name="deviceType">設備類型代碼</param>
+        /// <param name="deviceId">設備識別字串</param>
+        /// <param name="value">感測器數值</param>
+        /// <returns>非同步任務</returns>
+        public async Task UploadDataAsync(string unit, int bodyNumber, int deviceType, string deviceId, double value)
+        {
+            var url = $"{baseUrl}/api/data/upload";
+            var payload = new
+            {
+                unit = unit,
+                bodyNumber = bodyNumber,
+                deviceType = deviceType,
+                deviceId = deviceId,
+                samples = new[]
+                {
+                    new
+                    {
+                        timestampMs = GetCurrentTimestamp(),
+                        value = value
+                    }
+                }
+            };
+
+            await HttpPostJson(url, payload, instanceConfig.HttpTimeoutSeconds, instanceConfig.ContinueOnError);
+        }
         #endregion
 
         #region Static Methods (向后兼容，保留原有功能)

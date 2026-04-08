@@ -1398,6 +1398,9 @@ namespace RorzeApi
                                 e84.SetTpTime = GParam.theInst.GetTpTime();
                                 e84.dlgAreaTrigger += () => { return IsArea1Trigger(); };
                                 break;
+							case enumE84Type.LPBuiltInE84:
+                                e84 = new LPBuiltInE84(i + 1, GParam.theInst.IsE84Disable(i));
+                                break;
                         }
                         ListE84.Add(e84);
                         WriteLog(str);
@@ -2177,6 +2180,8 @@ namespace RorzeApi
                     str = "Constructing Transfer Manager Object.";
                     frmloading.AddMessage(str);
                     _autoProcess = new STransfer(ListTRB, ListSTG, ListALN, ListE84, ListOCR, ListBUF, _JobControl, _grouprecipe, _dbProcess, _alarm, _DataBase, _VIDControl, ListEQM, ListAdam);
+				if (GParam.theInst.E84LightCurtainCheck)
+                        _autoProcess.dlgE84LoadUnldAllow = () => ListDIO[1].GetGDIO_InputStatus(0, 8); // DIO1 bit8 光閘
                     WriteLog(str);
                 }
                 #endregion =====================================================================  
@@ -6141,6 +6146,23 @@ namespace RorzeApi
                     {
                         strFoupID = "ReadFail";
 
+						if (loaderUnit is SSLoadPortRB201 rb201) // HSC RB201 read RFID
+                        {
+                            try
+                            {
+                                rb201.ReadW(5000);
+                                strFoupID = loaderUnit.FoupID;
+                                if (string.IsNullOrEmpty(strFoupID))
+                                    strFoupID = "ReadFail";
+                            }
+                            catch (Exception ex)
+                            {
+                                strFoupID = "ReadFail";
+                                _errorLog.WriteLog("[ MDI ]:<<Exception>> _loadportrb201_OnFoupExistChenge:{0}", ex);
+                            }
+                        }
+                        else
+                        {
                         if (RFIDList[loaderUnit.BodyNo - 1] != null)
                         {
                             for (int i = 0; i < 3; i++)//retry
@@ -6167,6 +6189,7 @@ namespace RorzeApi
                             else
                                 strFoupID = "ReadFail";
                         }
+					}
 
                     }
 

@@ -72,6 +72,10 @@ namespace RorzeUnit.Class.FFU
             m_nSpeed = new int[nSlaveCount];
             m_nSpeedMax = new int[nSlaveCount];
             m_nSpeedMin = new int[nSlaveCount];
+			if (m_bDisable == false)
+            {
+                m_logger = SLogger.GetLogger("FFU");
+            }
         }
 
         ~SSFFUCtrlParents() { }

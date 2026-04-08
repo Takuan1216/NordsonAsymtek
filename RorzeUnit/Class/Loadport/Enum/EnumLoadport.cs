@@ -196,6 +196,10 @@ namespace RorzeUnit.Class.Loadport.Enum
         /// </summary>
         SetDCST,
         ClientConnected,
+        /// <summary>
+        /// 讀RFID CarrierID [READ(1,2)]
+        /// </summary>
+        Read,
         Max
     }
 

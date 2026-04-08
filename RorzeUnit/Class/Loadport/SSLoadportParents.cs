@@ -80,6 +80,9 @@ namespace RorzeUnit.Class.Loadport
         //STAT S1第4 bit
         public enumLoadPortStatus InPos { get { return m_eStatInPos; } }
         public bool IsMoving { get { return m_bMoving || m_eStatInPos == enumLoadPortStatus.Moving; } }
+		public virtual bool IsCS0On { get { return false; } }
+        public virtual bool IsE84Handshaking { get { return false; } }
+        public virtual bool IsE84CommandSent { get; set; }
         //STAT S1第5 bit
         public int GetSpeed { get { return m_nSpeed; } }
         //STAT S2
@@ -170,6 +173,7 @@ namespace RorzeUnit.Class.Loadport
         public int FoupWaitTransferTimeout { get; set; }
         public bool UndockQueueByHost { get; set; }//docking過程客戶想要退掉，keep住
         public string[] GetRac2Data { get { return _Rac2Data; } }
+		public bool _EnableTeachMapping { get; protected set; } = true;
         #endregion
         #region =========================== event ==============================================
         public event EventHandler<WaferDataEventArgs> OnAssignWaferData;

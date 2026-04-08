@@ -36,6 +36,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Class\E84\Enum\EnumE84.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Class\E84\Evnt\E84EventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Class\E84\FITC_E84.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Class\E84\LPBuiltInE84.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Class\E84\SB058_E84.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Class\ElectrostaticDetect\Simco.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Class\FFU\Enum\EnumFFU.cs" />

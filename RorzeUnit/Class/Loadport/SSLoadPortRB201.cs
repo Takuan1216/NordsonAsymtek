@@ -2,6 +2,7 @@
 using Rorze.Equipments.Unit;
 using RorzeApi.Class;
 using RorzeComm;
+using RorzeComm.Log;
 using RorzeComm.Threading;
 using RorzeUnit.Class.Loadport.Enum;
 using RorzeUnit.Class.Loadport.Event;
@@ -38,6 +39,7 @@ namespace RorzeUnit.Class.Loadport.Type
         public override bool IsUnclamp { get { return _gpio.GetDIList[LoadPortGPIO.LoadPortDI._DICarrierClampOpen]; } }//close 是勾住
 
         private int CrossCount = 0;
+		private SLogger _executeLogger = SLogger.GetLogger("ExecuteLog");
         #endregion
         #region =========================== event ==============================================
         public override event FoupExistChangEventHandler OnFoupExistChenge;
@@ -224,6 +226,7 @@ namespace RorzeUnit.Class.Loadport.Type
             m_dicError[0xBA] = "BA:Signal abnormal: BUSY=ON to Placement=ON transition";
             m_dicError[0xBB] = "BB:Signal abnormal: Placement=ON to COMPLETE=ON transition";
             m_dicError[0xBC] = "BC:Signal abnormal: COMPLETE=ON to VALID=OFF transition";
+			m_dicError[0xBD] = "BD:E84 manual stop";
             m_dicError[0xBF] = "BF:VALID_CS_O signal abnormal";
             m_dicError[0xC0] = "C0:State Machine abnormal";
             m_dicError[0xD0] = "D0:Mapping unable to identify FOUP type";
@@ -284,7 +287,7 @@ namespace RorzeUnit.Class.Loadport.Type
                 {enumLoadPortCommand.SetDMPR,"DMPR.STDT" },
                 {enumLoadPortCommand.GetDCST,"DCST.GTDT" },
                 {enumLoadPortCommand.SetDCST,"DCST.STDT" },
-                {enumLoadPortCommand.ReadID,"READ"},
+                {enumLoadPortCommand.Read,"READ"},
                 {enumLoadPortCommand.WriteID,"WRIT"},
                 {enumLoadPortCommand.ClientConnected,"CNCT"},
              };
@@ -323,6 +326,46 @@ namespace RorzeUnit.Class.Loadport.Type
         }
         public override void Open() { m_Socket.Open(); }
         public override void Close() { }
+        //==============================================================================
+	#region =========================== E84 Handshaking =======================================
+        /// <summary>
+        /// 透過 RB201 GPIO DI 判斷是否正在 E84 交握
+        /// </summary>
+        public override bool IsCS0On
+        {
+            get { return _gpio.GetDIList[LoadPortGPIO.LoadPortDI._DICS_0]; }
+        }
+        public override bool IsE84Handshaking
+        {
+            get
+            {
+                return _gpio.GetDIList[LoadPortGPIO.LoadPortDI._DICS_0] ||
+                       _gpio.GetDIList[LoadPortGPIO.LoadPortDI._DIBUSY] ||
+                       _gpio.GetDIList[LoadPortGPIO.LoadPortDI._DITR_REQ];
+            }
+        }
+        #endregion
+        //==============================================================================
+        #region =========================== AutoStopE84IfNeeded ============================
+        /// <summary>
+        /// 若有 E84 指令正在等待交握，自動送 STOP 後清除狀態，確保後續指令可執行
+        /// 若 E84 正在交握中（GPIO 訊號已亮），則拋出異常擋住新指令
+        /// </summary>
+        private void AutoStopE84IfNeeded()
+        {
+            if (IsE84CommandSent)
+            {
+                if (IsE84Handshaking)
+                {
+                    WriteLog("AutoStopE84: E84 handshaking in progress, cannot execute new command.");
+                    //throw new SException((int)enumLoadPortError.E84_Handshake, "E84 handshaking in progress");
+                    SendAlmMsg(enumLoadPortError.E84_Handshake);
+                }
+                WriteLog("AutoStopE84: E84 command pending, sending STOP first.");
+                StopW(3000);
+            }
+        }
+        #endregion
         //==============================================================================
         #region 處理TCP接收到的內容
         private void _exePolling_DoPolling()
@@ -442,6 +485,9 @@ namespace RorzeUnit.Class.Loadport.Type
                 case enumLoadPortCommand.GetDCST:
                     AnalysisDCST(e.Frame.Value);
                     break;
+				case enumLoadPortCommand.Read:
+                    AnalysisRFID(e.Frame.Value);
+                    break;
                 case enumLoadPortCommand.ClientConnected:
                     _signalAck[cmd].Set();
                     Connected = true;
@@ -454,16 +500,27 @@ namespace RorzeUnit.Class.Loadport.Type
         private void OnCancelAck(object sender, LoadPortProtoclEventArgs e)
         {
             enumLoadPortCommand cmd = _dicCmdsTable.FirstOrDefault(x => x.Value == e.Frame.Command).Key;
+
+            // RFID 讀取無回應（錯誤代碼 0x2000 = "No response from the ID reader/writer"）
+            // 不視為錯誤，不報警。清空 FoupID，正常 signal ReadW，讓上層收到空 FoupID 即可。
+            if (cmd == enumLoadPortCommand.Read && e.Frame.Value == "2000")
+            {
+                FoupID = string.Empty;
+                _signalAck[enumLoadPortCommand.Read].bAbnormalTerminal = false;
+                _signalAck[enumLoadPortCommand.Read].Set();
+                WriteLog("<<<RFID>>> No response from ID reader/writer (cancel 0x2000), treat as no RFID data.");
+                return;
+            }
             AnalysisCancel(e.Frame.Value);
         }
         private void AssignGMAP(string strFrame)
         {
-            if (strFrame.Contains("3")) // HSC for test
-            {
-                CrossCount++;
-                strFrame = strFrame.Replace("3", "0");
-                WriteLog($"*****Cross wafer exist. Count: {0}*****", CrossCount.ToString());
-            }
+            //if (strFrame.Contains("3")) // HSC for test
+            //{
+            //    CrossCount++;
+            //    strFrame = strFrame.Replace("3", "0");
+            //    _executeLogger.WriteLog($"[STG{BodyNo}] *****Cross wafer exist. Count: {CrossCount}*****");
+            //}
             MappingData = strFrame;
         }
         private void AnalysisStatus(string strFrame)
@@ -640,6 +697,10 @@ namespace RorzeUnit.Class.Loadport.Type
                 WriteLog("<Exception>:" + ex);
             }
         }
+		private void AnalysisRFID(string strFrame)// aREAD:123456
+        {
+            FoupID = strFrame;
+        }
         private void AnalysisRAC2(string strFrame)
         {
             try
@@ -659,6 +720,7 @@ namespace RorzeUnit.Class.Loadport.Type
             try
             {
                 WriteLog("ExeINIT:Start");
+                AutoStopE84IfNeeded();
                 this.InitW(m_nAckTimeout);
                 SpinWait.SpinUntil(() => false, 3000);
             }
@@ -672,10 +734,19 @@ namespace RorzeUnit.Class.Loadport.Type
             try
             {
                 WriteLog("ExeORGN:Start");
+                AutoStopE84IfNeeded();
 
                 this.ResetProcessCompleted();
                 this.EventW(m_nAckTimeout);
                 this.WaitProcessCompleted(3000);
+                if (IsMoving)
+                {
+                    this.ResetProcessCompleted();
+                    this.ResetInPos();
+                    this.StopW(m_nAckTimeout);
+                    this.WaitInPos(m_nMotionTimeout);
+                    this.WaitProcessCompleted(3000);
+                }			
 
                 this.ResetChangeModeCompleted();
                 this.InitW(m_nAckTimeout);
@@ -725,6 +796,7 @@ namespace RorzeUnit.Class.Loadport.Type
             try
             {
                 WriteLog("ExeCLMP:Start");
+				AutoStopE84IfNeeded();
                 if (dlgLoadInterlock != null && dlgLoadInterlock(this))
                 {
                     SendAlmMsg(enumLoadPortError.InterlockStop);
@@ -791,6 +863,7 @@ namespace RorzeUnit.Class.Loadport.Type
             try
             {
                 WriteLog("ExeClamp1:Start");
+				AutoStopE84IfNeeded();
                 E84Status = E84PortStates.TransferBlock;
                 this.ResetInPos();
                 this.ClmpW(3000, 1);
@@ -819,6 +892,7 @@ namespace RorzeUnit.Class.Loadport.Type
             try
             {
                 WriteLog("ExeUCLM:Start");
+				AutoStopE84IfNeeded();
                 this.UndockQueueByHost = false;
                 //動作條件檢查
                 if (dlgLoadInterlock != null && dlgLoadInterlock(this))
@@ -875,6 +949,7 @@ namespace RorzeUnit.Class.Loadport.Type
             try
             {
                 WriteLog("ExeUClamp1:Start");
+				AutoStopE84IfNeeded();
 
                 this.ResetInPos();
                 this.UclmW(3000, 1);
@@ -975,6 +1050,16 @@ namespace RorzeUnit.Class.Loadport.Type
                         FoupID = string.Empty;
                         OnFoupExistChenge?.Invoke(this, new FoupExisteChangEventArgs(FoupExist));
                     }
+					else
+                    {
+                        _MappingData = "";//2022.07.08
+
+                        _Waferlist = new List<SWafer>();
+
+                        StatusMachine = enumStateMachine.PS_ReadyToLoad;
+                        E84Status = E84PortStates.ReadytoLoad;
+                        FoupID = string.Empty;
+                    }
 
                     WriteLog("ExeCheckFoupExist:Finish");
                 }
@@ -1031,6 +1116,7 @@ namespace RorzeUnit.Class.Loadport.Type
             try
             {
                 WriteLog("ExeJigDock:Start");
+				AutoStopE84IfNeeded();
 
                 _JigDockCompletSignal.Reset();
 
@@ -1104,37 +1190,37 @@ namespace RorzeUnit.Class.Loadport.Type
         {
             try
             {
-                if (_e84.GetAutoMode && false == _e84.isBusyOn)  // E84 Auto BusyOff 人為取放
-                {
-                    if (FoupExist)
-                    {
-                        //有FOUP PL PS訊號消失
-                        if (!e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresenceright] ||
-                            !e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresencemiddle] ||
-                            !e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresenceleft] ||
-                            !e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresence])
-                        {
-                            WriteLog("E84 Auto , Foup is Remove.");
-                            SendAlmMsg(enumLoadPortError.E84Auto_FOUPManualRemove);
-                            //return;
-                        }
-                    }
-                    else
-                    {
-                        //無FOUP PL PS訊號出現
-                        if (e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresenceright] ||
-                            e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresencemiddle] ||
-                            e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresenceleft] ||
-                            e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresence])
-                        {
-                            WriteLog("E84 Auto , Foup IO have detect.");
-                            SendAlmMsg(enumLoadPortError.E84Auto_FOUPManualDetect);
-                            //return;
-                        }
-                    }
-                }
+                //if (_e84.GetAutoMode && false == IsE84Handshaking)  // E84 Auto 非交握中 人為取放
+                //{
+                //    if (FoupExist)
+                //    {
+                //        //有FOUP PL PS訊號消失
+                //        if (!e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresenceright] ||
+                //            !e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresencemiddle] ||
+                //            !e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresenceleft] ||
+                //            !e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresence])
+                //        {
+                //            WriteLog("E84 Auto , Foup is Remove.");
+                //            SendAlmMsg(enumLoadPortError.E84Auto_FOUPManualRemove);
+                //            //return;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        //無FOUP PL PS訊號出現
+                //        if (e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresenceright] ||
+                //            e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresencemiddle] ||
+                //            e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresenceleft] ||
+                //            e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresence])
+                //        {
+                //            WriteLog("E84 Auto , Foup IO have detect.");
+                //            SendAlmMsg(enumLoadPortError.E84Auto_FOUPManualDetect);
+                //            //return;
+                //        }
+                //    }
+                //}
                 // --------------------------------------------------------------------------------
-                if (_e84.GetAutoMode == false)
+                if (true/*_e84.GetAutoMode == false*/)
                 {
                     if (e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresenceright] &&   //No ->Have
                         e.Frame.GetDIList[LoadPortGPIO.LoadPortDI._DIPresencemiddle] &&
@@ -1433,6 +1519,7 @@ namespace RorzeUnit.Class.Loadport.Type
             _signalSubSequence.Reset();
             if (Connected)
             {
+				AutoStopE84IfNeeded();
                 _signals[enumLoadPortSignalTable.MotionCompleted].Reset();
                 Load();
                 if (!_signalAck[enumLoadPortCommand.E84Load].WaitOne(nTimeout))
@@ -1445,6 +1532,7 @@ namespace RorzeUnit.Class.Loadport.Type
                     SendAlmMsg(enumLoadPortError.SendCommandFailure);
                     throw new SException((int)enumLoadPortError.SendCommandFailure, string.Format("Send command and wait Ack was failure. [{0}]", _dicCmdsTable[enumLoadPortCommand.E84Load]));
                 }
+				IsE84CommandSent = true;
             }
             _signalSubSequence.Set();
         }
@@ -1468,6 +1556,7 @@ namespace RorzeUnit.Class.Loadport.Type
             _signalSubSequence.Reset();
             if (Connected)
             {
+                AutoStopE84IfNeeded();
                 _signals[enumLoadPortSignalTable.MotionCompleted].Reset();
                 Unld();
                 if (!_signalAck[enumLoadPortCommand.E84UnLoad].WaitOne(nTimeout))
@@ -1480,6 +1569,7 @@ namespace RorzeUnit.Class.Loadport.Type
                     SendAlmMsg(enumLoadPortError.SendCommandFailure);
                     throw new SException((int)enumLoadPortError.SendCommandFailure, string.Format("Send command and wait Ack was failure. [{0}]", _dicCmdsTable[enumLoadPortCommand.E84UnLoad]));
                 }
+                IsE84CommandSent = true;
             }
             _signalSubSequence.Set();
         }
@@ -1600,6 +1690,7 @@ namespace RorzeUnit.Class.Loadport.Type
                     SendAlmMsg(enumLoadPortError.SendCommandFailure);
                     throw new SException((int)enumLoadPortError.SendCommandFailure, string.Format("Send command and wait Ack was failure. [{0}]", _dicCmdsTable[enumLoadPortCommand.Stop]));
                 }
+                IsE84CommandSent = false;
             }
             else
             {
@@ -1997,6 +2088,33 @@ namespace RorzeUnit.Class.Loadport.Type
             _signalSubSequence.Set();
         }
         #endregion 
+
+        #region =========================== READ =======================================
+        private void Read()
+        {
+            _signalAck[enumLoadPortCommand.Read].Reset();
+            m_Socket.SendCommand("READ(1,2)");
+        }
+        public void ReadW(int nTimeout)
+        {
+            _signalSubSequence.Reset();
+            if (Connected)
+            {
+                Read();
+                if (!_signalAck[enumLoadPortCommand.Read].WaitOne(nTimeout))
+                {
+                    SendAlmMsg(enumLoadPortError.AckTimeout);
+                    throw new SException((int)enumLoadPortError.AckTimeout, string.Format("Send command and wait Ack was timeout. [{0}]", _dicCmdsTable[enumLoadPortCommand.Read]));
+                }
+                if (_signalAck[enumLoadPortCommand.Read].bAbnormalTerminal)
+                {
+                    SendAlmMsg(enumLoadPortError.SendCommandFailure);
+                    throw new SException((int)enumLoadPortError.SendCommandFailure, string.Format("Send command and wait Ack was failure. [{0}]", _dicCmdsTable[enumLoadPortCommand.Read]));
+                }
+            }
+            _signalSubSequence.Set();
+        }
+        #endregion
 
         #region =========================== SWID =======================================
         private void Swid(string strId)

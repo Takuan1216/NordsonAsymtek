@@ -1101,12 +1101,12 @@ namespace RorzeApi
             {
                 m_robot.OnJobFunctionCompleted -= _robot_OnJobFunctionCompleted;//STEP
                 m_robot.OnJobFunctionCompleted += _robot_OnJobFunctionCompleted;//STEP
-                if (btn == btnRbXBW)
+                if (btn == btnRbXFW)
                 {
                     _accessDBlog.InsertEvntLog(DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), "TeachRobot", _strUserName, "Robot", "Y Axis FW Button Step[" + m_nStep + "]");
                     m_robot.STEP(enumRobotAxis.Xax, m_nStep);
                 }
-                else if (btn == btnRbXFW)
+                else if (btn == btnRbXBW)
                 {
                     _accessDBlog.InsertEvntLog(DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), "TeachRobot", _strUserName, "Robot", "Y Axis BW Button Step[" + -1 * m_nStep + "]");
                     m_robot.STEP(enumRobotAxis.Xax, -1 * m_nStep);
@@ -1629,7 +1629,7 @@ namespace RorzeApi
                 robotManual.Lifter.GetPos();
                 //robotManual.Lifter2.GetPos();
                 robotManual.Rotater.GetPos();
-                robotManual.TBL_560.GetPulse(m_eXAX1);
+                robotManual.TBL_560.GetPulse(m_eXAX1, true);
 
                 if (robotManual.XaxsDisable == false) robotManual.Traverse.GetPos();
             };

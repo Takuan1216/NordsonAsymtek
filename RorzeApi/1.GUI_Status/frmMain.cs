@@ -609,6 +609,19 @@ namespace RorzeApi
                     for (int i = 0; i < e.SelectSlotSts.Count(); i++)
                     {
                         clsSelectWaferInfo temp;
+                        
+                        
+						//參考25M0256
+                        if (m_QueSelectSlotNum.TryPeek(out temp))
+                        {
+                            if (ListSTG[temp.SourceLpBodyNo - 1].GetCurrentLoadportWaferType() != ListSTG[guiLoadport.BodyNo - 1].GetCurrentLoadportWaferType())
+                            {
+                                guiLoadport.ResetSlotSelectFlag("", e.SelectSlotNum[i]);
+                                continue; //不同size不能互傳
+                            }
+                        }
+                        
+                        
                         if (m_QueSelectSlotNum.TryDequeue(out temp))
                         {
                             temp.SetTargetSlotIdx(e.SelectSlotNum[i]);
@@ -3059,15 +3072,19 @@ namespace RorzeApi
             string[] strArray;
             if (bHardwareHasAlgn == false)
             {
-                strArray = new string[] { "No Aligner" };
+                strArray = new string[] { "No Alignment" };
             }
             else if (eTransferFnc == enumTransferMode.Notch || eTransferFnc == enumTransferMode.Display)
             {
-                strArray = new string[] { "Aligner" };
+                strArray = new string[] { "Alignment" };
+            }
+			else if (eTransferFnc == enumTransferMode.Random)
+            {
+                strArray = new string[] { "Alignment", "No Alignment" };
             }
             else
             {
-                strArray = new string[] { /*"No Aligner",*/ "Aligner" };
+                strArray = new string[] { "Alignment" };
             }
             //建立按鈕          
             foreach (string item in strArray)
@@ -3088,14 +3105,14 @@ namespace RorzeApi
             panelAlignFunction.AutoSize = true;
             //設定初始值
             btnAlignFunction.Text = panelAlignFunction.Controls[0].Text;
-            m_bNoAign = (btnAlignFunction.Text == GParam.theInst.GetLanguage("No Aligner"));
+            m_bNoAign = (btnAlignFunction.Text == GParam.theInst.GetLanguage("No Alignment"));
         }
         private void btnAlignFunctionSelect_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
             btnAlignFunction.Text = GParam.theInst.GetLanguage(btn.Text);
             panelTransferMenu.Visible = false;
-            m_bNoAign = (btn.Text == GParam.theInst.GetLanguage("No Aligner"));
+            m_bNoAign = (btn.Text == GParam.theInst.GetLanguage("No Alignment"));
         }
         //==================================================================================================
         private void btnRecipeFunction_Click_1(object sender, EventArgs e)
@@ -3140,7 +3157,9 @@ namespace RorzeApi
                 panelRecipeFunction.Controls.Add(btn);
                 m_DicPanelTransferFunctionTypeButton.Add(btn.Text, btn);
             }
-            panelRecipeFunction.AutoSize = true;
+            panelRecipeFunction.Dock = DockStyle.Fill;  // fill panelTransferMenu so AutoScroll works
+            panelRecipeFunction.AutoSize = false;
+            panelRecipeFunction.AutoScroll = true;
             //設定初始值
             m_strRecipe = btnRecipeFunction.Text = panelRecipeFunction.Controls[0].Text;
         }
@@ -3347,11 +3366,11 @@ namespace RorzeApi
                 {
                     if (m_autoProcess.IsCycleDoAlign)
                     {
-                        if (btn.Text == GParam.theInst.GetLanguage("Aligner")) btnAlignFunctionSelect_Click(btn, null);
+                        if (btn.Text == GParam.theInst.GetLanguage("Alignment")) btnAlignFunctionSelect_Click(btn, null);
                     }
                     else
                     {
-                        if (btn.Text == GParam.theInst.GetLanguage("No Aligner")) btnAlignFunctionSelect_Click(btn, null);
+                        if (btn.Text == GParam.theInst.GetLanguage("No Alignment")) btnAlignFunctionSelect_Click(btn, null);
                     }
                 }
 

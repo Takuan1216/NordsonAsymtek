@@ -1347,7 +1347,7 @@ namespace RorzeApi
                 //robotManual.ResetInPos();
                 //robotManual.UnldW(robotManual.GetAckTimeout, enumRobotArms.UpperArm, m_nALN_address, 1);
                 //robotManual.WaitInPos(robotManual.GetMotionTimeout);
-                robotManual.PutWaferByInterLockW_ExtXaxis(robotManual.GetAckTimeout, enumRobotArms.UpperArm, ePos, m_nALN_address, 1);
+                robotManual.PutWaferByInterLockW_ExtXaxis(robotManual.GetAckTimeout, enumRobotArms.UpperArm, ePosAln, m_nALN_address, 1);
 
                 bool isFront = m_SelectOCR.IsFront;
 

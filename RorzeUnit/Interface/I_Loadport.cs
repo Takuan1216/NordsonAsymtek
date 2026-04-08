@@ -78,6 +78,7 @@ namespace RorzeUnit.Interface
         int FoupWaitTransferTimeout { get; set; }
         bool UndockQueueByHost { get; set; }//docking過程客戶想要退掉，keep住
         string[] GetRac2Data { get; }
+        bool _EnableTeachMapping { get; }
         #endregion
         #region =========================== event ==============================================
         event EventHandler<WaferDataEventArgs> OnAssignWaferData;
@@ -149,6 +150,9 @@ namespace RorzeUnit.Interface
         I_E84 E84Object { get; set; }
         E84PortStates E84Status { get; set; }
         bool IsE84Auto { get; }
+        bool IsE84Handshaking { get; }
+        bool IsE84CommandSent { get; }
+        bool IsCS0On { get; }
         void SetE84AutoMode(bool bAuto);
         void SetE84TPtime(int[] nTime);
         #endregion

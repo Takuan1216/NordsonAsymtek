@@ -117,6 +117,7 @@ namespace RorzeUnit.Class.ADAM
                     RefreshDIO();
 
                 bool bIsChange = false;
+                if (bDo == null) return;
                 for (int i = 0; i < m_iDoTotal; i++)
                 {
                     if (bDo[i] != bDo_compare[i] || bDi[i] != bDi_compare[i])
@@ -220,6 +221,7 @@ namespace RorzeUnit.Class.ADAM
         }
         public bool[] getInputValue()
         {
+            if (bDiData == null) return null;
             bool[] fResult = (bool[])bDiData.Clone();
             for (int i = 0; i < fResult.Length; i++)
             {

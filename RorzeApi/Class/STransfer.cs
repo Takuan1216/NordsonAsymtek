@@ -2116,6 +2116,8 @@ namespace RorzeApi.Class
                     case SWafer.enumPosition.UpperArm:
                     case SWafer.enumPosition.LowerArm:
                         #region Arm
+                        SGroupRecipe rcpeContent = m_grouprecipe.GetRecipeGroupList[waferData.RecipeID];
+                        bool[] EQEnableFlags = rcpeContent.GetEQ_ProcessEnable();
                         if (waferData.ProcessStatus == SWafer.enumProcessStatus.Processing) //================================================== 進貨
                         {
                             arm = waferData.Position == SWafer.enumPosition.UpperArm ? enumRobotArms.UpperArm : enumRobotArms.LowerArm;
@@ -2325,7 +2327,7 @@ namespace RorzeApi.Class
                                 goto DontMove;
                                 #endregion
                             }
-                            else if (waferData.AlgnComplete == true && waferData.GetUsingEQ != enumPosition.UnKnow && waferData.EqmComplete == false && waferData.WaferIDComparison == enumWaferIDComparison.IDAgree)
+                            else if (waferData.AlgnComplete == true && EQEnableFlags[0] ==true && waferData.GetUsingEQ != enumPosition.UnKnow && waferData.EqmComplete == false && waferData.WaferIDComparison == enumWaferIDComparison.IDAgree)
                             {
                                 SSEquipment equipment = ListEQM[waferData.GetUsingEQ - enumPosition.EQM1];
                                 #region Put Equipment
@@ -2351,7 +2353,7 @@ namespace RorzeApi.Class
 
                                 if (equipment.Wafer != null) { goto DontMove; }//有片子不能傳
                                 if (equipment.IsWaferExist == true) { goto DontMove; }//有片子不能傳
-                                if (equipment.IsReadyLoad == false) { goto DontMove; }//
+                                if (equipment.IsReadyLoad == false && GParam.theInst.EqmSimulate(equipment._BodyNo - 1) != true) { goto DontMove; }//
                                 // if (equipment.IsReady == false) { goto DontMove; }//位置不對不能傳 HSC bypass
                                 arm = waferData.Position == SWafer.enumPosition.UpperArm ? enumRobotArms.UpperArm : enumRobotArms.LowerArm;
 
@@ -2360,7 +2362,7 @@ namespace RorzeApi.Class
                                 {
                                     //move standby pos                                     
 
-                                    robotManual.MoveToStandbyByInterLockW_ExtXaxis(robotManual.GetAckTimeout, true, enumPosition.EQM1, arm, nStgeIndx, 1);
+                                    robotManual.MoveToStandbyByInterLockW_ExtXaxis(robotManual.GetAckTimeout, true, enumPosition.EQM1 + equipment._BodyNo - 1, arm, nStgeIndx, 1);
                                     robotManual.SetCurrePos = (RobotPos.Equipment1 + equipment._BodyNo - 1);
                                     WriteLog(string.Format("[TRB{0}]:Wait AccessAllowed wafer[{1}]. stage = [{2}], arm = [{3}].",
                                         robotManual.BodyNo, waferData.Slot, SWafer.enumPosition.EQM1 + equipment._BodyNo - 1, arm));
@@ -2376,7 +2378,7 @@ namespace RorzeApi.Class
                                        waferData.WaferID_F, waferData.WaferID_B, string.Format("The robot put wafer to equipment use {0}.", arm));
 
                                 //move robot 
-                                robotManual.PutWaferByInterLockW_ExtXaxis(robotManual.GetAckTimeout, arm, enumPosition.EQM1, nStgeIndx, 1, waferData);
+                                robotManual.PutWaferByInterLockW_ExtXaxis(robotManual.GetAckTimeout, arm, enumPosition.EQM1 + equipment._BodyNo - 1, nStgeIndx, 1, waferData);
 
                                 if (equipment.Simulate)
                                 {
@@ -3198,7 +3200,7 @@ namespace RorzeApi.Class
                                         break;
                                 }
                             }
-                            if (equipment.IsReadyUnload == false) { goto DontMove; }//位置不對不能傳  HSC bypass
+                            if (equipment.IsReadyUnload == false && GParam.theInst.EqmSimulate(equipment._BodyNo - 1) != true) { goto DontMove; }//位置不對不能傳  HSC bypass
 
                             nStgeIndx = GParam.theInst.GetDicPosRobot(robotManual.BodyNo, waferData.Position);
 
@@ -3886,9 +3888,12 @@ namespace RorzeApi.Class
                                         theWafer.NotchAngle = transferInfo.NotchAngle;
                                         theWafer.WaferInforID_B = transferInfo.WaferIDByHost; // T7 
                                         theWafer.WApplyEQ = transferInfo.ApplyEQ;
-
+                                        
+                                        SGroupRecipe rcpeContent = m_grouprecipe.GetRecipeGroupList[theWafer.RecipeID];
+                                        bool[] EQEnableFlags = rcpeContent.GetEQ_ProcessEnable();
                                         // 依 ApplyEQ 輪流指定 EQM1~EQM4
-                                        if (!GParam.theInst.EqmDisable(0) && !GParam.theInst.EqmDisable(1) && !GParam.theInst.EqmDisable(2) && !GParam.theInst.EqmDisable(3))
+                                        if ((!GParam.theInst.EqmDisable(0) || !GParam.theInst.EqmDisable(1) || !GParam.theInst.EqmDisable(2) || !GParam.theInst.EqmDisable(3)) && EQEnableFlags[0] == true)
+
                                         {
                                             theWafer.SetUsingEQ(GetNextAvailableEQ(transferInfo.ApplyEQ, ref eqRoundRobinIndex));
                                         }
@@ -4026,11 +4031,14 @@ namespace RorzeApi.Class
                                     theWafer.WaferInforID_B = transferInfo.WaferIDByHost;
                                     theWafer.WApplyEQ = transferInfo.ApplyEQ;
 
+                                    SGroupRecipe rcpeContent = m_grouprecipe.GetRecipeGroupList[theWafer.RecipeID];
+                                    bool[] EQEnableFlags = rcpeContent.GetEQ_ProcessEnable();
                                     // 依 ApplyEQ 輪流指定 EQM1~EQM4
-                                    if(!GParam.theInst.EqmDisable(0) && !GParam.theInst.EqmDisable(1) && !GParam.theInst.EqmDisable(2) && !GParam.theInst.EqmDisable(3))
+                                    if ((!GParam.theInst.EqmDisable(0) || !GParam.theInst.EqmDisable(1) || !GParam.theInst.EqmDisable(2) || !GParam.theInst.EqmDisable(3)) && EQEnableFlags[0] == true)
+
                                     {
                                         theWafer.SetUsingEQ(GetNextAvailableEQ(transferInfo.ApplyEQ, ref eqRoundRobinIndex));
-                                    }   
+                                    }
                                     //if (theWafer.WaferID_B == "")//有經有ID，UNDO的流程
                                     //    theWafer.WaferID_B = transferInfo.WaferIDByHost;
 
@@ -4149,7 +4157,7 @@ namespace RorzeApi.Class
                 m_dbProcess.CreateProcessWaferbyStation(DateTime.Now, waferData.FoupID, waferData.CJID, waferData.PJID, waferData.RecipeID, waferData.Slot,
                         waferData.WaferID_F, waferData.WaferID_B,
                         "Equipment Process Complete");
-                System.Threading.SpinWait.SpinUntil(() => false, 80000);
+                System.Threading.SpinWait.SpinUntil(() => false, 8000);
 
 
                 //測試先讓回foup前再過一次aligner

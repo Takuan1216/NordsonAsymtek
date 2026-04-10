@@ -2353,9 +2353,14 @@ namespace RorzeApi
                                 break;
                         }
                     }
-
+                    bool[] CheckGroupRecipeEQ = m_dbGrouprecipe.GetRecipeGroupList[m_strRecipe].GetEQ_ProcessEnable();
                     for (int i = 0; i < m_bApplyEQ.Length; i++)
                     {
+                        
+                        if (CheckGroupRecipeEQ[0] == false)
+                        {
+                            break;
+                        }
                         if (m_bApplyEQ[i])
                         {
                             m_dbGrouprecipe.GetRecipeGroupList.TryGetValue(m_strRecipe, out var list);

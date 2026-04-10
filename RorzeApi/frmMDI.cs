@@ -319,7 +319,7 @@ namespace RorzeApi
                 { 3, (nAdam: 1, Di_RDYtoLoad: 0, Di_RDYtoUnload: 1, Do_RDYtoLoad: 0, Do_RDYtoUnload: 1)},
                 { 4, (nAdam: 1, Di_RDYtoLoad: 2, Di_RDYtoUnload: 3, Do_RDYtoLoad: 2, Do_RDYtoUnload: 3)},
     };
-        private int shutterDoorTimeout = 5000;
+        private int shutterDoorTimeout = 15000;
 
 
 
@@ -5040,7 +5040,7 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target no wafer !!");
                             return true;
                         }
-                        if (equipment.IsReadyUnload == false)
+                        if (equipment.IsReadyUnload == false && GParam.theInst.EqmSimulate(equipment._BodyNo - 1) != true)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Unload!!");
                             return true;
@@ -5058,7 +5058,7 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target has wafer !!");
                             return true;
                         }
-                        if (equipment.IsReadyLoad == false)
+                        if (equipment.IsReadyLoad == false && GParam.theInst.EqmSimulate(equipment._BodyNo - 1) != true)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Load!!");
                             return true;
@@ -5123,7 +5123,7 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target no wafer !!");
                             return true;
                         }
-                        if (equipment.IsReadyUnload == false)
+                        if (equipment.IsReadyUnload == false && GParam.theInst.EqmSimulate(equipment._BodyNo - 1) != true)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Unload!!");
                             return true;
@@ -5141,7 +5141,7 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target has wafer !!");
                             return true;
                         }
-                        if (equipment.IsReadyLoad == false)
+                        if (equipment.IsReadyLoad == false && GParam.theInst.EqmSimulate(equipment._BodyNo - 1) != true)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Load!!");
                             return true;
@@ -5205,7 +5205,7 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target no wafer !!");
                             return true;
                         }
-                        if (equipment.IsReadyUnload == false)
+                        if (equipment.IsReadyUnload == false && GParam.theInst.EqmSimulate(equipment._BodyNo - 1) != true)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Unload!!");
                             return true;
@@ -5223,7 +5223,7 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target has wafer !!");
                             return true;
                         }
-                        if (equipment.IsReadyLoad == false)
+                        if (equipment.IsReadyLoad == false && GParam.theInst.EqmSimulate(equipment._BodyNo - 1) != true)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Load!!");
                             return true;
@@ -5288,7 +5288,7 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target no wafer !!");
                             return true;
                         }
-                        if (equipment.IsReadyUnload == false)
+                        if (equipment.IsReadyUnload == false && GParam.theInst.EqmSimulate(equipment._BodyNo - 1) != true)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Unload!!");
                             return true;
@@ -5306,7 +5306,7 @@ namespace RorzeApi
                             _errorLog.WriteLog("[ Interlock ]:The target has wafer !!");
                             return true;
                         }
-                        if (equipment.IsReadyLoad == false)
+                        if (equipment.IsReadyLoad == false && GParam.theInst.EqmSimulate(equipment._BodyNo - 1) != true)
                         {
                             _errorLog.WriteLog("[ Interlock ]:The target is not Ready to Load!!");
                             return true;
@@ -5618,6 +5618,8 @@ namespace RorzeApi
         }
         private bool isEQDetectFinger(object sender)
         {
+            if (GParam.theInst.IsSimulate) 
+                return false;
             SSEquipment equipment = sender as SSEquipment;
             bool bDetected = true;
             if (equipment._BodyNo == 1)
@@ -5830,7 +5832,8 @@ namespace RorzeApi
                 ListDIO[4].SdobW(0, bits.CloseDo, true);
 
                 Stopwatch sw = Stopwatch.StartNew();
-
+                if (GParam.theInst.IsSimulate)
+                    return true;
                 while (!IsShutterDoorClose(equipment))
                 {
                     if (sw.ElapsedMilliseconds >= shutterDoorTimeout)
@@ -6683,7 +6686,7 @@ namespace RorzeApi
                 case enumPosition.EQM4:
                     ListEQM[ePos - enumPosition.EQM1].SetRobotExtendIO(false);
                     ListEQM[ePos - enumPosition.EQM1].SetRobotGetSMEMA(false);
-                    ListEQM[ePos - enumPosition.EQM1].tShutterDoorCloseSetW();//用一次緒關門，不卡robot動作
+                    ListEQM[ePos - enumPosition.EQM1].SetDoorCloseW();
                     break;
 
             }
@@ -6923,7 +6926,7 @@ namespace RorzeApi
                 case enumPosition.EQM4:
                     ListEQM[ePos - enumPosition.EQM1].SetRobotExtendIO(false);
                     ListEQM[ePos - enumPosition.EQM1].SetRobotPutSMEMA(false);
-                    ListEQM[ePos - enumPosition.EQM1].tShutterDoorCloseSetW(); //用一次緒關門，不卡robot動作
+                    ListEQM[ePos - enumPosition.EQM1].SetDoorCloseW();
                     break;
 
             }

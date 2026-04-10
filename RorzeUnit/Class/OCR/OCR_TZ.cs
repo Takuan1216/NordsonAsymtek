@@ -894,6 +894,8 @@ namespace RorzeUnit.Class.OCR
 
         public bool SaveImage(string strFaileName)
         {
+            if (m_bSimulate)
+                return true;
             bool bSucc = false;
             try
             {

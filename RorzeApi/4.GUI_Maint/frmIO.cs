@@ -298,13 +298,16 @@ namespace RorzeApi
                    
                         if (FanBar.Value > 0)
                         {
-                            ffu.SetSpeedSetting(1, FanBar.Value);
+                            for(int i = 0; i < GParam.theInst.GetFfuFanCount(0); i++)
+                            {
+                                ffu.SetSpeedSetting(i + 1, FanBar.Value);
+                            }
 
-                            ffu.SetOperationCtrl(1, FanBar.Value > 0);
+                            //ffu.SetOperationCtrl(1, FanBar.Value > 0);
                         }
                         else
                         {
-                            ffu.SetOperationCtrl(1, false);
+                            //ffu.SetOperationCtrl(1, false);
                         }
                     }
 
@@ -426,8 +429,8 @@ namespace RorzeApi
                     if (GParam.theInst.RC550ctrlFFU)
                     {
                         FanBar.Visible = txtFFU.Visible = gbxFFU.Visible = lblFFUrpm.Visible = true;
-                        FanBar.Minimum = 0;
-                        FanBar.Maximum = 1650;
+                        FanBar.Minimum = 300;
+                        FanBar.Maximum = 1600;
                     }
 
                     if (GParam.theInst.RC550Pressure_Enable)

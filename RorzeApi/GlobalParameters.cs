@@ -40,7 +40,7 @@ namespace RorzeApi
     public enum enumOcrType : int { IS1740 = 0, WID120 = 1, TZ0031 };
     public enum enumIOModuleType : int { RC530 = 0, RC550 = 1 }
     public enum enumTblType : int { None = -1, RC560 = 0, RC550 = 1 }
-    public enum enumFfuType : int { None = 0, TOPWELL = 1, AirTech = 2 }//奇立、富泰
+    public enum enumFfuType : int { None = 0, TOPWELL = 1, AirTech = 2, NicotraGebhardt = 3 }//奇立、富泰、CIANYI
     public enum enumTransfeStatus : int { Idle = 0, Transfe, Abort, Stop, Pause };
     public enum enumTpTime { TP1, TP2, TP3, TP4, TP5 };
     public enum enumOCRReadFailProcess : int { Continue = 0, Abort, BackFoup, UserKeyIn }
@@ -1935,7 +1935,7 @@ namespace RorzeApi
                 for (int i = 0; i < Enum.GetNames(typeof(enumFFU)).Count(); i++)
                 {
                     string strSection = "FFU" + (i + 1);
-                    nValue = myIni.GetIni(strSection, string.Format("Type(0:None,1:TOPWELL,2:AirTech)"), 0);
+                    nValue = myIni.GetIni(strSection, string.Format("Type(0:None,1:TOPWELL,2:AirTech,3:NicotraGebhardt)"), 0);
                     m_eFfuType[i] = Enum.IsDefined(typeof(enumFfuType), nValue) ? (enumFfuType)nValue : enumFfuType.None;
                     m_nFfuFanCount[i] = myIni.GetIni(strSection, string.Format("FanCount"), 1);
                     m_nFfuComort[i] = myIni.GetIni(strSection, string.Format("Comport"), 0);

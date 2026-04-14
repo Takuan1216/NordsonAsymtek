@@ -281,8 +281,6 @@ namespace RorzeUnit.Class.FFU
 
                 for (int i = 0; i < _SlaveCount; i++)
                 {
-                    //GetSettingInfo(i + 1);
-
                     GetSpeedInformation(i + 1);
                 }
                 //for (int i = 0; i < m_nSpeed.Count(); i++)
@@ -1206,5 +1204,464 @@ namespace RorzeUnit.Class.FFU
 
     }
 
+    public class SSFFU_NicotraGebhardt : SSFFUCtrlParents
+    {
+        enum enumAddress
+        {
+            Slave1_SpeedInformation = 0x1581,
+
+
+
+
+            //Slave1_SpeedInformation = 0x0005,//40006 當前轉速
+            //Slave1_OperationControl = 0x0008,//40009
+            Slave1_OperatSpeed1 = 0x157C,
+            //Slave1_OperatSpeed2 = 0x001D, //40030
+            //Slave1_OperatSpeed3 = 0x001E, //40031
+
+            Slave2_SpeedInformation = 0x1581 + 20,
+            //Slave2_OperationControl = 0x0008 + 100,
+            Slave2_OperatSpeed1 = 0x157C + 20,
+            //Slave2_OperatSpeed2 = 0x001D + 100,
+            //Slave2_OperatSpeed3 = 0x001E + 100,
+
+            Slave3_SpeedInformation = 0x1581 + 40,
+            //Slave3_OperationControl = 0x0008 + 200,
+            Slave3_OperatSpeed1 = 0x157C + 40,
+            //Slave3_OperatSpeed2 = 0x001D + 200,
+            //Slave3_OperatSpeed3 = 0x001E + 200,
+
+            Slave4_SpeedInformation = 0x1581 + 60,
+            //Slave4_OperationControl = 0x0008 + 300,
+            Slave4_OperatSpeed1 = 0x157C + 60,
+            //Slave4_OperatSpeed2 = 0x001D + 300,
+            //Slave4_OperatSpeed3 = 0x001E + 300,
+
+
+
+        }
+
+        Dictionary<enumAddress, SSignal> m_dicSignalAck = new Dictionary<enumAddress, SSignal>();
+
+        private enumAddress m_eAddress_Cmd;
+        private sClient m_Client;
+        private string m_strIP;
+        private int m_nPort;
+
+        private ushort[] m_nOperationCtrl;
+
+        private Dictionary<int, ushort> m_dicAddressBuf = new Dictionary<int, ushort>();
+
+        public SSFFU_NicotraGebhardt(int nBody, int nSlaveCount, bool bSimulate, bool bDisable, string strIP, int nPort) : base(nBody, nSlaveCount, bSimulate, bDisable)
+        {
+            m_strIP = strIP;
+            m_nPort = nPort;
+            m_bSimulate = bSimulate;
+            m_Client = new sClient();
+
+            m_nOperationCtrl = new ushort[nSlaveCount];
+
+            foreach (enumAddress enumType in System.Enum.GetValues(typeof(enumAddress)))
+            {
+                m_dicSignalAck.Add(enumType, new SSignal(false, EventResetMode.ManualReset));
+            }
+
+            m_Client.onDataReciveByByte += Client_OnDataRecive;
+            m_Client.OnConnectChange += Client_OnConnectChange;
+
+            for (int i = 0; i < m_nSpeedMax.Length; i++)
+            {
+                m_nSpeedMax[i] = 1600;
+            }
+            for (int i = 0; i < m_nSpeedMin.Length; i++)
+            {
+                m_nSpeedMin[i] = 300;
+            }
+
+        }
+
+        #region Modbus TCP 通訊
+        public override bool ToConnect()
+        {
+            bool bSucc = m_bSimulate;
+            try
+            {
+                if (m_bSimulate == false)
+                    m_Client.connect(m_strIP, m_nPort);
+            }
+            catch (Exception ex)
+            {
+                WriteLog("<Exception>:" + ex);
+            }
+            return bSucc;
+
+        }
+
+        private void Client_OnDataRecive(sClient.ReciveByByte args)
+        {
+            byte[] byteData = args.sReciveData;
+            string strData = BitConverter.ToString(byteData);
+            m_QueRecvBuffer.Enqueue(strData);
+            WriteLog("RECV : " + strData);
+        }
+
+        private void Client_OnConnectChange(object sender, bool bConnect)
+        {
+            WriteLog(string.Format("Client {0}:{1} connected.", m_strIP, m_nPort));
+            m_bConnect = bConnect;
+        }
+
+        private void Sendcommand_Get(int nSlave, short startAddress, ushort numRegisters)
+        {
+            lock (m_lockSend)
+            {
+                try
+                {
+                    byte[] frame = new byte[12];
+
+                    // 事務標識符 (任意)
+                    frame[0] = 0x00;
+                    frame[1] = 0x01;
+
+                    // 協議標識符 (0=Modbus)
+                    frame[2] = 0x00;
+                    frame[3] = 0x00;
+
+                    // 長度字段 (後面的字節數)
+                    frame[4] = 0x00;
+                    frame[5] = 0x06;
+
+                    // 單元標識符
+                    frame[6] = 0x01; //(byte)nSlave; 控制面板包一層只有一站
+
+                    // 功能碼 (0x03 = 讀保持寄存器)
+                    frame[7] = 0x03;
+
+                    // 起始地址
+                    frame[8] = (byte)(startAddress >> 8);
+                    frame[9] = (byte)startAddress;
+
+                    // 寄存器數量
+                    frame[10] = (byte)(numRegisters >> 8);
+                    frame[11] = (byte)numRegisters;
+
+                    WriteLog("Send : " + BitConverter.ToString(frame));
+                    m_Client.Write(frame);
+                }
+                catch (Exception ex)
+                {
+                    WriteLog("<Exception>" + ex);
+                }
+            }
+        }
+
+        private void Sendcommand_Set(int nSlave, short startAddress, ushort numRegisters)
+        {
+            lock (m_lockSend)
+            {
+                try
+                {
+                    byte[] frame = new byte[12];
+
+                    // 事務標識符 (任意)
+                    frame[0] = 0x00;
+                    frame[1] = 0x01;
+
+                    // 協議標識符 (0=Modbus)
+                    frame[2] = 0x00;
+                    frame[3] = 0x00;
+
+                    // 長度字段 (後面的字節數)
+                    frame[4] = 0x00;
+                    frame[5] = 0x06;
+
+                    // 單元標識符
+                    frame[6] = 0x01; //(byte)nSlave; 控制面板包一層只有一站
+
+                    // 功能碼 (0x06 = 寫保持寄存器)
+                    frame[7] = 0x06;
+
+                    // 起始地址
+                    frame[8] = (byte)(startAddress >> 8);
+                    frame[9] = (byte)startAddress;
+
+                    // 寄存器數值
+                    frame[10] = (byte)(numRegisters >> 8);
+                    frame[11] = (byte)numRegisters;
+
+                    WriteLog("Send : " + BitConverter.ToString(frame));
+                    m_Client.Write(frame);
+                }
+                catch (Exception ex)
+                {
+                    WriteLog("<Exception>" + ex);
+                }
+            }
+        }
+
+        #endregion
+
+        protected override bool ProcessingRecive(string strContent)
+        {
+            //位置    長度  字段          說明
+            //0 - 1     2   事務標識符   請求 / 響應匹配ID
+            //2 - 3     2   協議標識符   Modbus協議固定為0
+            //4 - 5     2   長度         後面跟隨的字節數
+            //6         1   單元標識符   從站地址
+            //7         1   功能碼       讀保持寄存器功能
+            //8         1   字節計數     後面數據的字節數
+            //9 - 10    2   寄存器數據   實際讀取的寄存器值
+
+            bool bSuc = false;
+            try
+            {
+                while (true)
+                {
+                    if (strContent == "")
+                        break;
+
+
+                    // 1. 將字符串轉換為字節數組
+                    byte[] bytes = strContent.Split('-').Select(s => Convert.ToByte(s, 16)).ToArray();
+
+                    // 2. 檢查最小長度
+                    if (bytes.Length < 9)
+                    {
+                        WriteLog("Error: Received message length insufficient");
+                        break;
+                    }
+
+                    // 3. 解析MBAP頭部
+                    ushort transactionId = (ushort)((bytes[0] << 8) | bytes[1]);
+                    ushort protocolId = (ushort)((bytes[2] << 8) | bytes[3]);
+                    ushort length = (ushort)((bytes[4] << 8) | bytes[5]);
+                    byte unitId = bytes[6];
+                    byte functionCode = bytes[7];
+
+                    Console.WriteLine("=== MBAP頭部 ===");
+                    Console.WriteLine($"事務標識符: 0x{transactionId:X4}");
+                    Console.WriteLine($"協議標識符: 0x{protocolId:X4} (Modbus)");
+                    Console.WriteLine($"長度字段: {length} 字節");
+                    Console.WriteLine($"單元標識符: {unitId}");
+                    Console.WriteLine($"功能碼: 0x{functionCode:X2}");
+
+                    // 4. 檢查錯誤響應
+                    if ((functionCode & 0x80) != 0)
+                    {
+                        byte errorCode = bytes[8];
+                        WriteLog($"Error Response! Code: 0x{errorCode:X2}");
+                        break;
+                    }
+
+                    // 5. 根據功能碼解析
+                    switch (functionCode)
+                    {
+                        case 0x03: // 讀保持寄存器
+                            {
+                                if (bytes.Length < 9 + bytes[8])
+                                {
+                                    WriteLog("Error: Data length does not match declaration");
+                                    break;
+                                }
+
+                                byte byteCount = bytes[8];
+                                Console.WriteLine($"\n=== 寄存器數據 ===");
+                                Console.WriteLine($"字節計數: {byteCount}");
+
+                                // 解析寄存器值 (每2字節一個寄存器)
+                                for (int i = 0; i < byteCount; i += 2)
+                                {
+                                    if (i + 9 + 1 >= bytes.Length) break;
+
+                                    ushort registerValue = (ushort)((bytes[9 + i] << 8) | bytes[10 + i]);
+                                    WriteLog($" Register{i / 2} value: 0x{registerValue:X4} ({registerValue}) {Convert.ToString(registerValue, 2).PadLeft(16, '0')}");
+                                    /*
+                                    // 示例中的 00-40 解析
+                                    if (i == 0 && byteCount >= 2)
+                                    {
+                                        Console.WriteLine("\n詳細解析 00-40:");
+                                        Console.WriteLine($"十進制: {registerValue}");
+                                        Console.WriteLine($"十六進制: 0x{registerValue:X4}");
+                                        Console.WriteLine($"二進制: {Convert.ToString(registerValue, 2).PadLeft(16, '0')}");
+
+                                        // 00-40 實際值為 64
+                                        Console.WriteLine($"實際值(十進制): {registerValue}");
+                                    }
+                                    */
+
+                                    switch (m_eAddress_Cmd)
+                                    {
+                                        case enumAddress.Slave1_SpeedInformation:
+                                            m_nSpeed[0] = registerValue;
+                                            break;
+                                        //case enumAddress.Slave1_OperationControl:
+                                        //    m_nOperationCtrl[0] = registerValue;
+                                        //    break;
+                                        //case enumAddress.Slave1_OperatSpeed1:
+                                        //    break;
+                                        //case enumAddress.Slave1_OperatSpeed2:
+                                        //    break;
+                                        //case enumAddress.Slave1_OperatSpeed3:
+                                        //    break;
+                                        case enumAddress.Slave2_SpeedInformation:
+                                            m_nSpeed[1] = registerValue;
+                                            break;
+                                        //case enumAddress.Slave2_OperationControl:
+                                        //    m_nOperationCtrl[1] = registerValue;
+                                        //    break;
+                                        //case enumAddress.Slave2_OperatSpeed1:
+                                        //    break;
+                                        //case enumAddress.Slave2_OperatSpeed2:
+                                        //    break;
+                                        //case enumAddress.Slave2_OperatSpeed3:
+                                        //    break;
+                                        case enumAddress.Slave3_SpeedInformation:
+                                            m_nSpeed[2] = registerValue;
+                                            break;
+                                        //case enumAddress.Slave3_OperationControl:
+                                        //    m_nOperationCtrl[2] = registerValue;
+                                        //    break;
+                                        //case enumAddress.Slave3_OperatSpeed1:
+                                        //    break;
+                                        //case enumAddress.Slave3_OperatSpeed2:
+                                        //    break;
+                                        //case enumAddress.Slave3_OperatSpeed3:
+                                        //    break;
+                                        case enumAddress.Slave4_SpeedInformation:
+                                            m_nSpeed[3] = registerValue;
+                                            break;
+                                        //case enumAddress.Slave4_OperationControl:
+                                        //    m_nOperationCtrl[3] = registerValue;
+                                        //    break;
+                                        //case enumAddress.Slave4_OperatSpeed1:
+                                        //    break;
+                                        //case enumAddress.Slave4_OperatSpeed2:
+                                        //    break;
+                                        //case enumAddress.Slave4_OperatSpeed3:
+                                        //    break;
+                                        default:
+                                            break;
+                                    }
+
+                                }
+                            }
+                            break;
+                        case 0x06: // 寫保持寄存器
+                            {
+                                if (bytes.Length == 12 && bytes[7] == 0x06)
+                                {
+                                    WriteLog($" Successfully written to register {(ushort)((bytes[8] << 8) | bytes[9])} Value: {(ushort)((bytes[10] << 8) | bytes[11])}");
+                                }
+                            }
+                            break;
+                        default:
+                            WriteLog($"Unimplemented function codes: 0x{functionCode:X2}");
+                            break;
+                    }
+
+
+                    m_dicSignalAck[m_eAddress_Cmd].Set();
+
+                    bSuc = true;
+                    break;
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteLog("Exception:" + ex);
+            }
+            return bSuc;
+        }
+
+        #region 繼承方法
+        //X06 Preset Single registers.
+        public override bool SetOperationCtrl(int nSlave, bool bOn)
+        {
+            throw new NotImplementedException();
+        }
+        public override bool SetSpeedSetting(int nSlave, int nSpeed)
+        {
+            bool bSuc = false;
+            ushort nValue = (ushort)nSpeed;
+
+            m_eAddress_Cmd = enumAddress.Slave1_OperatSpeed1 + (20 * (nSlave - 1));
+            m_dicSignalAck[m_eAddress_Cmd].Reset();
+            Sendcommand_Set(nSlave, (short)m_eAddress_Cmd, nValue);//4009 地址 8 操作狀態
+            bSuc = m_dicSignalAck[m_eAddress_Cmd].WaitOne(3000);
+
+            //m_eAddress_Cmd = enumAddress.Slave1_OperatSpeed2 + (100 * (nSlave - 1));
+            //m_dicSignalAck[m_eAddress_Cmd].Reset();
+            //Sendcommand_Set(nSlave, (short)m_eAddress_Cmd, nValue);//4009 地址 8 操作狀態
+            //bSuc &= m_dicSignalAck[m_eAddress_Cmd].WaitOne(3000);
+
+            //m_eAddress_Cmd = enumAddress.Slave1_OperatSpeed3 + (100 * (nSlave - 1));
+            //m_dicSignalAck[m_eAddress_Cmd].Reset();
+            //Sendcommand_Set(nSlave, (short)m_eAddress_Cmd, nValue);//4009 地址 8 操作狀態
+            //bSuc &= m_dicSignalAck[m_eAddress_Cmd].WaitOne(3000);
+
+            if (bSuc == false)
+            {
+                WriteLog("Send : Ack timeout");
+            }
+            return bSuc;
+        }
+        public override bool SetSpeedLimitMax(int nSlave, int nSpeed)
+        {
+            throw new NotImplementedException();
+        }
+        public override bool SetSpeedLimitMin(int nSlave, int nSpeed)
+        {
+            throw new NotImplementedException();
+        }
+
+        //X03 Reads the contents of holding registers.
+        public override bool GetSettingInfo(int nSlave)
+        {
+            bool bSuc = false;
+            //m_eAddress_Cmd = enumAddress.Slave1_OperationControl + (100 * (nSlave - 1));
+            //m_dicSignalAck[m_eAddress_Cmd].Reset();
+
+            //Sendcommand_Get(nSlave, (short)m_eAddress_Cmd, 1);//4009 地址 8
+
+            //bSuc = m_dicSignalAck[m_eAddress_Cmd].WaitOne(3000);
+            //if (bSuc == false)
+            //{
+            //    WriteLog("RECV : Ack timeout");
+            //}
+
+            return bSuc;
+        }
+        public override bool GetSpeedInformation(int nSlave, bool bPassLog = false)
+        {
+            bool bSuc = false;
+            m_eAddress_Cmd = enumAddress.Slave1_SpeedInformation + (20 * (nSlave - 1));
+            m_dicSignalAck[m_eAddress_Cmd].Reset();
+
+            Sendcommand_Get(nSlave, (short)m_eAddress_Cmd, 1);//4006 地址 5
+
+            bSuc = m_dicSignalAck[m_eAddress_Cmd].WaitOne(3000);
+            if (bSuc == false)
+            {
+                WriteLog("RECV : Ack timeout");
+            }
+
+            return bSuc;
+        }
+        public override bool GetSpeedLimitMax(int nSlave)
+        {
+            //Sendcommand_Get(nSlave, 4, 1);
+            return true;
+        }
+        public override bool GetSpeedLimitMin(int nSlave)
+        {
+            //Sendcommand_Get(nSlave, 4, 1);
+            return true;
+        }
+        #endregion
+
+
+
+
+    }
 
 }

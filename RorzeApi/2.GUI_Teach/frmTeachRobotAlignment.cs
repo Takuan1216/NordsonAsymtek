@@ -685,7 +685,7 @@ namespace RorzeApi
                 if (m_robot.DCFGData != null)
                 {
                     int nValue = int.Parse(m_robot.DCFGData[5]);//取出原本的D值           
-                    int nV = 0x01 << 5 | 0x01 << 7;
+                    int nV = (1 << 5) | (1 << 6) | (1 << 7) | (1 << 8);
                     if (cbxDCFG5_BIT5and7.SelectedIndex != 0)
                         nValue = (nValue | nV);
                     else

@@ -319,7 +319,7 @@ namespace RorzeApi
                 { 3, (nAdam: 1, Di_RDYtoLoad: 0, Di_RDYtoUnload: 1, Do_RDYtoLoad: 0, Do_RDYtoUnload: 1)},
                 { 4, (nAdam: 1, Di_RDYtoLoad: 2, Di_RDYtoUnload: 3, Do_RDYtoLoad: 2, Do_RDYtoUnload: 3)},
     };
-        private int shutterDoorTimeout = 15000;
+        private int shutterDoorTimeout = 60000;
 
 
 
@@ -1575,6 +1575,10 @@ namespace RorzeApi
                                 break;
                             case enumFfuType.AirTech:
                                 ffu = new SSFFU_AirTech(i + 1, nFanCount, bSimulate, false, GParam.theInst.GetFfuIP(i), 502);
+                                System.Threading.Tasks.Task.Run(() => { ffu.ToConnect(); });
+                                break;
+                            case enumFfuType.NicotraGebhardt:
+                                ffu = new SSFFU_NicotraGebhardt(i + 1, nFanCount, bSimulate, false, GParam.theInst.GetFfuIP(i), 502);
                                 System.Threading.Tasks.Task.Run(() => { ffu.ToConnect(); });
                                 break;
                             default:
@@ -5021,7 +5025,7 @@ namespace RorzeApi
                 }
                 if (equipment.SetDoorOpenW() == false)//會等門開好
                 {
-                    _errorLog.WriteLog("[ Interlock ]:Failed to open Shutter door!!");
+                    _errorLog.WriteLog(string.Format("[ Interlock ]:Failed to open eq{0} Shutter door!!", equipment._BodyNo));
                     return true;
                 }
 
@@ -5104,7 +5108,7 @@ namespace RorzeApi
 
                 if (equipment.SetDoorOpenW() == false)//會等門開好
                 {
-                    _errorLog.WriteLog("[ Interlock ]:Failed to open Shutter door!!");
+                    _errorLog.WriteLog(string.Format("[ Interlock ]:Failed to open eq{0} Shutter door!!", equipment._BodyNo));
                     return true;
                 }
 
@@ -5186,7 +5190,7 @@ namespace RorzeApi
                 }
                 if (equipment.SetDoorOpenW() == false)//會等門開好
                 {
-                    _errorLog.WriteLog("[ Interlock ]:Failed to open Shutter door!!");
+                    _errorLog.WriteLog(string.Format("[ Interlock ]:Failed to open eq{0} Shutter door!!", equipment._BodyNo));
                     return true;
                 }
 
@@ -5269,7 +5273,7 @@ namespace RorzeApi
 
                 if (equipment.SetDoorOpenW() == false)//會等門開好
                 {
-                    _errorLog.WriteLog("[ Interlock ]:Failed to open Shutter door!!");
+                    _errorLog.WriteLog(string.Format("[ Interlock ]:Failed to open eq{0} Shutter door!!", equipment._BodyNo));
                     return true;
                 }
 

@@ -2185,7 +2185,7 @@ namespace RorzeApi
                     frmloading.AddMessage(str);
                     _autoProcess = new STransfer(ListTRB, ListSTG, ListALN, ListE84, ListOCR, ListBUF, _JobControl, _grouprecipe, _dbProcess, _alarm, _DataBase, _VIDControl, ListEQM, ListAdam);
 				if (GParam.theInst.E84LightCurtainCheck)
-                        _autoProcess.dlgE84LoadUnldAllow = () => ListDIO[1].GetGDIO_InputStatus(0, 8); // DIO1 bit8 光閘
+                        _autoProcess.dlgE84LoadUnldAllow = () => ListDIO[1].GetGDIO_InputStatus(0, 12); // DIO1 bit12 光閘
                     WriteLog(str);
                 }
                 #endregion =====================================================================  

@@ -75,6 +75,7 @@ namespace RorzeApi
             tplEQ1.Visible = ListEQM[0] != null && ListEQM[0].Disable == false;
             tplEQ2.Visible = ListEQM[1] != null && ListEQM[1].Disable == false;
             tplEQ3.Visible = ListEQM[2] != null && ListEQM[2].Disable == false;
+            tplEQ4.Visible = ListEQM[3] != null && ListEQM[3].Disable == false;
 
             //  Robot       
             for (int i = 0; i < ListTRB.Count; i++)
@@ -1404,6 +1405,23 @@ namespace RorzeApi
                     }
                 }
 
+                if (ListEQM[3] != null)
+                {
+                    waferShow = ListEQM[3].Wafer;
+                    if (waferShow != null)
+                    {
+                        lblEQ4SlotNo.Text = string.Format("{0} ({1}\")", waferShow.ToSlot, waferShow.WaferSize);
+                        lblEQ4Owner.Text = waferShow.ToLoadport.ToString();
+                        pbxEQ4Wafer.Visible = true;
+                    }
+                    else
+                    {
+                        lblEQ4SlotNo.Text = "-";
+                        lblEQ4Owner.Text = "-";
+                        pbxEQ4Wafer.Visible = false;
+                    }
+                }
+
                 #endregion
 
                 timer1.Enabled = true;
@@ -2136,6 +2154,18 @@ namespace RorzeApi
                 {
                     ListEQM[2].Wafer.SetOwner(eFromLoader);
                     ListEQM[2].Wafer.SetSlot(int.Parse(strEQ3[1]));
+                }
+            }
+            string[] strEQ4 = m_MySQL.GetUnitStatus(SStockerSQL.enumUnit.EQM4).Split('_');
+            if (strEQ4.Length > 1 && WaferExist(SStockerSQL.enumUnit.EQM4))
+            {
+                lblEQ4SlotNoRecord.Text = strEQ4[1];
+                lblEQ4OwnerRecord.Text = strEQ4[0];
+                enumFromLoader eFromLoader;
+                if (Enum.TryParse(strEQ4[0], out eFromLoader))
+                {
+                    ListEQM[3].Wafer.SetOwner(eFromLoader);
+                    ListEQM[3].Wafer.SetSlot(int.Parse(strEQ4[1]));
                 }
             }
             #endregion

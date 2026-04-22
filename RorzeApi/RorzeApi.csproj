@@ -638,6 +638,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="2.GUI_Teach\frmTeachLoadport.resx">
       <DependentUpon>frmTeachLoadport.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="2.GUI_Teach\frmTeachRobotDataCopy.resx">
       <DependentUpon>frmTeachRobotDataCopy.cs</DependentUpon>

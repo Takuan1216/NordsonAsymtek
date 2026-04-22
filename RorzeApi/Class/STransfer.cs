@@ -1,39 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Data;
-using RorzeUnit.Class;
-using RorzeUnit.Interface;
-using RorzeComm.Log;
-using RorzeUnit.Event;
-using RorzeUnit.Class.E84.Enum;
-using RorzeUnit.Class.Loadport.Enum;
-using RorzeUnit;
-using RorzeUnit.Class.E84;
-using RorzeUnit.Class.Robot.Enum;
-using RorzeApi.SECSGEM;
-using static RorzeUnit.Class.SWafer;
-using RorzeUnit.Class.Loadport.Event;
+﻿using Rorze.Equipments.Unit;
 using Rorze.Secs;
-using System.Windows.Forms;
-using RorzeUnit.Class.Aligner.Enum;
-using System.Threading;
-using System.Runtime.CompilerServices;
-using System.Collections.Concurrent;
 using RorzeApi.GUI;
-using System.Linq.Expressions;
-using Rorze.Equipments.Unit;
-using System.Timers;
-using static System.Windows.Forms.AxHost;
-using RorzeComm.Threading;
-using static RorzeApi.SECSGEM.SProcessJobObject;
-using RorzeUnit.Class.EQ.Enum;
-using RorzeUnit.Class.EQ;
-using static RorzeUnit.Net.Sockets.sClient;
-using System.Reflection;
-using RorzeUnit.Class.Robot;
-using RorzeUnit.Class.ADAM;
+using RorzeApi.SECSGEM;
 using RorzeComm;
+using RorzeComm.Log;
+using RorzeComm.Threading;
+using RorzeUnit;
+using RorzeUnit.Class;
+using RorzeUnit.Class.ADAM;
+using RorzeUnit.Class.Aligner.Enum;
+using RorzeUnit.Class.E84;
+using RorzeUnit.Class.E84.Enum;
+using RorzeUnit.Class.E84.Event;
+using RorzeUnit.Class.EQ;
+using RorzeUnit.Class.EQ.Enum;
+using RorzeUnit.Class.Loadport.Enum;
+using RorzeUnit.Class.Loadport.Event;
+using RorzeUnit.Class.Robot;
+using RorzeUnit.Class.Robot.Enum;
+using RorzeUnit.Event;
+using RorzeUnit.Interface;
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Timers;
+using System.Windows.Forms;
+using static RorzeApi.SECSGEM.SProcessJobObject;
+using static RorzeUnit.Class.SWafer;
+using static RorzeUnit.Net.Sockets.sClient;
+using static System.Windows.Forms.AxHost;
 
 namespace RorzeApi.Class
 {
@@ -109,8 +110,11 @@ namespace RorzeApi.Class
                 //  E84
                 foreach (I_E84 e84 in ListE84)
                 {
-                    if (GParam.theInst.E84Type == enumE84Type.SB058)
+                    if (GParam.theInst.E84Type == enumE84Type.SB058 || GParam.theInst.E84Type == enumE84Type.LPBuiltInE84)
                         e84.DoAutoProcessing += _e84_DoAutoProcessing;
+
+                    if (GParam.theInst.E84Type == enumE84Type.LPBuiltInE84)
+                        e84.OnAceessModeChange += _e84_OnModeChange;
                 }
 
                 //  Robot
@@ -207,6 +211,25 @@ namespace RorzeApi.Class
         }
 
         //==============================================================================
+        void _e84_OnModeChange(object sender, E84ModeChangeEventArgs e)
+        {
+            if (e.Auto) return; // 切 Auto 不處理
+            I_E84 e84Unit = sender as I_E84;
+            if (e84Unit.Disable) return;
+            I_Loadport loaderUnit = ListSTG[e84Unit.BodyNo - 1];
+            try
+            {
+                if (loaderUnit.IsE84CommandSent)
+                {
+                    WriteLog(string.Format("[STG{0}] E84 switched to Manual, sending STOP.", e84Unit.BodyNo));
+                    loaderUnit.StopW(3000);
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteLog(string.Format("[STG{0}] _e84_OnModeChange Exception: {1}", e84Unit.BodyNo, ex.Message));
+            }
+        }
         void _e84_DoAutoProcessing(object sender, SB058_E84 Manual)
         {
             //取得E84
@@ -220,7 +243,7 @@ namespace RorzeApi.Class
                 // LPBuiltInE84 Type
                 if (loaderUnit.IsE84Handshaking) { return; } // E84交握中，不送指令
                 if (loaderUnit.IsE84CommandSent) { return; } // E84指令已送出，等待交握或STOP
-                if (dlgE84LoadUnldAllow != null && dlgE84LoadUnldAllow() == false) { return; } // DIO1 bit8 OFF，不允許
+                if (dlgE84LoadUnldAllow != null && dlgE84LoadUnldAllow() == false) { return; } // DIO1 bit12 OFF，光閘不允許
                 if (loaderUnit.IsCS0On) { return; } // CS_0 (input 57) 仍為 ON，不送指令
                 if (loaderUnit.FoupExist == false && loaderUnit.StatusMachine == enumStateMachine.PS_ReadyToLoad && loaderUnit.IsMoving == false && loaderUnit.InPos == enumLoadPortStatus.InPos)  // LOAD
                 {
@@ -1652,7 +1675,7 @@ namespace RorzeApi.Class
                             }
 
 
-                            if (waferData.NotchAngle != -1)
+                            if (waferData.GetUsingEQ != enumPosition.UnKnow)
                             {
                                 // A ┌───────┐ B
                                 //   │       │   
@@ -1661,31 +1684,31 @@ namespace RorzeApi.Class
                                 //      ╚╦╝ FINGER
                                 //       ║                          
                                 switch (waferData.GetUsingEQ)
-                                {
+                                {                                    
                                     case enumPosition.EQM1:
                                         alignerManual.ResetInPos();
-                                        alignerManual.AlgnDW(alignerManual._AckTimeout, waferData.NotchAngle.ToString());//0~360
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, GParam.theInst.EqmPanelNotchAngle(0).ToString());//0~360
                                         alignerManual.WaitInPos(alignerManual._MotionTimeout);
                                         break;
                                     case enumPosition.EQM2:
                                         alignerManual.ResetInPos();
-                                        alignerManual.AlgnDW(alignerManual._AckTimeout, waferData.NotchAngle.ToString());//0~360
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, GParam.theInst.EqmPanelNotchAngle(1).ToString());//0~360
                                         alignerManual.WaitInPos(alignerManual._MotionTimeout);
                                         break;
                                     case enumPosition.EQM3:
                                         alignerManual.ResetInPos();
-                                        alignerManual.AlgnDW(alignerManual._AckTimeout, waferData.NotchAngle.ToString());//0~360
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, GParam.theInst.EqmPanelNotchAngle(2).ToString());//0~360
                                         alignerManual.WaitInPos(alignerManual._MotionTimeout);
                                         break;
                                     case enumPosition.EQM4:
                                         alignerManual.ResetInPos();
-                                        alignerManual.AlgnDW(alignerManual._AckTimeout, waferData.NotchAngle.ToString());//0~360
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, GParam.theInst.EqmPanelNotchAngle(3).ToString());//0~360
                                         alignerManual.WaitInPos(alignerManual._MotionTimeout);
                                         break;
 
                                     default:
                                         alignerManual.ResetInPos();
-                                        alignerManual.AlgnDW(alignerManual._AckTimeout, waferData.NotchAngle.ToString());//0~360
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, "0");//0~360
                                         alignerManual.WaitInPos(alignerManual._MotionTimeout);
                                         break;
                                 }
@@ -1700,22 +1723,22 @@ namespace RorzeApi.Class
                                 {
                                     case enumPosition.EQM1:
                                         alignerManual.ResetInPos();
-                                        alignerManual.AlgnDW(alignerManual._AckTimeout, "0");//0~360
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, GParam.theInst.EqmPanelNotchAngle(0).ToString());//0~360
                                         alignerManual.WaitInPos(alignerManual._MotionTimeout);
                                         break;
                                     case enumPosition.EQM2:
                                         alignerManual.ResetInPos();
-                                        alignerManual.AlgnDW(alignerManual._AckTimeout, "0");//0~360
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, GParam.theInst.EqmPanelNotchAngle(1).ToString());//0~360
                                         alignerManual.WaitInPos(alignerManual._MotionTimeout);
                                         break;
                                     case enumPosition.EQM3:
                                         alignerManual.ResetInPos();
-                                        alignerManual.AlgnDW(alignerManual._AckTimeout, "0");//0~360
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, GParam.theInst.EqmPanelNotchAngle(2).ToString());//0~360
                                         alignerManual.WaitInPos(alignerManual._MotionTimeout);
                                         break;
                                     case enumPosition.EQM4:
                                         alignerManual.ResetInPos();
-                                        alignerManual.AlgnDW(alignerManual._AckTimeout, "0");//0~360
+                                        alignerManual.AlgnDW(alignerManual._AckTimeout, GParam.theInst.EqmPanelNotchAngle(3).ToString());//0~360
                                         alignerManual.WaitInPos(alignerManual._MotionTimeout);
                                         break;
                                     default:

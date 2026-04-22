@@ -117,7 +117,7 @@ namespace RorzeUnit.Class.ADAM
                     RefreshDIO();
 
                 bool bIsChange = false;
-                if (bDo == null) return;
+                if (bDo == null || bDi == null) return;
                 for (int i = 0; i < m_iDoTotal; i++)
                 {
                     if (bDo[i] != bDo_compare[i] || bDi[i] != bDi_compare[i])
@@ -211,7 +211,18 @@ namespace RorzeUnit.Class.ADAM
         }
 
         private bool GetDoData(int nIdx) { return bDoData[nIdx]; }
-        private bool GetDiData(int nIdx) { return bDiData[nIdx]; }
+        //private bool GetDiData(int nIdx) { return bDiData[nIdx]; }
+
+        private bool GetDiData(int nIdx) //亞當連線不穩，場內cycle暫時版本
+        {
+            if (bDiData == null)
+                return true;
+
+            if (nIdx < 0 || nIdx >= bDiData.Length)
+                return true;
+
+            return bDiData[nIdx];
+        }
 
 
         public bool getInputValue(int num)

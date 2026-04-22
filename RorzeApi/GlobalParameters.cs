@@ -569,6 +569,7 @@ namespace RorzeApi
         private string[] m_strEqmDefaultRecipe = new string[Enum.GetNames(typeof(enumEQM)).Count()];    //equipment
         private string[] m_bEqmGetRecipeListEnable = new string[Enum.GetNames(typeof(enumEQM)).Count()];//equipment
         private int[] m_nEqmProcessTimeout = new int[Enum.GetNames(typeof(enumEQM)).Count()];           //equipment
+        private int[] m_nEqmPanelNotchAngle = new int[Enum.GetNames(typeof(enumEQM)).Count()];           //equipment
 
         private bool[] m_bAdamDisable = new bool[Enum.GetNames(typeof(enumAdam)).Count()];                //Adam
         private string[] m_strAdamIP = new string[Enum.GetNames(typeof(enumAdam)).Count()];               //Adam
@@ -1402,6 +1403,7 @@ namespace RorzeApi
         public string EqmIP(int nIdx) { return m_strEqmIP[nIdx]; }
 
         public int EqmPort(int nIdx) { return m_nEqmPort[nIdx]; }
+        public int EqmPanelNotchAngle(int nIdx) { return m_nEqmPanelNotchAngle[nIdx]; }
 
         public int GetEQAckTimeout { get; private set; } = 3000000;
         #endregion
@@ -2137,6 +2139,7 @@ namespace RorzeApi
                     m_strEqmDefaultRecipe[i] = myIni.GetIni(strKey, "DefaultRecipe", "");
                     m_bEqmGetRecipeListEnable[i] = myIni.GetIni(strKey, "GetRecipeListEnable", "");
                     m_nEqmProcessTimeout[i] = myIni.GetIni(strKey, "ProcessTimeout", 60000);
+                    m_nEqmPanelNotchAngle[i] = myIni.GetIni(strKey, "PanelNotchAngle", 0);
                 }
                 //---------------------------------------------------------------------------
                 for (int i = 0; i < Enum.GetNames(typeof(enumAdam)).Count(); i++)

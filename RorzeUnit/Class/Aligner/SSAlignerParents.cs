@@ -583,6 +583,19 @@ namespace RorzeUnit.Class.Aligner
                 this.WaitInPos(120000);
                 this.WaitOrgnCompleted(3000);
 
+                if (WaferExists())
+                {
+                    WriteLog("ExeORGN:Detect Panel");
+
+                    ResetInPos();
+                    AlgnDW(m_nAckTimeout, "0");
+                    WaitInPos(m_nMotionTimeout);
+
+                    //ResetInPos();
+                    //UclmW(m_nAckTimeout);
+                    //WaitInPos(m_nMotionTimeout);
+                }
+
                 SpinWait.SpinUntil(() => false, 500);
 
                 /*this.ResetInPos();

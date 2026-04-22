@@ -851,14 +851,14 @@ namespace RorzeApi
             {
                 case enumRbtAddress.STG1_08:
                 case enumRbtAddress.STG1_12:
-                    m_listSTG[0].OnClmpComplete -= FinishLoadportOnDock;
-                            m_listSTG[0].OnClmpComplete += FinishLoadportOnDock;
+                    m_listSTG[0].OnJigDockComplete -= FinishLoadportOnDock;
+                            m_listSTG[0].OnJigDockComplete += FinishLoadportOnDock;
                     m_listSTG[0].JigDock();
                     break;
                 case enumRbtAddress.STG2_08:
                 case enumRbtAddress.STG2_12:
-                    m_listSTG[1].OnClmpComplete -= FinishLoadportOnDock;
-                            m_listSTG[1].OnClmpComplete += FinishLoadportOnDock;
+                    m_listSTG[1].OnJigDockComplete -= FinishLoadportOnDock;
+                            m_listSTG[1].OnJigDockComplete += FinishLoadportOnDock;
                     m_listSTG[1].JigDock();
                     break;
                 case enumRbtAddress.STG3_08:

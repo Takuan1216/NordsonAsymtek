@@ -153,14 +153,21 @@
             this.lblBUF2_4SlotNoRecord = new System.Windows.Forms.Label();
             this.lblBUF2_4OwnerRecord = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tplEQ2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tplEQ4 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblEQ4Name = new System.Windows.Forms.Label();
+            this.lblEQ4SlotNo = new System.Windows.Forms.Label();
+            this.lblEQ4Owner = new System.Windows.Forms.Label();
+            this.pbxEQ4Wafer = new System.Windows.Forms.PictureBox();
+            this.lblEQ4SlotNoRecord = new System.Windows.Forms.Label();
+            this.lblEQ4OwnerRecord = new System.Windows.Forms.Label();
+            this.tplEQ3 = new System.Windows.Forms.TableLayoutPanel();
             this.lblEQ3Name = new System.Windows.Forms.Label();
             this.lblEQ3SlotNo = new System.Windows.Forms.Label();
             this.lblEQ3Owner = new System.Windows.Forms.Label();
             this.pbxEQ3Wafer = new System.Windows.Forms.PictureBox();
             this.lblEQ3SlotNoRecord = new System.Windows.Forms.Label();
             this.lblEQ3OwnerRecord = new System.Windows.Forms.Label();
-            this.tplEQ3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tplEQ2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblEQ2Name = new System.Windows.Forms.Label();
             this.lblEQ2SlotNo = new System.Windows.Forms.Label();
             this.lblEQ2Owner = new System.Windows.Forms.Label();
@@ -209,9 +216,11 @@
             this.tlpBUF2_4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBUF2_4Wafer)).BeginInit();
             this.panel1.SuspendLayout();
-            this.tplEQ2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxEQ3Wafer)).BeginInit();
+            this.tplEQ4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxEQ4Wafer)).BeginInit();
             this.tplEQ3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxEQ3Wafer)).BeginInit();
+            this.tplEQ2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxEQ2Wafer)).BeginInit();
             this.tplEQ1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxEQ1Wafer)).BeginInit();
@@ -1193,8 +1202,9 @@
             // 
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.tplEQ2);
+            this.panel1.Controls.Add(this.tplEQ4);
             this.panel1.Controls.Add(this.tplEQ3);
+            this.panel1.Controls.Add(this.tplEQ2);
             this.panel1.Controls.Add(this.tplEQ1);
             this.panel1.Controls.Add(this.tlpBUF2_4);
             this.panel1.Controls.Add(this.tlpBUF2_3);
@@ -1211,22 +1221,68 @@
             this.panel1.Controls.Add(this.tableLayoutPanel2);
             this.panel1.Name = "panel1";
             // 
-            // tplEQ2
-            // 
-            resources.ApplyResources(this.tplEQ2, "tplEQ2");
-            this.tplEQ2.Controls.Add(this.lblEQ3Name, 0, 0);
-            this.tplEQ2.Controls.Add(this.lblEQ3SlotNo, 1, 1);
-            this.tplEQ2.Controls.Add(this.lblEQ3Owner, 2, 1);
-            this.tplEQ2.Controls.Add(this.pbxEQ3Wafer, 3, 0);
-            this.tplEQ2.Controls.Add(this.lblEQ3SlotNoRecord, 1, 0);
-            this.tplEQ2.Controls.Add(this.lblEQ3OwnerRecord, 2, 0);
-            this.tplEQ2.Name = "tplEQ2";
+            // tplEQ4
+            //
+            resources.ApplyResources(this.tplEQ4, "tplEQ4");
+            this.tplEQ4.Controls.Add(this.lblEQ4Name, 0, 0);
+            this.tplEQ4.Controls.Add(this.lblEQ4SlotNo, 1, 1);
+            this.tplEQ4.Controls.Add(this.lblEQ4Owner, 2, 1);
+            this.tplEQ4.Controls.Add(this.pbxEQ4Wafer, 3, 0);
+            this.tplEQ4.Controls.Add(this.lblEQ4SlotNoRecord, 1, 0);
+            this.tplEQ4.Controls.Add(this.lblEQ4OwnerRecord, 2, 0);
+            this.tplEQ4.Name = "tplEQ4";
+            //
+            // lblEQ4Name
+            //
+            resources.ApplyResources(this.lblEQ4Name, "lblEQ4Name");
+            this.lblEQ4Name.Name = "lblEQ4Name";
+            this.tplEQ4.SetRowSpan(this.lblEQ4Name, 2);
+            //
+            // lblEQ4SlotNo
+            //
+            resources.ApplyResources(this.lblEQ4SlotNo, "lblEQ4SlotNo");
+            this.lblEQ4SlotNo.ForeColor = System.Drawing.Color.Crimson;
+            this.lblEQ4SlotNo.Name = "lblEQ4SlotNo";
+            //
+            // lblEQ4Owner
+            //
+            resources.ApplyResources(this.lblEQ4Owner, "lblEQ4Owner");
+            this.lblEQ4Owner.ForeColor = System.Drawing.Color.Crimson;
+            this.lblEQ4Owner.Name = "lblEQ4Owner";
+            //
+            // pbxEQ4Wafer
+            //
+            resources.ApplyResources(this.pbxEQ4Wafer, "pbxEQ4Wafer");
+            this.pbxEQ4Wafer.Name = "pbxEQ4Wafer";
+            this.tplEQ4.SetRowSpan(this.pbxEQ4Wafer, 2);
+            this.pbxEQ4Wafer.TabStop = false;
+            //
+            // lblEQ4SlotNoRecord
+            //
+            resources.ApplyResources(this.lblEQ4SlotNoRecord, "lblEQ4SlotNoRecord");
+            this.lblEQ4SlotNoRecord.Name = "lblEQ4SlotNoRecord";
+            //
+            // lblEQ4OwnerRecord
+            //
+            resources.ApplyResources(this.lblEQ4OwnerRecord, "lblEQ4OwnerRecord");
+            this.lblEQ4OwnerRecord.Name = "lblEQ4OwnerRecord";
+            //
+            // tplEQ3
+            //
+            resources.ApplyResources(this.tplEQ3, "tplEQ3");
+            this.tplEQ3.Controls.Add(this.lblEQ3Name, 0, 0);
+            this.tplEQ3.Controls.Add(this.lblEQ3SlotNo, 1, 1);
+            this.tplEQ3.Controls.Add(this.lblEQ3Owner, 2, 1);
+            this.tplEQ3.Controls.Add(this.pbxEQ3Wafer, 3, 0);
+            this.tplEQ3.Controls.Add(this.lblEQ3SlotNoRecord, 1, 0);
+            this.tplEQ3.Controls.Add(this.lblEQ3OwnerRecord, 2, 0);
+            this.tplEQ3.Name = "tplEQ3";
             // 
             // lblEQ3Name
             // 
             resources.ApplyResources(this.lblEQ3Name, "lblEQ3Name");
             this.lblEQ3Name.Name = "lblEQ3Name";
-            this.tplEQ2.SetRowSpan(this.lblEQ3Name, 2);
+            this.tplEQ3.SetRowSpan(this.lblEQ3Name, 2);
             // 
             // lblEQ3SlotNo
             // 
@@ -1244,7 +1300,7 @@
             // 
             resources.ApplyResources(this.pbxEQ3Wafer, "pbxEQ3Wafer");
             this.pbxEQ3Wafer.Name = "pbxEQ3Wafer";
-            this.tplEQ2.SetRowSpan(this.pbxEQ3Wafer, 2);
+            this.tplEQ3.SetRowSpan(this.pbxEQ3Wafer, 2);
             this.pbxEQ3Wafer.TabStop = false;
             // 
             // lblEQ3SlotNoRecord
@@ -1257,22 +1313,22 @@
             resources.ApplyResources(this.lblEQ3OwnerRecord, "lblEQ3OwnerRecord");
             this.lblEQ3OwnerRecord.Name = "lblEQ3OwnerRecord";
             // 
-            // tplEQ3
+            // tplEQ2
             // 
-            resources.ApplyResources(this.tplEQ3, "tplEQ3");
-            this.tplEQ3.Controls.Add(this.lblEQ2Name, 0, 0);
-            this.tplEQ3.Controls.Add(this.lblEQ2SlotNo, 1, 1);
-            this.tplEQ3.Controls.Add(this.lblEQ2Owner, 2, 1);
-            this.tplEQ3.Controls.Add(this.pbxEQ2Wafer, 3, 0);
-            this.tplEQ3.Controls.Add(this.lblEQ2SlotNoRecord, 1, 0);
-            this.tplEQ3.Controls.Add(this.lblEQ2OwnerRecord, 2, 0);
-            this.tplEQ3.Name = "tplEQ3";
+            resources.ApplyResources(this.tplEQ2, "tplEQ2");
+            this.tplEQ2.Controls.Add(this.lblEQ2Name, 0, 0);
+            this.tplEQ2.Controls.Add(this.lblEQ2SlotNo, 1, 1);
+            this.tplEQ2.Controls.Add(this.lblEQ2Owner, 2, 1);
+            this.tplEQ2.Controls.Add(this.pbxEQ2Wafer, 3, 0);
+            this.tplEQ2.Controls.Add(this.lblEQ2SlotNoRecord, 1, 0);
+            this.tplEQ2.Controls.Add(this.lblEQ2OwnerRecord, 2, 0);
+            this.tplEQ2.Name = "tplEQ2";
             // 
             // lblEQ2Name
             // 
             resources.ApplyResources(this.lblEQ2Name, "lblEQ2Name");
             this.lblEQ2Name.Name = "lblEQ2Name";
-            this.tplEQ3.SetRowSpan(this.lblEQ2Name, 2);
+            this.tplEQ2.SetRowSpan(this.lblEQ2Name, 2);
             // 
             // lblEQ2SlotNo
             // 
@@ -1290,7 +1346,7 @@
             // 
             resources.ApplyResources(this.pbxEQ2Wafer, "pbxEQ2Wafer");
             this.pbxEQ2Wafer.Name = "pbxEQ2Wafer";
-            this.tplEQ3.SetRowSpan(this.pbxEQ2Wafer, 2);
+            this.tplEQ2.SetRowSpan(this.pbxEQ2Wafer, 2);
             this.pbxEQ2Wafer.TabStop = false;
             // 
             // lblEQ2SlotNoRecord
@@ -1361,6 +1417,7 @@
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmWaferRecover";
+            this.Load += new System.EventHandler(this.frmWaferRecover_Load);
             this.VisibleChanged += new System.EventHandler(this.frmWaferRecover_VisibleChanged);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxTRB1_UpperWafer)).EndInit();
@@ -1400,9 +1457,11 @@
             this.tlpBUF2_4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBUF2_4Wafer)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.tplEQ2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxEQ3Wafer)).EndInit();
+            this.tplEQ4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxEQ4Wafer)).EndInit();
             this.tplEQ3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxEQ3Wafer)).EndInit();
+            this.tplEQ2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxEQ2Wafer)).EndInit();
             this.tplEQ1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxEQ1Wafer)).EndInit();
@@ -1541,19 +1600,26 @@
         private System.Windows.Forms.PictureBox pbxEQ1Wafer;
         private System.Windows.Forms.Label lblEQ1SlotNoRecord;
         private System.Windows.Forms.Label lblEQ1OwnerRecord;
-        private System.Windows.Forms.TableLayoutPanel tplEQ3;
+        private System.Windows.Forms.TableLayoutPanel tplEQ2;
         private System.Windows.Forms.Label lblEQ2Name;
         private System.Windows.Forms.Label lblEQ2SlotNo;
         private System.Windows.Forms.Label lblEQ2Owner;
         private System.Windows.Forms.PictureBox pbxEQ2Wafer;
         private System.Windows.Forms.Label lblEQ2SlotNoRecord;
         private System.Windows.Forms.Label lblEQ2OwnerRecord;
-        private System.Windows.Forms.TableLayoutPanel tplEQ2;
+        private System.Windows.Forms.TableLayoutPanel tplEQ3;
         private System.Windows.Forms.Label lblEQ3Name;
         private System.Windows.Forms.Label lblEQ3SlotNo;
         private System.Windows.Forms.Label lblEQ3Owner;
         private System.Windows.Forms.PictureBox pbxEQ3Wafer;
         private System.Windows.Forms.Label lblEQ3SlotNoRecord;
         private System.Windows.Forms.Label lblEQ3OwnerRecord;
+        private System.Windows.Forms.TableLayoutPanel tplEQ4;
+        private System.Windows.Forms.Label lblEQ4Name;
+        private System.Windows.Forms.Label lblEQ4SlotNo;
+        private System.Windows.Forms.Label lblEQ4Owner;
+        private System.Windows.Forms.PictureBox pbxEQ4Wafer;
+        private System.Windows.Forms.Label lblEQ4SlotNoRecord;
+        private System.Windows.Forms.Label lblEQ4OwnerRecord;
     }
 }

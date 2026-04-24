@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 組件的一般資訊是由下列的屬性集控制。
 // 變更這些屬性的值即可修改組件的相關
 // 資訊。
-[assembly: AssemblyTitle("EFEM[6A20240606001]")]
+[assembly: AssemblyTitle("EFEM[8N20260423001]")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Rorze")]
-[assembly: AssemblyProduct("[6A20240606001]")]
-[assembly: AssemblyCopyright("Hsun ©  2024.11")]
+[assembly: AssemblyProduct("[8N20260423001]")]
+[assembly: AssemblyCopyright("KN ©  2026.04")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

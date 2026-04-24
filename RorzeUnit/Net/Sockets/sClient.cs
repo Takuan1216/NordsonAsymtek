@@ -69,12 +69,12 @@ namespace RorzeUnit.Net.Sockets
         {
             try
             {
-                m_strIP = sIP;
-                m_nPort = nPort;
-
                 IPAddress IP = IPAddress.Parse(sIP);
                 clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 clientSocket.Connect(IP, nPort);
+
+                m_strIP = sIP;
+                m_nPort = nPort;
 
                 OnAssgnSocket?.Invoke(this, new SocketEventArgs(clientSocket, m_strIP, m_nPort));
                 EventHandlerLog?.Invoke(this, string.Format("Client {0}:{1} connect", m_strIP, m_nPort));
@@ -257,7 +257,7 @@ namespace RorzeUnit.Net.Sockets
 
             while (!Close)
             {
-                SpinWait.SpinUntil(() => false, 10);
+                SpinWait.SpinUntil(() => false, 1000);
                 if (m_strIP == null) continue;
                 try
                 {

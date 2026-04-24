@@ -1674,6 +1674,13 @@ namespace RorzeApi.Class
 
                             }
 
+                            string strBarcode;
+                            //read
+                            if (waferData.WaferID_F == "")
+                            {
+                                strBarcode = alignerManual.BarcodeRead();
+                                waferData.WaferID_F = strBarcode;
+                            }
 
                             if (waferData.GetUsingEQ != enumPosition.UnKnow)
                             {

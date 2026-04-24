@@ -807,7 +807,7 @@ namespace RorzeApi
 
         public bool GetRobotAlignment_Enable()
         {
-            return m_bRobotAlignment_Enable;
+            return false; //m_bRobotAlignment_Enable;
         }
 
         public void SetRobotAlignment_Enable(bool enable)

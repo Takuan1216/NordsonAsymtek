@@ -229,7 +229,6 @@ namespace RorzeApi
 
                     GParam.theInst.SetFoupArrivalIdleTimeout(ParameterGrid.FoupArrivalIdleTimeout);
                     GParam.theInst.SetFoupWaitTransferTimeout(ParameterGrid.FoupWaitTransferTimeout);
-                    GParam.theInst.setXYZMode(ParameterGrid.EFEM_XYZMode);
                     //GParam.theInst.SetAreaSelect((int)ParameterGrid.GradeAreaSelect);
                     GParam.theInst.SetOCRReadFailProcess(ParameterGrid.OCRReadFailProcess);
                     //GParam.theInst.SetSoftwareStartupTowerMapping(ParameterGrid.SoftwareStartupTowerMapping);
@@ -239,7 +238,7 @@ namespace RorzeApi
                     GParam.theInst.SetOCRWarningsAutoRestTime(ParameterGrid.OCRWarningsAutoRestTime);*/
                     GParam.theInst.SetSystemLanguage = ParameterGrid._SystemLanguage == 1 ? enumSystemLanguage.zh_CN : enumSystemLanguage.Default;
                     GParam.theInst.SetMotionEventManagerUrl(ParameterGrid.MotionEventManagerUrl);
-                    GParam.theInst.SetRobotAlignment_Enable(ParameterGrid.RobotAlignment_Enable);
+                    //GParam.theInst.SetRobotAlignment_Enable(ParameterGrid.RobotAlignment_Enable);
 
 
 
@@ -337,7 +336,7 @@ namespace RorzeApi
                     //ParameterGrid.DBAlarmlistUpdate = GParam.theInst.GetDBAlarmlistUpdate;
                     ParameterGrid._SystemLanguage = GParam.theInst.SystemLanguage == enumSystemLanguage.zh_CN ? 1 : 0;
                     ParameterGrid.MotionEventManagerUrl = GParam.theInst.GetMotionEventManagerUrl();
-                    ParameterGrid.RobotAlignment_Enable = GParam.theInst.GetRobotAlignment_Enable();
+                    //ParameterGrid.RobotAlignment_Enable = GParam.theInst.GetRobotAlignment_Enable();
 
 
                     ParameterGrid.FoupArrivalIdleTimeout = GParam.theInst.FoupArrivalIdleTimeout;
@@ -615,18 +614,12 @@ namespace RorzeApi
 
         [Category("System")]
         [Browsable(true)]
-        [OrderedDisplayName("EFEM XYZ Mode", 1)]
-        [Description("EFEM XYZ Mode.")]
-        public enumXYZMode EFEM_XYZMode { get; set; }
-
-        [Category("System")]
-        [Browsable(true)]
-        [OrderedDisplayName("EFEM Pressure Check", 2)]
+        [OrderedDisplayName("EFEM Pressure Check", 1)]
         [Description("Pressure difference check.")]
         public bool EFEM_Pressure_Check { get; set; }
         [Category("System")]
         [Browsable(true)]
-        [OrderedDisplayName("EFEM Pressure Threshold(pa)", 3)]
+        [OrderedDisplayName("EFEM Pressure Threshold(pa)", 2)]
         [Description("Pressure difference inside the machine.(1pa~3pa)")]
         public int EFEM_Pressure_Threshold { get; set; }
 
@@ -672,11 +665,11 @@ namespace RorzeApi
         [Description("MotionEventManager Base URL (e.g., http://localhost:61723)")]
         public string MotionEventManagerUrl { get; set; }
 
-        [Category("System")]
-        [Browsable(true)]
-        [OrderedDisplayName("Robot Alignment Enable", 7)]
-        [Description("Enable Robot Alignment function")]
-        public bool RobotAlignment_Enable { get; set; }
+        //[Category("System")]
+        //[Browsable(true)]
+        //[OrderedDisplayName("Robot Alignment Enable", 7)]
+        //[Description("Enable Robot Alignment function")]
+        //public bool RobotAlignment_Enable { get; set; }
 
         /*[Category("System")]
         [Browsable(true)]
